@@ -1,0 +1,38 @@
+* TODO Make a minimal macOS configuration [0/1]
+- [ ] install base and cachix information to get started faster
+
+* TODO MacOS Install script [1/1]
+- [X] Make install script ask for hostname
+
+
+
+* MacOS Settings Programatically
+* TODO General [/]
+- [ ] Sidebar icon size small
+#+begin_src shell
+defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
+#+end_src
+
+* TODO Finder [0/4]
+- [ ] Show full path
+- [ ] Show all extensions
+- [ ] Show hidden files
+- [ ] List view
+
+* TODO Screen [0/3]
+- [ ] Screen saver (timer 30min)
+- [ ] Hot corner lock
+- [ ] Set wallpaper (osascript system events)
+#+begin_src shell
+osascript -e 'tell application "System Events" to tell every desktop to set picture to "/Users/planetbeldar/.config/dotfiles/config/wallpapers/pexels-pixabay-258109.jpg"'
+#+end_src
+
+* TODO Dock [0/1]
+- [ ] Minimum size
+
+* TODO Sidecar [0/2]
+- [ ] Hide side bar
+- [ ] Hide touch bar
+
+* TODO Battery [0/1]
+- [ ] Sleep timer when adapter is plugged in

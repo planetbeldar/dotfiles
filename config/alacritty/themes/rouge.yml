@@ -1,0 +1,40 @@
+# Colors (Rouge)
+colors:
+  # Default colors
+  primary:
+    background: '#172030'
+    foreground: '#FAFFF6'
+
+  cursor:
+    text: '#000000'
+    cursor: '#B16E75'
+
+  vi_mode_cursor:
+    text: '#000000'
+    cursor: '#B16E75'
+
+  selection:
+    text: '#000000'
+    background: '#5D636E'
+
+  # Normal colors
+  normal:
+    black:   '#172030'
+    red:     '#C6797E'
+    green:   '#A3B09A'
+    yellow:  '#EABE9A'
+    blue:    '#6E94B9'
+    magenta: '#B18BB1'
+    cyan:    '#507681'
+    white:   '#FAFFF6'
+
+  # Bright colors
+  bright:
+    black:   '#475060'
+    red:     '#E6999E'
+    green:   '#C3D0BA'
+    yellow:  '#F7E3AF'
+    blue:    '#8EB4D9'
+    magenta: '#D1ABD1'
+    cyan:    '#88C0D0'
+    white:   '#BBBBBB'

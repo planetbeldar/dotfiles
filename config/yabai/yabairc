@@ -1,0 +1,90 @@
+#!/usr/bin/env sh
+
+# the scripting-addition must be loaded manually if
+# you are running yabai on macOS Big Sur. Uncomment
+# the following line to have the injection performed
+# when the config is executed during startup.
+#
+# for this to work you must configure sudo such that
+# it will be able to run the command without password
+#
+# see this wiki page for information:
+#  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)
+#
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
+## macOS
+# float system preferences
+yabai -m rule --add app="^System Preferences$" manage=off
+# float system information
+yabai -m rule --add app="^System Information$" manage=off
+# float finder
+yabai -m rule --add app="^Finder$" manage=off
+# float activity monitor
+yabai -m rule --add app="^Activity Monitor$" manage=off
+# float archive utility
+yabai -m rule --add app="^Archive Utility$" manage=off
+# float calendar
+yabai -m rule --add app="^Calendar$" manage=off
+# float app store
+yabai -m rule --add app="^App Store$" manage=off
+# float font book
+yabai -m rule --add app="^Font Book$" manage=off
+# float safari extensions
+yabai -m rule --add app="^Safari$" title="^General|Tabs|AutoFill|Passwords|Search|Security|Privacy|Websites|Extensions|Advanced$" manage=off
+yabai -m rule --add app="^Vimari$" manage=off
+
+
+# float firefox download
+yabai -m rule --add app="^Firefox$" title="^Opening[ ].*$" manage=off
+# float battle.net
+yabai -m rule --add app="^Battle.net$" manage=off
+# float microsoft autoupdate
+yabai -m rule --add app="^Microsoft AutoUpdate$" manage=off
+# float qmk toolbox
+yabai -m rule --add app="^QMK Toolbox$" manage=off
+# float vmware fusion
+yabai -m rule --add app="^VMware Fusion$" manage=off
+
+# doom emacs
+yabai -m rule --add app="^Emacs$" title!="^[*]doom[*]*" manage=off
+
+# show digital colour meter topmost and on all spaces
+yabai -m rule --add app="^Digital Colou?r Meter$" sticky=on
+
+# float NoMachine
+yabai -m rule --add app="^NoMachine$" manage=off
+
+# global settings
+yabai -m config mouse_follows_focus          off
+yabai -m config focus_follows_mouse          off
+yabai -m config window_placement             second_child
+yabai -m config window_topmost               on
+yabai -m config window_shadow                on
+yabai -m config window_opacity               on
+yabai -m config window_opacity_duration      0.0
+yabai -m config active_window_opacity        0.97
+yabai -m config normal_window_opacity        0.94
+yabai -m config window_border                on
+yabai -m config window_border_width          3
+yabai -m config active_window_border_color   0xff775759
+# yabai -m config normal_window_border_color   0xff555555
+yabai -m config normal_window_border_color   0xff172030 #rouge theme background color
+yabai -m config insert_feedback_color        0xffd75f5f
+yabai -m config split_ratio                  0.50
+yabai -m config auto_balance                 off
+yabai -m config mouse_modifier               cmd
+yabai -m config mouse_action1                move
+yabai -m config mouse_action2                resize
+yabai -m config mouse_drop_action            swap
+
+# general space settings
+yabai -m config layout                       bsp
+yabai -m config top_padding                  12
+yabai -m config bottom_padding               12
+yabai -m config left_padding                 12
+yabai -m config right_padding                12
+yabai -m config window_gap                   12
+
+echo "yabai configuration loaded.."
