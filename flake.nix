@@ -16,10 +16,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Emacs
-    emacs.url = "github:cmacrae/emacs";
+    emacs = {
+      url = "path:./overlays/emacs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, darwin, home-manager, ... }:
+  outputs = inputs @ { self, nixpkgs, darwin, home-manager, ... }:
     let
       inherit (lib.util) mapModules mapModules' mapModulesRec mapDarwinHosts mapNixosHosts traceImportMsg traceCallPackageMsg;
       traceCallPackage = traceCallPackageMsg "flake.nix:";
@@ -34,12 +37,12 @@
       };
 
       overlay = final: prev: {
-        unstable = pkgs';
+        # unstable = pkgs';
         local = self.packages."${system}";
       };
 
       pkgs  = mkPkgs nixpkgs [ overlay ];
-      pkgs' = mkPkgs nixpkgs-unstable [];
+      # pkgs' = mkPkgs nixpkgs-unstable [];
 
       lib = nixpkgs.lib.extend
         (self: super: { util = import ./lib { inherit pkgs inputs darwin; lib = self; };});
