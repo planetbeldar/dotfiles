@@ -1,7 +1,8 @@
 { config, options, lib, pkgs, ... }:
-
-with lib;
 let
+  inherit (lib) mkIf util;
+  inherit (pkgs) git gitAndTools act;
+
   cfg = config.modules.shell.git;
   configDir = config.dotfiles.configDir;
 in {
@@ -10,7 +11,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    user.packages = with pkgs; [
+    environment.systemPackages = [
       git
       gitAndTools.gh
       gitAndTools.git-open

@@ -84,6 +84,3 @@
       };
     };
 }
-
-#cachix
-# eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1JDEyMTk3IiwianRpIjoiOWNiYjkxY2QtY2JlMy00MmJjLWE4OTgtYzM5NWVhYzJlMTBkIiwic2NvcGVzIjoidHgifQ.HCHbIhR2uaA9VFrtoPgke5eztdGFFiVF5L5k93IVHG0

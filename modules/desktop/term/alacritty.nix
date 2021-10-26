@@ -17,14 +17,14 @@ in {
 
     home.configFile = {
       "alacritty" = {
-        source = "${configDir}/alacritty";
+        source = lib.util.mkOutOfStoreSymlink "${configDir}/alacritty";
         recursive = true;
       };
     };
 
     home.activation = mkIf isDarwin {
       alacritty = hm.dag.entryAfter [ "writeBoundary" ] ''
-        echo "Copying alacritty (${alacritty}) to system applications."
+        echo "Copying alacritty (${alacritty}) to system applications"
         $DRY_RUN_CMD sudo rm -fr /Applications/Alacritty.app
         $DRY_RUN_CMD cp --archive -H --dereference ${alacritty}/Applications/* /Applications
       '';

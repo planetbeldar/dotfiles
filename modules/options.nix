@@ -1,14 +1,13 @@
 { config, options, lib, home-manager, pkgs, ... }:
-with lib;
 let
-  inherit (lib.types) attrs path attrsOf oneOf str listOf package either;
   inherit (pkgs.stdenv) isDarwin;
+  inherit (lib) util mkOption mapAttrs isList concatMapStringsSep elem concatStringsSep mapAttrsToList;
+  inherit (lib.types) attrs path attrsOf oneOf str listOf package either;
   userPath = if isDarwin
              then "/Users"
              else "/home";
   stateVersion = "21.11";
-in
-{
+in {
   options = {
     user = util.mkOpt attrs {};
 
@@ -51,6 +50,7 @@ in
     home-manager = {
       # useGlobalPkgs = true; # both needed for pure mode?
       useUserPackages = true;
+      verbose = false;
 
       users.${config.user.name} = {
         home = {

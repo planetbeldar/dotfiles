@@ -10,6 +10,11 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # nix-direnv
+    nix-direnv = {
+      url = "github:nix-community/nix-direnv";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Darwin
     darwin = {
       url = "github:lnl7/nix-darwin/master";
@@ -22,7 +27,7 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, darwin, home-manager, ... }:
+  outputs = inputs @ { self, nixpkgs, darwin, ... }:
     let
       inherit (lib.util) mapModules mapModules' mapModulesRec mapDarwinHosts mapNixosHosts traceImportMsg traceCallPackageMsg;
       traceCallPackage = traceCallPackageMsg "flake.nix:";

@@ -22,7 +22,7 @@ in
       registryInputs = mapAttrs (_: v: { flake = v; }) filteredInputs;
     in {
       package = pkgs.nixUnstable;
-      extraOptions = "experimental-features = nix-command flakes";
+      extraOptions = ''experimental-features = nix-command flakes'';
       useDaemon = true;
       nixPath = nixPathInputs ++ [
         "dotfiles=${config.dotfiles.dir}"

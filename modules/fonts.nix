@@ -1,7 +1,6 @@
 { options, config, pkgs, lib, ... }:
-with lib;
 let
-  inherit (pkgs) nerdfonts;
+  inherit (pkgs) nerdfonts fontconfig;
   inherit (pkgs.local) font-patcher input-nerd-fonts;
 
   config = config.modules.fonts;
@@ -21,7 +20,7 @@ in {
     ];
   };
 
-  user.packages = [
+  environment.systemPackages = [
     fontconfig # fc-list
     font-patcher
   ];

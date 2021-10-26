@@ -1,5 +1,4 @@
 { config, options, lib, pkgs, ... }:
-
 let
   inherit (lib) util mkIf;
   inherit (pkgs) shellcheck bashdb nodePackages;
@@ -11,12 +10,11 @@ in {
   };
 
   config = mkIf cfg.enable {
-    user.packages = [
+    environment.systemPackages = [
       shellcheck
       # not supported on macos, why?
-      (bashdb.overrideAttrs (lib.const {
-        meta.platforms = lib.platforms.unix;
-      }))
+      (bashdb.overrideAttrs
+        (lib.const { meta.platforms = lib.platforms.unix; }))
       nodePackages.bash-language-server
     ];
   };

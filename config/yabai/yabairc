@@ -31,6 +31,8 @@ yabai -m rule --add app="^Calendar$" manage=off
 yabai -m rule --add app="^App Store$" manage=off
 # float font book
 yabai -m rule --add app="^Font Book$" manage=off
+# float keychain access
+yabai -m rule --add app="^Keychain Access$" manage=off
 # float safari extensions
 yabai -m rule --add app="^Safari$" title="^General|Tabs|AutoFill|Passwords|Search|Security|Privacy|Websites|Extensions|Advanced$" manage=off
 yabai -m rule --add app="^Vimari$" manage=off
@@ -51,7 +53,7 @@ yabai -m rule --add app="^VMware Fusion$" manage=off
 yabai -m rule --add app="^Emacs$" title!="^[*]doom[*]*" manage=off
 
 # show digital colour meter topmost and on all spaces
-yabai -m rule --add app="^Digital Colou?r Meter$" sticky=on
+yabai -m rule --add app="^Digital Colou?r Meter$" sticky=on manage=off
 
 # float NoMachine
 yabai -m rule --add app="^NoMachine$" manage=off

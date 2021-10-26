@@ -10,15 +10,22 @@
     };
 
     editors = {
-      nvim.enable   = true;
       default       = "nvim";
+      nvim.enable   = true;
       emacs.enable  = true;
     };
 
-    # dev = {
-      # node.enable = true;
+    dev = {
       # dotnet.enable = true;
-    # };
+      node.enable = true; # must enable nodejs package to *use* packages installed via nodePackages namespace?
+      yaml.enable = true;
+      qmk = {
+        enable = true;
+        home = "${config.user.home}/Projects/cpp";
+        fork = "planetbeldar";
+        branch = "planb";
+      };
+    };
 
     desktop = {
       yabai.enable  = true;

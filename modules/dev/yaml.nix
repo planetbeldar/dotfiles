@@ -11,7 +11,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    user.packages = [
+    environment.systemPackages = [
       nodePackages.yaml-language-server
     ];
   };

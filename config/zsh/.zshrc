@@ -1,25 +1,16 @@
-source "${ZPREZTO_DIR}/init.zsh"
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
+source "${ZPREZTO_DIR}/init.zsh"
 source "${ZDOTDIR}/extra.zshrc"
 
-# load zgen
-# source "${ZGEN_DIR}/zgen.zsh"
+if [[ $TERM != dumb ]]; then
+  source $ZDOTDIR/aliases.zsh
+fi
 
-# if the init script doesnt exist
-# if ! zgen saved; then
-#   echo "Initializing zgen."
-#   zgen oh-my-zsh
-  # zgen oh-my-zsh plugins/git
-  # zgen oh-my-zsh plugins/sudo
-  # zgen oh-my-zsh plugins/npm
-  # zgen load zsh-users/zsh-syntax-highlighting
-  # zgen load zsh-users/zsh-history-substring-search
-  # zgen load zsh-users/zsh-completions src
-  # zgen load zdharma/history-search-multi-word
-  # [[ "$OSTYPE" == "darwin"* ]] && zgen oh-my-zsh osx
-  # [ -z "$SSH_CONNECTION" ] && zgen load zdharma/fast-syntax-highlighting
-  # # theme
-  # zgen load igormp/Imp
-
-#   zgen save
-# fi
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh

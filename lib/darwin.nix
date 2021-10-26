@@ -20,7 +20,7 @@ in {
           nixpkgs.overlays = pkgs.overlays;
           networking.hostName = mkDefault (removeSuffix ".nix" (baseNameOf path));
         }
-        inputs.home-manager.darwinModules.home-manager
+        inputs.home-manager.darwinModule
         (filterAttrs (n: v: !elem n [ "system" ]) attrs)
         (traceImport ../.)   # /default.nix
         (traceImport path)

@@ -1,6 +1,8 @@
 { config, options, lib, pkgs, ... }:
-with lib;
 let
+  inherit (lib) util mkIf;
+  inherit (pkgs) neovim;
+
   cfg = config.modules.editors.nvim;
 in {
   options.modules.editors.nvim = {
@@ -8,7 +10,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages = [
       neovim
     ];
   };

@@ -1,11 +1,11 @@
 #!/usr/bin/env nix-shell
-#! nix-shell -i bash -p nix-prefetch jq
+#! nix-shell -i bash -p curl nix-prefetch jq
 
 latest_release=$(curl --silent https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest)
 glyphs=$(curl --silent  https://api.github.com/repos/ryanoasis/nerd-fonts/contents/src/glyphs)
 
 version=$(jq -r '.tag_name' <<< "$latest_release")
-dirname="$(dirname "$0")"
+dirname=$(dirname "$0")
 
 output_files="$dirname/files.nix"
 output_version="$dirname/version.nix"
