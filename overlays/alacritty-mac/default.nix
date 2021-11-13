@@ -12,7 +12,7 @@ in
     # cargoSha256 = "0anbj9i9yylb4b9vpx9f36x94bpdr35ri9s5vc2isj0icpal9qr3";
     cargoDeps = drv.cargoDeps.overrideAttrs (lib.const {
       patches = patches drv;
-      outputHash = "0anbj9i9yylb4b9vpx9f36x94bpdr35ri9s5vc2isj0icpal9qr3";
+      outputHash = "09ndwrab9llrlgqg0ji9xibpbmvsa0cqajkwx32zfdcwhrnisgmv";
       # outputHash = lib.fakeHash;
     });
   });

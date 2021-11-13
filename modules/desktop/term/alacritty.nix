@@ -21,13 +21,5 @@ in {
         recursive = true;
       };
     };
-
-    home.activation = mkIf stdenv.isDarwin {
-      alacritty = hm.dag.entryAfter [ "writeBoundary" ] ''
-        echo "Copying alacritty (${alacritty}) to system applications"
-        $DRY_RUN_CMD sudo rm -fr /Applications/Alacritty.app
-        $DRY_RUN_CMD cp --archive -H --dereference ${alacritty}/Applications/* /Applications
-      '';
-    };
   };
 }
