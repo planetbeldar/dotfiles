@@ -21,6 +21,23 @@
         "type": "github"
       }
     },
+    "discord-mac": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "narHash": "sha256-cZ3l1zXAYvt16kUNS/9pcyQ1MzOYXAeczX1f6IdYSfg=",
+        "path": "./overlays/discord-mac",
+        "type": "path"
+      },
+      "original": {
+        "path": "./overlays/discord-mac",
+        "type": "path"
+      }
+    },
     "emacs": {
       "inputs": {
         "emacs-src": "emacs-src",
@@ -74,11 +91,41 @@
     },
     "flake-utils": {
       "locked": {
+        "lastModified": 1634851050,
+        "narHash": "sha256-N83GlSGPJJdcqhUxSCS/WwW5pksYf3VP1M13cDRTSVA=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "c91f3de5adaf1de973b797ef7485e441a65b8935",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_2": {
+      "locked": {
         "lastModified": 1620759905,
         "narHash": "sha256-WiyWawrgmyN0EdmiHyG2V+fqReiVi8bM9cRdMaKQOFg=",
         "owner": "numtide",
         "repo": "flake-utils",
         "rev": "b543720b25df6ffdfcf9227afafc5b8c1fabfae8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_3": {
+      "locked": {
+        "lastModified": 1634851050,
+        "narHash": "sha256-N83GlSGPJJdcqhUxSCS/WwW5pksYf3VP1M13cDRTSVA=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "c91f3de5adaf1de973b797ef7485e441a65b8935",
         "type": "github"
       },
       "original": {
@@ -110,7 +157,7 @@
     },
     "nix-direnv": {
       "inputs": {
-        "flake-utils": "flake-utils",
+        "flake-utils": "flake-utils_2",
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -162,11 +209,30 @@
     "root": {
       "inputs": {
         "darwin": "darwin",
+        "discord-mac": "discord-mac",
         "emacs": "emacs",
         "home-manager": "home-manager",
         "nix-direnv": "nix-direnv",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-unstable": "nixpkgs-unstable"
+        "nixpkgs-unstable": "nixpkgs-unstable",
+        "spotify-mac": "spotify-mac"
+      }
+    },
+    "spotify-mac": {
+      "inputs": {
+        "flake-utils": "flake-utils_3",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "narHash": "sha256-v0vGE8+Jm7oXeUxCGEKGEw/h5MWIw6Q+rw9VVOdoVzw=",
+        "path": "./overlays/spotify-mac",
+        "type": "path"
+      },
+      "original": {
+        "path": "./overlays/spotify-mac",
+        "type": "path"
       }
     }
   },

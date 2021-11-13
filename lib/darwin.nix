@@ -17,6 +17,7 @@ in {
             global.noLock = true;
           };
 
+          nixpkgs.config = pkgs.config;
           nixpkgs.overlays = pkgs.overlays;
           networking.hostName = mkDefault (removeSuffix ".nix" (baseNameOf path));
         }

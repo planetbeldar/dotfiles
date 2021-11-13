@@ -25,6 +25,14 @@
       url = "path:./overlays/emacs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    spotify-mac = {
+      url = "path:./overlays/spotify-mac";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    discord-mac = {
+      url = "path:./overlays/discord-mac";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ { self, nixpkgs, darwin, ... }:
@@ -37,6 +45,7 @@
       mkPkgs = pkgs: extraOverlays: import pkgs {
         inherit system;
         config.allowUnfree = true;
+        # config.allowBroken = true;
         config.input-fonts.acceptLicense = true;
         overlays = extraOverlays ++ (lib.attrValues self.overlays);
       };

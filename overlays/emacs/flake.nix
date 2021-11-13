@@ -24,7 +24,7 @@
       };
 
       inherit (pkgs)
-        stdenv cmake libtool glib libvterm-neovim ncurses emacs darwin;
+        lib stdenv cmake libtool glib libvterm-neovim ncurses emacs darwin;
       inherit (import ./settings.nix) emacsBranch emacsVersion;
     in {
       packages.x86_64-darwin = pkgs.extend self.overlay;
@@ -60,21 +60,21 @@
           srcRepo = true;
           nativeComp = true;
           withXwidgets = true;
-        }).overrideAttrs (o: {
+        }).overrideAttrs (drv: {
           version = emacsVersion;
           src = emacs-src;
 
-          buildInputs = o.buildInputs ++ [ darwin.apple_sdk.frameworks.WebKit ];
+          buildInputs = drv.buildInputs ++ [ darwin.apple_sdk.frameworks.WebKit ];
 
           patches =
             [ ./patches/fix-window-role.patch ./patches/no-titlebar.patch ];
 
-          postPatch = o.postPatch + ''
+          postPatch = drv.postPatch + ''
             substituteInPlace lisp/loadup.el \
             --replace '(emacs-repository-get-branch)' '"${emacsBranch}"'
           '';
 
-          postInstall = o.postInstall + ''
+          postInstall = drv.postInstall + ''
             cp ${self.packages.x86_64-darwin.emacs-vterm}/vterm.el $out/share/emacs/site-lisp/vterm.el
             cp ${self.packages.x86_64-darwin.emacs-vterm}/vterm-module.so $out/share/emacs/site-lisp/vterm-module.so
           '';

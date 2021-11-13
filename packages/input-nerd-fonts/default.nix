@@ -7,19 +7,15 @@ let
   inherit (lib) attrNames licenses platforms;
   inherit (builtins) concatMap mapAttrs readDir;
 
-  inherit (pkgs)        input-fonts;
-  inherit (pkgs.local)  font-patcher;
+  inherit (pkgs) input-fonts;
+  inherit (pkgs.local) font-patcher;
 
   pname = "input-nerd-fonts";
   version = "1.2";
-in
-stdenv.mkDerivation {
+in stdenv.mkDerivation {
   inherit pname version;
 
-  nativeBuildInputs = [
-    input-fonts
-    font-patcher
-  ];
+  nativeBuildInputs = [ input-fonts font-patcher ];
 
   # unpackPhase = "true";
   phases = [ "buildPhase" "installPhase" ];
@@ -47,6 +43,6 @@ stdenv.mkDerivation {
     homepage = "https://input.djr.com";
     description = "Patch and install Input Nerd Fonts";
     platforms = platforms.unix;
-    maintainers = [];
+    maintainers = [ ];
   };
 }

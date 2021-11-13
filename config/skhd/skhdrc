@@ -77,7 +77,8 @@
 # ############################################################### #
 
 # run programs
-cmd - 0x29 : kitty -d ~ # cmd - ;
+cmd - 0x29 : alacritty # cmd - ;
+cmd - i : doom everywhere # doom emacs everywhere
 
 # kill window
 cmd - e : yabai -m window --close && yabai -m window --focus north

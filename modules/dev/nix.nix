@@ -2,7 +2,7 @@
 
 let
   inherit (lib) util mkIf mkMerge;
-  inherit (pkgs) nixfmt cachix hydra-check jq nodePackages direnv nix-direnv;
+  inherit (pkgs) nixfmt cachix hydra-check jq direnv nix-direnv;
   inherit (pkgs.stdenv) isDarwin;
 
   cfg = config.modules.dev.nix;
@@ -49,7 +49,6 @@ in {
       environment.systemPackages = [
         nixfmt
         cachix
-        nodePackages.eslint
         jq
         direnv
         nix-direnv

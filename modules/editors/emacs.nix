@@ -2,8 +2,7 @@
 with lib;
 with inputs.home-manager.lib;
 let
-  inherit (pkgs.stdenv) isDarwin;
-  inherit (pkgs) emacs emacsMacport emacsGcc;
+  inherit (pkgs) stdenv emacs emacsGcc;
 
   cfg = config.modules.editors.emacs;
   configDir = config.dotfiles.configDir;
@@ -29,13 +28,15 @@ in {
           gnuplot
           clang
           texlive.combined.scheme-medium
-        ] ++ lib.optionals (isDarwin) [
+          sqlite #roam
+        ] ++ lib.optionals stdenv.isDarwin [
           #emacs-macport
+          gnugrep # pcre not enabled in macos version of grep
           emacs
           # (emacsMacport.overrideAttrs (drv: {
           #   configureFlags = drv.configureFlags ++ [ "--with-no-title-bars" ];
           # }))
-        ] ++ lib.optionals (!isDarwin) [ emacsGcc ];
+        ] ++ lib.optionals stdenv.isLinux [ emacsGcc ];
 
       fonts.fonts = [ pkgs.emacs-all-the-icons-fonts ];
 
@@ -62,12 +63,5 @@ in {
 
       env.PATH = [ "$XDG_CONFIG_HOME/emacs/bin" ];
     }
-    (mkIf isDarwin {
-      home.activation.emacs = hm.dag.entryAfter [ "writeBoundary" ] ''
-        echo "Copying emacs (${emacs.out}) to system applications"
-        $DRY_RUN_CMD sudo rm -fr /Applications/Emacs.app
-        $DRY_RUN_CMD cp $VERBOSE_ARG -r ${emacs.out}/Applications/Emacs.app /Applications
-      '';
-    })
   ]);
 }

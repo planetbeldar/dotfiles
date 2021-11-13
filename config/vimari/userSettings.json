@@ -1,7 +1,7 @@
 {
   "excludedUrls": "",
-  "linkHintCharacters": "asdfjklqwerzxc",
-  "detectByCursorStyle": false,
+  "linkHintCharacters": "asdfjklqweruiop",
+  "detectByCursorStyle": true,
   "scrollSize": 150,
   "openTabUrl": "about:blank",
   "modifier": "",

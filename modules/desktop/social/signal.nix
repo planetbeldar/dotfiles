@@ -12,6 +12,6 @@ in {
   # nix derivation not supported on macos, use brew as backup
   config = mkIf cfg.enable (mkMerge [
     (mkIf (!isDarwin) { environment.systemPackages = [ signal-desktop ]; })
-    (mkIf isDarwin { homebrew.casks = [ "signal" ]; })
+    # (mkIf isDarwin { homebrew.casks = [ "signal" ]; })
   ]);
 }

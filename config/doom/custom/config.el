@@ -15,7 +15,7 @@
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
 
-(setq projectile-project-search-path '("~/Projects/swift/" "~/Projects/cpp" "~/Projects/py"))
+(setq projectile-project-search-path '("~/Projects/swift/" "~/Projects/cpp" "~/Projects/py" "~/Projects/nix"))
 (after! projectile
   (projectile-discover-projects-in-search-path))
 

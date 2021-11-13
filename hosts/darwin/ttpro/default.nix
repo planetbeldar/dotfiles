@@ -17,7 +17,8 @@
 
     dev = {
       # dotnet.enable = true;
-      node.enable = true; # must enable nodejs package to *use* packages installed via nodePackages namespace?
+      js.enable   = true;
+      node.enable = true;
       yaml.enable = true;
       qmk = {
         enable = true;
@@ -30,11 +31,12 @@
     desktop = {
       yabai.enable  = true;
       skhd.enable   = true;
+      # kmonad.enable = true;
 
       term = {
-        # default = "kitty";
+        # default = "alacritty";
         alacritty.enable = true;
-        # kitty.enable = true;
+        kitty.enable = false;
         # xst.enable = true;
       };
 
@@ -51,10 +53,10 @@
         discord.enable  = true;
       };
 
-      # media = {
-      #   spotify.enable  = true;
-      #   sonos.enable    = true;
-      # };
+      media = {
+        spotify.enable  = true;
+        # sonos.enable    = true;
+      };
     };
   };
 }
