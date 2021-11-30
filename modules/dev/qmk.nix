@@ -2,9 +2,7 @@
 let
   inherit (lib) util mkIf;
   inherit (lib.types) path str;
-  inherit (pkgs)
-    qmk avrlibc avrdude hidapi dfu-programmer dfu-util pkgsCross
-    gcc-arm-embedded teensy-loader-cli;
+  inherit (pkgs) qmk;
 
   cfg = config.modules.dev.qmk;
 in {

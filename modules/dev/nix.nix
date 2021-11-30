@@ -12,13 +12,6 @@ in {
   };
 
   config = mkIf cfg.enable (mkMerge [
-    # (mkIf (isDarwin == false) {
-    #   programs.direnv = {
-    #     enable = true;
-    #     nix-direnv.enable = true;
-    #     nix-direnv.enableFlakes = true;
-    #   };
-    # })
     {
       nixpkgs.overlays = [ inputs.nix-direnv.overlay ];
 
@@ -45,6 +38,13 @@ in {
       modules.shell.zsh.rcInit = ''
         eval "$(direnv hook zsh)"
       '';
+
+      modules.shell.zsh.aliases = {
+        nfu  = ''nix flake update'';
+        nfU  = ''find . -name \"flake.nix\" -exec sh -c \"pushd \$(dirname {}) && nix flake update && popd\" \;'';
+        nfui = ''nix flake lock --update-input'';
+        nfs  = ''nix flake show'';
+      };
 
       environment.systemPackages = [
         nixfmt

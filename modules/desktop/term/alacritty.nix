@@ -13,6 +13,7 @@ in {
   options.modules.desktop.term.alacritty = { enable = util.mkBoolOpt false; };
 
   config = mkIf cfg.enable {
+    nixpkgs.overlays = [ inputs.mac-overlay.overlays.alacritty-mac ];
     environment.systemPackages = [ alacritty ];
 
     home.configFile = {

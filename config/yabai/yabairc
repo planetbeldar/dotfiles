@@ -49,6 +49,9 @@ yabai -m rule --add app="^QMK Toolbox$" manage=off
 # float vmware fusion
 yabai -m rule --add app="^VMware Fusion$" manage=off
 
+#float sonos
+yabai -m rule --add app="^Sonos$" manage=off
+
 # doom emacs
 yabai -m rule --add app="^Emacs$" title!="^[*]doom[*]*" manage=off
 

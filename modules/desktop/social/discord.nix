@@ -8,11 +8,8 @@ let
 in {
   options.modules.desktop.social.discord = { enable = util.mkBoolOpt false; };
 
-  # nix derivation not supported on macos, use brew as backup
-  config = mkIf cfg.enable (mkMerge [
-    {
-      nixpkgs.overlays = [ inputs.discord-mac.overlay ];
-      environment.systemPackages = [ discord ];
-    }
-  ]);
+  config = mkIf cfg.enable {
+    nixpkgs.overlays = [ inputs.mac-overlay.overlays.discord-mac ];
+    environment.systemPackages = [ discord ];
+  };
 }

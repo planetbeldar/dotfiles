@@ -1,5 +1,32 @@
 {
   "nodes": {
+    "alacritty-mac": {
+      "inputs": {
+        "flake-utils": [
+          "mac-overlay",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "mac-overlay",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "pkgs/alacritty-mac",
+        "lastModified": 1637919150,
+        "narHash": "sha256-jzrKkOjKGk/myuqYA0aDUnmPhTexO1YLQ3FKesee8JA=",
+        "owner": "planetbeldar",
+        "repo": "mac-overlay",
+        "rev": "99b4b3190fb5ad037371720a0574adb1adc49f61",
+        "type": "github"
+      },
+      "original": {
+        "dir": "pkgs/alacritty-mac",
+        "owner": "planetbeldar",
+        "repo": "mac-overlay",
+        "type": "github"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -23,47 +50,68 @@
     },
     "discord-mac": {
       "inputs": {
-        "flake-utils": "flake-utils",
+        "flake-utils": [
+          "mac-overlay",
+          "flake-utils"
+        ],
         "nixpkgs": [
+          "mac-overlay",
           "nixpkgs"
         ]
       },
       "locked": {
-        "narHash": "sha256-alugA3sew4y0BnwIh+lDdO7w4/0ODrI1cERnQb1j3mo=",
-        "path": "./overlays/discord-mac",
-        "type": "path"
+        "dir": "pkgs/discord-mac",
+        "lastModified": 1637919150,
+        "narHash": "sha256-jzrKkOjKGk/myuqYA0aDUnmPhTexO1YLQ3FKesee8JA=",
+        "owner": "planetbeldar",
+        "repo": "mac-overlay",
+        "rev": "99b4b3190fb5ad037371720a0574adb1adc49f61",
+        "type": "github"
       },
       "original": {
-        "path": "./overlays/discord-mac",
-        "type": "path"
+        "dir": "pkgs/discord-mac",
+        "owner": "planetbeldar",
+        "repo": "mac-overlay",
+        "type": "github"
       }
     },
-    "emacs": {
+    "emacs-mac": {
       "inputs": {
         "emacs-src": "emacs-src",
         "emacs-vterm-src": "emacs-vterm-src",
+        "flake-utils": [
+          "mac-overlay",
+          "flake-utils"
+        ],
         "nixpkgs": [
+          "mac-overlay",
           "nixpkgs"
         ]
       },
       "locked": {
-        "narHash": "sha256-L+aDPh8tjh3iSuXRRgb74gpCCpYQCJvv9bhY3kpKF8A=",
-        "path": "./overlays/emacs",
-        "type": "path"
+        "dir": "pkgs/emacs-mac",
+        "lastModified": 1637919150,
+        "narHash": "sha256-jzrKkOjKGk/myuqYA0aDUnmPhTexO1YLQ3FKesee8JA=",
+        "owner": "planetbeldar",
+        "repo": "mac-overlay",
+        "rev": "99b4b3190fb5ad037371720a0574adb1adc49f61",
+        "type": "github"
       },
       "original": {
-        "path": "./overlays/emacs",
-        "type": "path"
+        "dir": "pkgs/emacs-mac",
+        "owner": "planetbeldar",
+        "repo": "mac-overlay",
+        "type": "github"
       }
     },
     "emacs-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1636818391,
-        "narHash": "sha256-QZq2ttD+bESVD+pFrgv5ZLVf4WpSpqkofa9Zs/XQbRU=",
+        "lastModified": 1637872307,
+        "narHash": "sha256-KHscj8TIUkicR3cYsXxQ5pgcdGkvXODirPfeHKEwuLs=",
         "owner": "emacs-mirror",
         "repo": "emacs",
-        "rev": "480241983ea91e31ca4d757fe91df84d1d11d3c9",
+        "rev": "cfaf681d3d292ceccc89c0eaaa47827665115dc6",
         "type": "github"
       },
       "original": {
@@ -91,11 +139,11 @@
     },
     "flake-utils": {
       "locked": {
-        "lastModified": 1634851050,
-        "narHash": "sha256-N83GlSGPJJdcqhUxSCS/WwW5pksYf3VP1M13cDRTSVA=",
+        "lastModified": 1637014545,
+        "narHash": "sha256-26IZAc5yzlD9FlDT54io1oqG/bBoyka+FJk5guaX4x4=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "c91f3de5adaf1de973b797ef7485e441a65b8935",
+        "rev": "bba5dcc8e0b20ab664967ad83d24d64cb64ec4f4",
         "type": "github"
       },
       "original": {
@@ -119,21 +167,6 @@
         "type": "github"
       }
     },
-    "flake-utils_3": {
-      "locked": {
-        "lastModified": 1634851050,
-        "narHash": "sha256-N83GlSGPJJdcqhUxSCS/WwW5pksYf3VP1M13cDRTSVA=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "c91f3de5adaf1de973b797ef7485e441a65b8935",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -141,17 +174,45 @@
         ]
       },
       "locked": {
-        "lastModified": 1636762692,
-        "narHash": "sha256-t3NygvOfUXalLOCsD0crt41p2BmjdIuIxiX1FoATWuQ=",
+        "lastModified": 1638150501,
+        "narHash": "sha256-aWH3MRmjUtx8ciSGLegBJC5mhymsuroHPs74ZldrNTU=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "520adafcb993bf382e9c3e20742c9b4f998330bf",
+        "rev": "9de77227d7780518cfeaee5a917970247f3ecc56",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
         "ref": "master",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "mac-overlay": {
+      "inputs": {
+        "alacritty-mac": "alacritty-mac",
+        "discord-mac": "discord-mac",
+        "emacs-mac": "emacs-mac",
+        "flake-utils": "flake-utils",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "sonos-mac": "sonos-mac",
+        "spotify-mac": "spotify-mac",
+        "xkbswitch": "xkbswitch",
+        "yabai": "yabai"
+      },
+      "locked": {
+        "lastModified": 1637919528,
+        "narHash": "sha256-hEiyOiWJSUM8UUn+U/IiLgp+RjHRqYHynLJRetJPmL8=",
+        "owner": "planetbeldar",
+        "repo": "mac-overlay",
+        "rev": "42103ecaf3ba71599ea2dd14ddd738d5dd3ad77c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "planetbeldar",
+        "repo": "mac-overlay",
         "type": "github"
       }
     },
@@ -163,11 +224,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1636784281,
-        "narHash": "sha256-9HGwvIqnX9XdITxK7zyF/z+/2wyvw1TINEbxTa+dhiU=",
+        "lastModified": 1637564511,
+        "narHash": "sha256-9/fhv4yT1fah/SHuXq7jnQQ+QyQWjuTERgDNpKWtQxU=",
         "owner": "nix-community",
         "repo": "nix-direnv",
-        "rev": "e01b0cdedbb3da3256d8c74d008da546a2ff0174",
+        "rev": "69bec056fb036ff526184a995f07ee7b3f0abf0b",
         "type": "github"
       },
       "original": {
@@ -193,11 +254,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1636767985,
-        "narHash": "sha256-ANCzP3CTGoVs9oh8aEFRg6aX9dFeuPv8VVaDC60euRk=",
+        "lastModified": 1638189734,
+        "narHash": "sha256-Vks5UgpFqbrSNi3RXaozVWAVEfueplN2WBPs2bRajHA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "36941818f25feb27700f25ce054322025209e264",
+        "rev": "f366af7a1b3891d9370091ab03150d3a6ee138fa",
         "type": "github"
       },
       "original": {
@@ -209,30 +270,119 @@
     "root": {
       "inputs": {
         "darwin": "darwin",
-        "discord-mac": "discord-mac",
-        "emacs": "emacs",
         "home-manager": "home-manager",
+        "mac-overlay": "mac-overlay",
         "nix-direnv": "nix-direnv",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-unstable": "nixpkgs-unstable",
-        "spotify-mac": "spotify-mac"
+        "nixpkgs-unstable": "nixpkgs-unstable"
       }
     },
-    "spotify-mac": {
+    "sonos-mac": {
       "inputs": {
-        "flake-utils": "flake-utils_3",
+        "flake-utils": [
+          "mac-overlay",
+          "flake-utils"
+        ],
         "nixpkgs": [
+          "mac-overlay",
           "nixpkgs"
         ]
       },
       "locked": {
-        "narHash": "sha256-thFFOmUEv+CuuDoe8QItSRCHZSDcTFT67RC+BYWEjIg=",
-        "path": "./overlays/spotify-mac",
-        "type": "path"
+        "dir": "pkgs/sonos-mac",
+        "lastModified": 1637919150,
+        "narHash": "sha256-jzrKkOjKGk/myuqYA0aDUnmPhTexO1YLQ3FKesee8JA=",
+        "owner": "planetbeldar",
+        "repo": "mac-overlay",
+        "rev": "99b4b3190fb5ad037371720a0574adb1adc49f61",
+        "type": "github"
       },
       "original": {
-        "path": "./overlays/spotify-mac",
-        "type": "path"
+        "dir": "pkgs/sonos-mac",
+        "owner": "planetbeldar",
+        "repo": "mac-overlay",
+        "type": "github"
+      }
+    },
+    "spotify-mac": {
+      "inputs": {
+        "flake-utils": [
+          "mac-overlay",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "mac-overlay",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "pkgs/spotify-mac",
+        "lastModified": 1637919150,
+        "narHash": "sha256-jzrKkOjKGk/myuqYA0aDUnmPhTexO1YLQ3FKesee8JA=",
+        "owner": "planetbeldar",
+        "repo": "mac-overlay",
+        "rev": "99b4b3190fb5ad037371720a0574adb1adc49f61",
+        "type": "github"
+      },
+      "original": {
+        "dir": "pkgs/spotify-mac",
+        "owner": "planetbeldar",
+        "repo": "mac-overlay",
+        "type": "github"
+      }
+    },
+    "xkbswitch": {
+      "inputs": {
+        "flake-utils": [
+          "mac-overlay",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "mac-overlay",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "pkgs/xkbswitch",
+        "lastModified": 1637919150,
+        "narHash": "sha256-jzrKkOjKGk/myuqYA0aDUnmPhTexO1YLQ3FKesee8JA=",
+        "owner": "planetbeldar",
+        "repo": "mac-overlay",
+        "rev": "99b4b3190fb5ad037371720a0574adb1adc49f61",
+        "type": "github"
+      },
+      "original": {
+        "dir": "pkgs/xkbswitch",
+        "owner": "planetbeldar",
+        "repo": "mac-overlay",
+        "type": "github"
+      }
+    },
+    "yabai": {
+      "inputs": {
+        "flake-utils": [
+          "mac-overlay",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "mac-overlay",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "pkgs/yabai",
+        "lastModified": 1637919150,
+        "narHash": "sha256-jzrKkOjKGk/myuqYA0aDUnmPhTexO1YLQ3FKesee8JA=",
+        "owner": "planetbeldar",
+        "repo": "mac-overlay",
+        "rev": "99b4b3190fb5ad037371720a0574adb1adc49f61",
+        "type": "github"
+      },
+      "original": {
+        "dir": "pkgs/yabai",
+        "owner": "planetbeldar",
+        "repo": "mac-overlay",
+        "type": "github"
       }
     }
   },

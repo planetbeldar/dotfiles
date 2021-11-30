@@ -20,22 +20,12 @@
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Emacs
-    emacs = {
-      url = "path:./overlays/emacs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    spotify-mac = {
-      url = "path:./overlays/spotify-mac";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    discord-mac = {
-      url = "path:./overlays/discord-mac";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # mac-overlay
+    mac-overlay.url = "github:planetbeldar/mac-overlay";
+    mac-overlay.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs @ { self, nixpkgs, darwin, ... }:
+  outputs = inputs @ { self, nixpkgs, darwin, mac-overlay, ... }:
     let
       inherit (lib.util) mapModules mapModules' mapModulesRec mapDarwinHosts mapNixosHosts traceImportMsg traceCallPackageMsg;
       traceCallPackage = traceCallPackageMsg "flake.nix:";

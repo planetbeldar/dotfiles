@@ -11,7 +11,7 @@ in {
 
   config = mkIf cfg.enable (mkMerge [
     {
-      nixpkgs.overlays = [ inputs.emacs.overlay ];
+      nixpkgs.overlays = [ inputs.mac-overlay.overlays.emacs-mac ];
       # nix = {
       #   binaryCaches = [ "https://cachix.org/api/v1/cache/emacs" ];
       #   binaryCachePublicKeys =
@@ -32,7 +32,7 @@ in {
         ] ++ lib.optionals stdenv.isDarwin [
           #emacs-macport
           gnugrep # pcre not enabled in macos version of grep
-          emacs
+          emacs-mac
           # (emacsMacport.overrideAttrs (drv: {
           #   configureFlags = drv.configureFlags ++ [ "--with-no-title-bars" ];
           # }))

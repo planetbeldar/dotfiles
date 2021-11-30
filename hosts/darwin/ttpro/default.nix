@@ -7,6 +7,7 @@
       m-cli.enable = true;
       git.enable = true;
       bottom.enable = true;
+      xkbswitch.enable = true;
     };
 
     editors = {
@@ -49,13 +50,13 @@
       };
 
       social = {
-        signal.enable   = true;
+        # signal.enable   = true;
         discord.enable  = true;
       };
 
       media = {
         spotify.enable  = true;
-        # sonos.enable    = true;
+        sonos.enable    = true;
       };
     };
   };

@@ -16,7 +16,15 @@
   - [ ] vulkan
 - [ ] Desktop [0/12]
   - [ ] yabai
+    alias (or something else) to 'replace' brew services restart
+    #+begin_src shell
+    launchctl kickstart -k "gui/${UID}/org.nixos.yabai"
+    #+end_src
   - [ ] skhd
+    alias (or something else) to 'replace' brew services restart
+    #+begin_src shell
+    launchctl kickstart -k "gui/${UID}/org.nixos.skhd"
+    #+end_src
   - [ ] Browsers [0/1]
     - [ ] vimari
   - [ ] Social [0/2]

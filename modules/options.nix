@@ -48,7 +48,7 @@ in {
       };
 
     home-manager = {
-      # useGlobalPkgs = true; # both needed for pure mode?
+      useGlobalPkgs = true; # both needed for pure mode?
       useUserPackages = true;
       verbose = false;
 

@@ -76,9 +76,10 @@
 # A REFERENCE ONLY, WHEN MAKING YOUR OWN CONFIGURATION..          #
 # ############################################################### #
 
-# run programs
+# run commands
 cmd - 0x29 : alacritty # cmd - ;
 cmd - i : doom everywhere # doom emacs everywhere
+ctrl + alt + cmd - r : launchctl remove org.nixos.yabai-sa && launchctl load /Library/LaunchDaemons/org.nixos.yabai-sa.plist
 
 # kill window
 cmd - e : yabai -m window --close && yabai -m window --focus north

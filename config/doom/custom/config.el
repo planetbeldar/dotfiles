@@ -34,7 +34,8 @@
   (progn
     (treemacs-follow-mode t)
     (treemacs-fringe-indicator-mode 'always)
-    (setq treemacs-file-event-delay 200)
+    (setq treemacs-file-event-delay 200
+          +treemacs-git-mode 'deferred)
     ))
 
 
