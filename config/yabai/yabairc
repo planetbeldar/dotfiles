@@ -52,6 +52,9 @@ yabai -m rule --add app="^VMware Fusion$" manage=off
 #float sonos
 yabai -m rule --add app="^Sonos$" manage=off
 
+# float signal settings
+yabai -m rule --add app="^Signal$" title="^Signal Desktop Preferences$" manage=off
+
 # doom emacs
 yabai -m rule --add app="^Emacs$" title!="^[*]doom[*]*" manage=off
 

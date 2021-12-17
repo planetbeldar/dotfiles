@@ -1,17 +1,15 @@
-{ options, config, lib, pkgs, ... }:
+{ inputs, options, config, lib, pkgs, ... }:
 with lib;
 let
-  inherit (pkgs.stdenv) isDarwin;
-  inherit (pkgs) signal-desktop;
+  inherit (pkgs) stdenv;
 
+  signal = if stdenv.isDarwin then pkgs.signal-mac else pkgs.signal-desktop;
   cfg = config.modules.desktop.social.signal;
-  configDir = config.dotfiles.configDir;
 in {
   options.modules.desktop.social.signal = { enable = util.mkBoolOpt false; };
 
-  # nix derivation not supported on macos, use brew as backup
-  config = mkIf cfg.enable (mkMerge [
-    (mkIf (!isDarwin) { environment.systemPackages = [ signal-desktop ]; })
-    # (mkIf isDarwin { homebrew.casks = [ "signal" ]; })
-  ]);
+  config = mkIf cfg.enable {
+    nixpkgs.overlays = [ inputs.mac-overlay.overlays.signal-mac ];
+    environment.systemPackages = [ signal ];
+  };
 }

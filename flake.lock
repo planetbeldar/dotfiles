@@ -13,11 +13,11 @@
       },
       "locked": {
         "dir": "pkgs/alacritty-mac",
-        "lastModified": 1637919150,
-        "narHash": "sha256-jzrKkOjKGk/myuqYA0aDUnmPhTexO1YLQ3FKesee8JA=",
+        "lastModified": 1638351146,
+        "narHash": "sha256-vB03nED8Wz+k5D+q1RHRhE4ETvKOqTzof1zS1pSW+Lw=",
         "owner": "planetbeldar",
         "repo": "mac-overlay",
-        "rev": "99b4b3190fb5ad037371720a0574adb1adc49f61",
+        "rev": "174ea4b7d6ec38072ddb6ca2f109749bfeed636b",
         "type": "github"
       },
       "original": {
@@ -61,11 +61,11 @@
       },
       "locked": {
         "dir": "pkgs/discord-mac",
-        "lastModified": 1637919150,
-        "narHash": "sha256-jzrKkOjKGk/myuqYA0aDUnmPhTexO1YLQ3FKesee8JA=",
+        "lastModified": 1638351146,
+        "narHash": "sha256-vB03nED8Wz+k5D+q1RHRhE4ETvKOqTzof1zS1pSW+Lw=",
         "owner": "planetbeldar",
         "repo": "mac-overlay",
-        "rev": "99b4b3190fb5ad037371720a0574adb1adc49f61",
+        "rev": "174ea4b7d6ec38072ddb6ca2f109749bfeed636b",
         "type": "github"
       },
       "original": {
@@ -90,11 +90,11 @@
       },
       "locked": {
         "dir": "pkgs/emacs-mac",
-        "lastModified": 1637919150,
-        "narHash": "sha256-jzrKkOjKGk/myuqYA0aDUnmPhTexO1YLQ3FKesee8JA=",
+        "lastModified": 1638351146,
+        "narHash": "sha256-vB03nED8Wz+k5D+q1RHRhE4ETvKOqTzof1zS1pSW+Lw=",
         "owner": "planetbeldar",
         "repo": "mac-overlay",
-        "rev": "99b4b3190fb5ad037371720a0574adb1adc49f61",
+        "rev": "174ea4b7d6ec38072ddb6ca2f109749bfeed636b",
         "type": "github"
       },
       "original": {
@@ -139,11 +139,11 @@
     },
     "flake-utils": {
       "locked": {
-        "lastModified": 1637014545,
-        "narHash": "sha256-26IZAc5yzlD9FlDT54io1oqG/bBoyka+FJk5guaX4x4=",
+        "lastModified": 1638122382,
+        "narHash": "sha256-sQzZzAbvKEqN9s0bzWuYmRaA03v40gaJ4+iL1LXjaeI=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "bba5dcc8e0b20ab664967ad83d24d64cb64ec4f4",
+        "rev": "74f7e4319258e287b0f9cb95426c9853b282730b",
         "type": "github"
       },
       "original": {
@@ -197,17 +197,18 @@
         "nixpkgs": [
           "nixpkgs"
         ],
+        "signal-mac": "signal-mac",
         "sonos-mac": "sonos-mac",
         "spotify-mac": "spotify-mac",
         "xkbswitch": "xkbswitch",
         "yabai": "yabai"
       },
       "locked": {
-        "lastModified": 1637919528,
-        "narHash": "sha256-hEiyOiWJSUM8UUn+U/IiLgp+RjHRqYHynLJRetJPmL8=",
+        "lastModified": 1638353741,
+        "narHash": "sha256-U9Bb8B41yXazZ7cl+jMgtmOwaCLrRyM4zN7tSWwjFZQ=",
         "owner": "planetbeldar",
         "repo": "mac-overlay",
-        "rev": "42103ecaf3ba71599ea2dd14ddd738d5dd3ad77c",
+        "rev": "0ed8590363822396b5441453b3ab4e29d1bf7732",
         "type": "github"
       },
       "original": {
@@ -277,6 +278,33 @@
         "nixpkgs-unstable": "nixpkgs-unstable"
       }
     },
+    "signal-mac": {
+      "inputs": {
+        "flake-utils": [
+          "mac-overlay",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "mac-overlay",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "pkgs/signal-mac",
+        "lastModified": 1638351146,
+        "narHash": "sha256-vB03nED8Wz+k5D+q1RHRhE4ETvKOqTzof1zS1pSW+Lw=",
+        "owner": "planetbeldar",
+        "repo": "mac-overlay",
+        "rev": "174ea4b7d6ec38072ddb6ca2f109749bfeed636b",
+        "type": "github"
+      },
+      "original": {
+        "dir": "pkgs/signal-mac",
+        "owner": "planetbeldar",
+        "repo": "mac-overlay",
+        "type": "github"
+      }
+    },
     "sonos-mac": {
       "inputs": {
         "flake-utils": [
@@ -290,11 +318,11 @@
       },
       "locked": {
         "dir": "pkgs/sonos-mac",
-        "lastModified": 1637919150,
-        "narHash": "sha256-jzrKkOjKGk/myuqYA0aDUnmPhTexO1YLQ3FKesee8JA=",
+        "lastModified": 1638351146,
+        "narHash": "sha256-vB03nED8Wz+k5D+q1RHRhE4ETvKOqTzof1zS1pSW+Lw=",
         "owner": "planetbeldar",
         "repo": "mac-overlay",
-        "rev": "99b4b3190fb5ad037371720a0574adb1adc49f61",
+        "rev": "174ea4b7d6ec38072ddb6ca2f109749bfeed636b",
         "type": "github"
       },
       "original": {
@@ -317,11 +345,11 @@
       },
       "locked": {
         "dir": "pkgs/spotify-mac",
-        "lastModified": 1637919150,
-        "narHash": "sha256-jzrKkOjKGk/myuqYA0aDUnmPhTexO1YLQ3FKesee8JA=",
+        "lastModified": 1638351146,
+        "narHash": "sha256-vB03nED8Wz+k5D+q1RHRhE4ETvKOqTzof1zS1pSW+Lw=",
         "owner": "planetbeldar",
         "repo": "mac-overlay",
-        "rev": "99b4b3190fb5ad037371720a0574adb1adc49f61",
+        "rev": "174ea4b7d6ec38072ddb6ca2f109749bfeed636b",
         "type": "github"
       },
       "original": {
@@ -344,11 +372,11 @@
       },
       "locked": {
         "dir": "pkgs/xkbswitch",
-        "lastModified": 1637919150,
-        "narHash": "sha256-jzrKkOjKGk/myuqYA0aDUnmPhTexO1YLQ3FKesee8JA=",
+        "lastModified": 1638351146,
+        "narHash": "sha256-vB03nED8Wz+k5D+q1RHRhE4ETvKOqTzof1zS1pSW+Lw=",
         "owner": "planetbeldar",
         "repo": "mac-overlay",
-        "rev": "99b4b3190fb5ad037371720a0574adb1adc49f61",
+        "rev": "174ea4b7d6ec38072ddb6ca2f109749bfeed636b",
         "type": "github"
       },
       "original": {
@@ -371,11 +399,11 @@
       },
       "locked": {
         "dir": "pkgs/yabai",
-        "lastModified": 1637919150,
-        "narHash": "sha256-jzrKkOjKGk/myuqYA0aDUnmPhTexO1YLQ3FKesee8JA=",
+        "lastModified": 1638351146,
+        "narHash": "sha256-vB03nED8Wz+k5D+q1RHRhE4ETvKOqTzof1zS1pSW+Lw=",
         "owner": "planetbeldar",
         "repo": "mac-overlay",
-        "rev": "99b4b3190fb5ad037371720a0574adb1adc49f61",
+        "rev": "174ea4b7d6ec38072ddb6ca2f109749bfeed636b",
         "type": "github"
       },
       "original": {

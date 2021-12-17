@@ -18,15 +18,16 @@
 
     dev = {
       # dotnet.enable = true;
+      haskell.enable = true;
       js.enable   = true;
       node.enable = true;
-      yaml.enable = true;
       qmk = {
         enable = true;
         home = "${config.user.home}/Projects/cpp";
         fork = "planetbeldar";
         branch = "planb";
       };
+      yaml.enable = true;
     };
 
     desktop = {
@@ -50,8 +51,8 @@
       };
 
       social = {
-        # signal.enable   = true;
-        discord.enable  = true;
+        signal.enable   = true;
+        #discord.enable  = true;
       };
 
       media = {
