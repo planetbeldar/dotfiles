@@ -25,8 +25,8 @@ in stdenv.mkDerivation {
     $DRY_RUN_CMD mkdir $VERBOSE_ARG -p original patched
 
     $DRY_RUN_CMD find ${pkgs.input-fonts} \
-      -type f -iname "*.ttf" \
-      -a -type f -iname "${name}" \
+      -regextype awk \
+      -type f -regex ".*/${name}\.ttf" \
       -exec cp {} ./original \;
     $DRY_RUN_CMD ${pkgs.local.font-patcher}/bin/font-patcher \
       --quiet --complete --careful -out ./patched ./original/*

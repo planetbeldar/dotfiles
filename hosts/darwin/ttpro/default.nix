@@ -17,7 +17,7 @@
     };
 
     dev = {
-      # dotnet.enable = true;
+      dotnet.enable = true;
       haskell.enable = true;
       js.enable   = true;
       node.enable = true;
@@ -44,6 +44,7 @@
 
       browsers = {
         vimari.enable = true;
+        chrome.enable = true;
       #   default         = "safari";
       #   brave.enable    = true;
       #   firefox.enable  = true;

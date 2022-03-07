@@ -11,7 +11,7 @@ in (mkMerge [
         (nerdfonts.override {
           fonts = [ "SourceCodePro" "Iosevka" "Inconsolata" ];
         })
-        (input-nerd-fonts.override { name = "InputMono-*Light*"; })
+        (input-nerd-fonts.override { name = "InputMono-.*(Thin|Light).*"; })
       ];
     };
 

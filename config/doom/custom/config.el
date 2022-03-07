@@ -3,6 +3,7 @@
 (setq doom-font (font-spec :family "SauceCodePro Nerd Font" :weight 'normal :size 14)
       doom-big-font-increment 1)
 (setq doom-theme 'doom-rouge)
+(setq confirm-kill-emacs nil)
 
 ;; (setq comp-speed 2)
 
@@ -15,7 +16,13 @@
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
 
-(setq projectile-project-search-path '("~/Projects/swift/" "~/Projects/cpp" "~/Projects/py" "~/Projects/nix"))
+(setq projectile-project-search-path
+  '("~/Projects/swift/"
+    "~/Projects/cpp"
+    "~/Projects/py"
+    "~/Projects/nix"
+    "~/Projects/csharp"
+    ))
 (after! projectile
   (projectile-discover-projects-in-search-path))
 
@@ -48,7 +55,8 @@
 
 ;; lsp-mode
 (after! lsp-mode
-  (setq lsp-idle-delay 0.1))
+  (setq lsp-idle-delay 0.1
+        lsp-csharp-server-path "/run/current-system/sw/bin/omnisharp"))
 ;; lsp-ui
 (after! lsp-ui
   (setq lsp-ui-sideline-show-hover t
