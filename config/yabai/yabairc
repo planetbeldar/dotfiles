@@ -19,6 +19,8 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 yabai -m rule --add app="^System Preferences$" manage=off
 # float system information
 yabai -m rule --add app="^System Information$" manage=off
+# float disk utility
+yabai -m rule --add app="^Disk Utility$" manage=off
 # float finder
 yabai -m rule --add app="^Finder$" manage=off
 # float preview
