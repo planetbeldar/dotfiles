@@ -2,20 +2,17 @@
 
 let
   inherit (lib) util mkIf mkMerge;
-  inherit (pkgs) stdenv pgadmin4;
+  inherit (pkgs) stdenv;
 
-  cfg = config.modules.db.pgadmin;
+  cfg = config.modules.desktop.db.pgadmin;
+  pgadmin = if stdenv.isDarwin then pkgs.pgadmin4-mac else pkgs.pgadmin4;
 in {
   options.modules.desktop.db.pgadmin = {
     enable = util.mkBoolOpt false;
   };
 
-  config = mkIf cfg.enable (mkMerge [
-    (mkIf stdenv.isDarwin {
-      nixpkgs.overlays = [ inputs.mac-overlay.overlays.pgadmin4-mac ];
-    })
-    {
-      environment.systemPackages = [ pgadmin4 ];
-    }
-  ]);
+  config = mkIf cfg.enable {
+    nixpkgs.overlays = [ inputs.mac-overlay.overlays.pgadmin4-mac ];
+    environment.systemPackages = [ pgadmin ];
+  };
 }

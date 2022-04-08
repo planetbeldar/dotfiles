@@ -8,6 +8,7 @@
       git.enable = true;
       bottom.enable = true;
       xkbswitch.enable = true;
+      # sshfs.enable = true;
     };
 
     editors = {
@@ -20,7 +21,6 @@
       dotnet.enable = true;
       haskell.enable = true;
       js.enable   = true;
-      node.enable = true;
       qmk = {
         enable = true;
         home = "${config.user.home}/Projects/cpp";
@@ -33,7 +33,7 @@
     desktop = {
       yabai.enable  = true;
       skhd.enable   = true;
-      # kmonad.enable = true;
+      kmonad.enable = true;
 
       term = {
         # default = "alacritty";
@@ -59,6 +59,10 @@
       media = {
         spotify.enable  = true;
         sonos.enable    = true;
+      };
+
+      db = {
+        pgadmin.enable = true;
       };
     };
   };

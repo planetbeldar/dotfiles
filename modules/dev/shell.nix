@@ -1,6 +1,6 @@
 { config, options, lib, pkgs, ... }:
 let
-  inherit (lib) util mkIf;
+  inherit (lib) util mkIf platforms;
   inherit (pkgs) shellcheck bashdb nodePackages;
 
   cfg = config.modules.dev.shell;
@@ -14,7 +14,7 @@ in {
       shellcheck
       # not supported on macos, why?
       (bashdb.overrideAttrs
-        (lib.const { meta.platforms = lib.platforms.unix; }))
+        (drv: { meta.platforms = drv.meta.platforms ++ platforms.darwin; }))
       nodePackages.bash-language-server
     ];
   };

@@ -22,11 +22,11 @@ in {
         [
           git
           (ripgrep.override { withPCRE2 = true; })
-          coreutils
+          # coreutils
           fd
           # org-mode
           gnuplot
-          clang
+          # clang
           texlive.combined.scheme-medium
           sqlite #roam
         ] ++ lib.optionals stdenv.isDarwin [

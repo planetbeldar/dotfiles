@@ -2,7 +2,7 @@
 
 let
   inherit (lib) util mkIf;
-  inherit (pkgs) ghc haskell-language-server cabal-install;
+  inherit (pkgs) cabal-install ghc921 haskell-language-server stack;
   inherit (pkgs.haskellPackages) ghcup hoogle;
 
   cfg = config.modules.dev.haskell;
@@ -11,11 +11,12 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = [
-      cabal-install
-      ghc
-      ghcup
-      hoogle
-      haskell-language-server
+      # cabal-install
+      # ghc
+      # ghcup
+      # hoogle
+      # haskell-language-server
+      stack
     ];
 
     env = {

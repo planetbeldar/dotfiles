@@ -1,4 +1,4 @@
-{ options, config, lib, pkgs, ... }:
+{ options, config, lib, pkgs, inputs, ... }:
 let
   inherit (lib) util mkIf;
 
@@ -8,11 +8,13 @@ in {
   options.modules.desktop.yabai = { enable = util.mkBoolOpt false; };
 
   config = mkIf cfg.enable {
+    nixpkgs.overlays = [ inputs.mac-overlay.overlays.yabai ];
+
     services.yabai = {
       enable = true;
+      package = pkgs.yabai;
       # check for environment var specifying if SIP has been disabled (active choice)?
       enableScriptingAddition = true;
-      package = pkgs.yabai;
     };
 
     home.configFile = {

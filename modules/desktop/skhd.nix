@@ -1,7 +1,6 @@
 { options, config, lib, pkgs, ... }:
 let
   inherit (lib) util mkIf;
-  inherit (pkgs) skhd;
 
   cfg = config.modules.desktop.skhd;
   configDir = config.dotfiles.configDir;
@@ -10,9 +9,7 @@ in {
 
   config = mkIf cfg.enable {
     services.skhd.enable = true;
-    services.skhd.package = skhd;
-
-    environment.systemPackages = [ skhd ];
+    services.skhd.package = pkgs.skhd;
 
     home.configFile = { "skhd/skhdrc".source = "${configDir}/skhd/skhdrc"; };
   };
