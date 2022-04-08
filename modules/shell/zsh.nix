@@ -1,7 +1,7 @@
 { config, options, pkgs, lib, ... }:
 let
   inherit (lib) util mkIf mapAttrsToList concatStringsSep concatMapStrings;
-  inherit (pkgs) zsh zsh-prezto exa;
+  inherit (pkgs) zsh zsh-prezto colordiff;
 
   cfg = config.modules.shell.zsh;
   configDir = config.dotfiles.configDir;
@@ -33,7 +33,8 @@ in {
     environment.systemPackages = [
       zsh
       zsh-prezto
-      exa
+      # used by prezto
+      colordiff
     ];
 
     env = {
@@ -45,7 +46,6 @@ in {
     home.configFile = {
       # Write it recursively so other modules can write files to it
       "zsh" = {
-        # source = "${configDir}/zsh";
         source = util.mkOutOfStoreSymlink "${configDir}/zsh";
         recursive = true;
       };
