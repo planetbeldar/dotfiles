@@ -17,12 +17,12 @@
 
 
 (setq projectile-project-search-path
-  '("~/Projects/swift/"
-    "~/Projects/cpp"
-    "~/Projects/py"
-    "~/Projects/nix"
-    "~/Projects/csharp"
-    ))
+      '("~/Projects/swift/"
+        "~/Projects/cpp"
+        "~/Projects/py"
+        "~/Projects/nix"
+        "~/Projects/csharp"
+        ))
 (after! projectile
   (projectile-discover-projects-in-search-path))
 
@@ -97,15 +97,19 @@
   (interactive)
   (picture-yank-rectangle-from-register rectangle-register))
 
-(evil-define-operator tt/evil-yank (beg end type register yank-handler)
-  "Copy rectangle region to special register after evil-yank is performed."
-  (interactive "<R><x><y>")
-  ;; (message "%s %s %s %s" beg end type register)
-  (evil-yank beg end type register yank-handler)
-  (when (memq type '(line screen-line))
-    (setq end (1- end)))
-  (copy-rectangle-to-register rectangle-register beg end))
+(after! evil
+  (evil-define-operator tt/evil-yank (beg end type register yank-handler)
+    "Copy rectangle region to special register after evil-yank is performed."
+    (interactive "<R><x><y>")
+    ;; (message "%s %s %s %s" beg end type register)
+    (evil-yank beg end type register yank-handler)
+    (when (memq type '(line screen-line))
+      (setq end (1- end)))
+    (copy-rectangle-to-register rectangle-register beg end)))
 
+;; (use-package! evil-mc
+;;     :commands (evil-mc-make-cursor-in-visual-selection))
+(use-package! kbd-mode)
 
 ;; bindings
 (load! "bindings.el")

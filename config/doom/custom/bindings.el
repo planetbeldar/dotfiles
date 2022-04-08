@@ -11,7 +11,7 @@
           :desc "Start last"                    "d" #'dap-debug-last
           :desc "Start recent"                  "r" #'dap-debug-recent
           :desc "Edit template"                 "e" #'dap-debug-edit-template
-          :desc "Edit prepopulated template"    "E" (λ!! #'dap-debug-edit-template t)
+          :desc "Edit prepopulated template"    "E" (cmd!! #'dap-debug-edit-template t)
           :desc "Toggle hydra"                  "t" #'dap-hydra
           :desc "Output"                        "o" #'dap-go-to-output-buffer
           ))
@@ -42,8 +42,8 @@
 
 (map! :after cc-mode
       :map c-mode-map
-                                                "TAB" nil)
-
+                                                "TAB" nil
+                                                "<tab>" nil)
 (map! :after treemacs-evil
       :map evil-treemacs-state-map
       :desc "open mru window"                   ";" #'treemacs-visit-node-in-most-recently-used-window)
