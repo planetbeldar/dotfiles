@@ -35,8 +35,6 @@ in {
     '';
     CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
     HISTFILE = "$XDG_DATA_HOME/bash/history";
-    HISTSIZE  = "10000000";
-    SAVEHIIST = "10000000";
     INPUTRC = "$XDG_CONFIG_HOME/readline/inputrc";
     LESSHISTFILE = "$XDG_CACHE_HOME/lesshst";
     # WGETRC = "$XDG_CONFIG_HOME/wgetrc";

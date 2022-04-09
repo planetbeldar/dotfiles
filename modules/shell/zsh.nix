@@ -1,7 +1,7 @@
 { config, options, pkgs, lib, ... }:
 let
   inherit (lib) util mkIf mapAttrsToList concatStringsSep concatMapStrings;
-  inherit (pkgs) zsh zsh-prezto colordiff;
+  inherit (pkgs) zsh zsh-prezto zsh-vi-mode colordiff fetchFromGitHub;
 
   cfg = config.modules.shell.zsh;
   configDir = config.dotfiles.configDir;
@@ -32,15 +32,29 @@ in {
 
     environment.systemPackages = [
       zsh
-      zsh-prezto
+      zsh-vi-mode
+      (zsh-prezto.overrideAttrs (drv: {
+        version = "head";
+        src = fetchFromGitHub {
+          owner = "sorin-ionescu";
+          repo = "prezto";
+          rev = "3dc3fa7f8c484569a721724fa13c77cecd1dd923";
+          sha256 = "TDbfsN3BJivRHDq8mDYLlyLPxk+4rsjex1YucoOzIgk=";
+          fetchSubmodules = true;
+        };
+      }))
       # used by prezto
       colordiff
     ];
 
+    modules.shell.zsh.rcInit = ''
+      source ${zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+    '';
+
     env = {
       ZDOTDIR = "$XDG_CONFIG_HOME/zsh";
       ZSH_CACHE = "$XDG_CACHE_HOME/zsh";
-      ZPREZTO_DIR = "$XDG_DATA_HOME/zprezto";
+      ZPREZTODIR = "$XDG_DATA_HOME/zprezto";
     };
 
     home.configFile = {
@@ -76,7 +90,7 @@ in {
 
     home.dataFile = {
       "zprezto" = {
-        source = "${pkgs.zsh-prezto}/share/zsh-prezto";
+        source = "${zsh-prezto}/share/zsh-prezto";
         recursive = true;
       };
     };
