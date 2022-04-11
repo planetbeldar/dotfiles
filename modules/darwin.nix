@@ -26,6 +26,7 @@ in {
         printf " Found '$name'"
         if [ "$hash1" != "$hash2" ]; then
           printf " and its hash differs from the store, copying.."
+          $DRY_RUN_CMD rm -fr "$dst"
           $DRY_RUN_CMD cp --archive -H --dereference "$src" $HOME/Applications
           printf " done.\n"
         else

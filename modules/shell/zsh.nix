@@ -32,7 +32,6 @@ in {
 
     environment.systemPackages = [
       zsh
-      zsh-vi-mode
       (zsh-prezto.overrideAttrs (drv: {
         version = "head";
         src = fetchFromGitHub {
@@ -46,10 +45,6 @@ in {
       # used by prezto
       colordiff
     ];
-
-    modules.shell.zsh.rcInit = ''
-      source ${zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-    '';
 
     env = {
       ZDOTDIR = "$XDG_CONFIG_HOME/zsh";

@@ -53,7 +53,7 @@
 
       social = {
         signal.enable   = true;
-        #discord.enable  = true;
+        discord.enable  = true;
       };
 
       media = {

@@ -1,3 +1,5 @@
+(add-to-list 'default-frame-alist '(undecorated . t))
+
 (setq user-full-name "Tony Höglund"
       user-mail-address "tony.hoglund@gmail.com")
 (setq doom-font (font-spec :family "SauceCodePro Nerd Font" :weight 'normal :size 14)
