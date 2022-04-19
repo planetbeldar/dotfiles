@@ -1,4 +1,4 @@
-(add-to-list 'default-frame-alist '(undecorated . t))
+;; (add-to-list 'default-frame-alist '(undecorated . t))
 
 (setq user-full-name "Tony Höglund"
       user-mail-address "tony.hoglund@gmail.com")

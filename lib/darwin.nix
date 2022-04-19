@@ -22,6 +22,7 @@ in {
           networking.hostName = mkDefault (removeSuffix ".nix" (baseNameOf path));
         }
         inputs.home-manager.darwinModule
+        inputs.mac-overlay.modules.kmonad-mac
         (filterAttrs (n: v: !elem n [ "system" ]) attrs)
         (traceImport ../.)   # /default.nix
         (traceImport path)

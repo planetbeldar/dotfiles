@@ -1,7 +1,6 @@
-{ options, config, lib, pkgs, ... }:
+{ options, config, inputs, lib, pkgs, ... }:
 let
   inherit (lib) util mkIf;
-  inherit (pkgs) haskellPackages haskell;
 
   cfg = config.modules.desktop.kmonad;
   configDir = config.dotfiles.configDir;
@@ -9,10 +8,13 @@ in {
   options.modules.desktop.kmonad = { enable = util.mkBoolOpt false; };
 
   config = mkIf cfg.enable {
-    # environment.systemPackages = [ haskellPackages.kmonad ];
-    # environment.systemPackages = [
+    nixpkgs.overlays = [ inputs.mac-overlay.overlays.kmonad-mac ];
 
-    # ];
+    services.kmonad-mac = {
+      enable = true;
+      package = pkgs.kmonad-mac;
+      keymap =  "${configDir}/kmonad/config.kbd";
+    };
 
     home.configFile = {
       "kmonad" = {
