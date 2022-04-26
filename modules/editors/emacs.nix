@@ -15,7 +15,7 @@ in {
       binaryCachePublicKeys =
         [ "emacs.cachix.org-1:b1SMJNLY/mZF6GxQE+eDBeps7WnkT0Po55TAyzwOxTY=" ];
     };
-    nixpkgs.overlays = [ inputs.emacs-mac.overlay ];
+    nixpkgs.overlays = [ inputs.mac-overlay.overlays.emacs-mac ];
 
     environment.systemPackages = with pkgs;
       [
@@ -31,7 +31,7 @@ in {
       ] ++ lib.optionals stdenv.isDarwin [
         #emacs-macport
         gnugrep # pcre not enabled in macos version of grep
-        emacs
+        # emacs-mac
       ] ++ lib.optionals stdenv.isLinux [ emacsGcc ];
 
     fonts.fonts = [ pkgs.emacs-all-the-icons-fonts ];

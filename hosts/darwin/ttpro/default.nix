@@ -54,11 +54,16 @@
       social = {
         signal.enable   = true;
         discord.enable  = true;
+        weechat.enable  = true;
       };
 
       media = {
         spotify.enable  = true;
         sonos.enable    = true;
+      };
+
+      vm = {
+        qemu.enable = true;
       };
 
       db = {

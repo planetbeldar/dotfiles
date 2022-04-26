@@ -1,10 +1,11 @@
 { inputs, lib, pkgs, darwin, ... }:
-with lib;
 let
-  sys = "x86_64-darwin";
+  inherit (lib) util mkDefault removeSuffix filterAttrs elem;
+  inherit (pkgs) stdenv;
+
   traceImport = util.traceImportMsg "lib/darwin.nix:";
 in {
-  mkDarwinHost = path: attrs @ { system ? sys, ... }:
+  mkDarwinHost = path: attrs @ { system ? stdenv.hostPlatform.system, ... }:
     darwin.lib.darwinSystem {
       inherit system;
       specialArgs = { inherit lib inputs system; };

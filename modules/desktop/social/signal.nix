@@ -1,6 +1,6 @@
 { inputs, options, config, lib, pkgs, ... }:
-with lib;
 let
+  inherit (lib) util mkIf;
   inherit (pkgs) stdenv;
 
   signal = if stdenv.isDarwin then pkgs.signal-mac else pkgs.signal-desktop;

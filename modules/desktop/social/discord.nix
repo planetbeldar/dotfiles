@@ -1,6 +1,6 @@
 { options, config, lib, inputs, pkgs, ... }:
 let
-  inherit (lib) util mkIf mkMerge;
+  inherit (lib) util mkIf;
   inherit (pkgs) stdenv;
 
   discord = if stdenv.isDarwin then pkgs.discord-mac else pkgs.discord;

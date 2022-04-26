@@ -21,9 +21,9 @@ in {
     modules.shell.zsh.rcInit = ''
       if [ ! -d "$QMK_HOME" ]; then
         printf "Install and setup QMK to $QMK_HOME? (y/n)"
-        read -sk && echo
+        read -rsn1 install && echo
 
-        if [[ "$REPLY" =~ ^[Yy]$ ]]; then
+        if [[ "$install" =~ ^[Yy]$ ]]; then
           $DRY_RUN_CMD git clone --recurse-submodules --branch ${cfg.branch} git@github.com:${cfg.fork}/qmk_firmware.git $QMK_HOME
           $DRY_RUN_CMD git -C $QMK_HOME remote add upstream git@github.com:qmk/qmk_firmware.git
         fi
