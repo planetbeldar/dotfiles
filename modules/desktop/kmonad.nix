@@ -10,10 +10,14 @@ in {
   config = mkIf cfg.enable {
     nixpkgs.overlays = [ inputs.mac-overlay.overlays.kmonad-mac ];
 
+    # make kmonad link to bin
+    # - so we dont need to reallow in mac privacy settings when nix store location changes
+    environment.systemPackages = [ pkgs.kmonad-mac ];
+
     services.kmonad-mac = {
       enable = true;
       package = pkgs.kmonad-mac;
-      keymap =  "${configDir}/kmonad/config.kbd";
+      keymap = "${config.home.configHome}/kmonad/config.kbd";
     };
 
     home.configFile = {

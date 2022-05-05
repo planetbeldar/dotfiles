@@ -3,10 +3,11 @@ let
   inherit (pkgs.stdenv) isDarwin;
   inherit (lib) util mkOption mapAttrs isList concatMapStringsSep elem concatStringsSep mapAttrsToList;
   inherit (lib.types) attrs path attrsOf oneOf str listOf package either;
+
+  stateVersion = "21.11";
   userPath = if isDarwin
              then "/Users"
              else "/home";
-  stateVersion = "21.11";
 in {
   options = {
     user = util.mkOpt attrs {};
@@ -19,6 +20,7 @@ in {
 
     home = {
       file       = util.mkOpt' attrs {} "Files to place directly in $HOME";
+      configHome = util.mkOpt' path "${config.user.home}/.config" "$XDG_CONFIG_HOME, defaults to $HOME/.config";
       configFile = util.mkOpt' attrs {} "Files to place in $XDG_CONFIG_HOME";
       dataFile   = util.mkOpt' attrs {} "Files to place in $XDG_DATA_HOME";
 
@@ -62,6 +64,7 @@ in {
           packages = lib.mkAliasDefinitions options.home.packages;
         };
         xdg = {
+          configHome = lib.mkAliasDefinitions options.home.configHome;
           configFile = lib.mkAliasDefinitions options.home.configFile;
           dataFile   = lib.mkAliasDefinitions options.home.dataFile;
         };
