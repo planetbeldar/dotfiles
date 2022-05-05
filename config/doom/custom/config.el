@@ -24,6 +24,8 @@
         "~/Projects/py"
         "~/Projects/nix"
         "~/Projects/csharp"
+        "~/Projects/js"
+        "~/Projects/unifi"
         ))
 (after! projectile
   (projectile-discover-projects-in-search-path))

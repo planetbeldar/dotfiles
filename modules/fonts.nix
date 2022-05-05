@@ -6,7 +6,7 @@ let
 in (mkMerge [
   {
     fonts = {
-      enableFontDir = true;
+      fontDir.enable = true;
       fonts = [
         (nerdfonts.override {
           fonts = [ "SourceCodePro" "Iosevka" "Inconsolata" ];

@@ -40,7 +40,7 @@ in
     vim
     wget
     unzip
-    # coreutils
+    coreutils
     exa
     findutils #GNU find
     # diffutils #GNU diff
