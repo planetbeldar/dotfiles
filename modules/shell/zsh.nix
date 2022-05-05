@@ -1,10 +1,25 @@
 { config, options, pkgs, lib, ... }:
 let
   inherit (lib) util mkIf mapAttrsToList concatStringsSep concatMapStrings;
-  inherit (pkgs) zsh zsh-prezto zsh-vi-mode colordiff fetchFromGitHub;
+  inherit (pkgs) zsh zsh-vi-mode colordiff fetchFromGitHub;
 
   cfg = config.modules.shell.zsh;
   configDir = config.dotfiles.configDir;
+
+  zsh-prezto = pkgs.zsh-prezto.overrideAttrs (drv: {
+    version = "unstable-2022-04-11";
+    src = fetchFromGitHub {
+      owner = "sorin-ionescu";
+      repo = "prezto";
+      rev = "dea85a0740253c0e17fa7eadb067694e11f5451c";
+      sha256 = "5vfwFGTOj0swo88MmRSF3LHH1GusBZdsDfHiTSBSWDA=";
+      fetchSubmodules = true;
+    };
+
+    postPatch = drv.postPatch + ''
+      rm -fr .git* .editorconfig
+    '';
+  });
 in {
   options.modules.shell.zsh = with lib.types; {
     enable = util.mkBoolOpt false;
@@ -32,16 +47,7 @@ in {
 
     environment.systemPackages = [
       zsh
-      (zsh-prezto.overrideAttrs (drv: {
-        version = "head";
-        src = fetchFromGitHub {
-          owner = "sorin-ionescu";
-          repo = "prezto";
-          rev = "3dc3fa7f8c484569a721724fa13c77cecd1dd923";
-          sha256 = "TDbfsN3BJivRHDq8mDYLlyLPxk+4rsjex1YucoOzIgk=";
-          fetchSubmodules = true;
-        };
-      }))
+      zsh-prezto
       # used by prezto
       colordiff
     ];
@@ -49,7 +55,8 @@ in {
     env = {
       ZDOTDIR = "$XDG_CONFIG_HOME/zsh";
       ZSH_CACHE = "$XDG_CACHE_HOME/zsh";
-      ZPREZTODIR = "$XDG_DATA_HOME/zprezto";
+      # ZPREZTODIR = "${zsh-prezto}/share/zsh-prezto"; # running init from the nix store is sooo slow..
+      ZPREZTODIR = "$XDG_DATA_HOME/zprezto"; # this makes prezto start much faster, why?
     };
 
     home.configFile = {
@@ -84,10 +91,7 @@ in {
     };
 
     home.dataFile = {
-      "zprezto" = {
-        source = "${zsh-prezto}/share/zsh-prezto";
-        recursive = true;
-      };
+      zprezto.source = "${zsh-prezto}/share/zsh-prezto";
     };
   };
 }
