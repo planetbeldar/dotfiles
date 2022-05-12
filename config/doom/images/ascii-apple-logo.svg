@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="258" height="288" font-family="InputMono Nerd Font">
+    <style>
+        line, path, circle, rect, polygon{stroke:black;stroke-width:2;stroke-opacity:1;fill-opacity:1;stroke-linecap:round;stroke-linejoin:miter;}text{font-family:Iosevka Fixed, monospace;font-size:14px;}rect.backdrop{stroke:none;fill:white;}.broken{stroke-dasharray:8;}.filled{fill:black;}.bg_filled{fill:white;}.nofill{fill:white;}.end_marked_arrow{marker-end:url(#arrow);}.start_marked_arrow{marker-start:url(#arrow);}.end_marked_diamond{marker-end:url(#diamond);}.start_marked_diamond{marker-start:url(#diamond);}.end_marked_circle{marker-end:url(#circle);}.start_marked_circle{marker-start:url(#circle);}.end_marked_open_circle{marker-end:url(#open_circle);}.start_marked_open_circle{marker-start:url(#open_circle);}.end_marked_big_open_circle{marker-end:url(#big_open_circle);}.start_marked_big_open_circle{marker-start:url(#big_open_circle);}
+        <!--separator-->
+        .green { fill: #A3B09A }
+        .yellow { fill: #F7E3AF }
+        .orange { fill: #EABE9A }
+        .red { fill: #C6797E }
+        .magenta { fill: #B18BB1 }
+        .blue { fill: #6E94B9 }
+    </style>
+    <defs>
+        <marker id="arrow" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <polygon points="0,0 0,4 4,2 0,0"></polygon>
+        </marker>
+        <marker id="diamond" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <polygon points="0,2 2,0 4,2 2,4 0,2"></polygon>
+        </marker>
+        <marker id="circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <circle cx="4" cy="4" r="2" class="filled"></circle>
+        </marker>
+        <marker id="open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <circle cx="4" cy="4" r="2" class="bg_filled"></circle>
+        </marker>
+        <marker id="big_open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <circle cx="4" cy="4" r="3" class="bg_filled"></circle>
+        </marker>
+    </defs>
+    <text class="green" x="2" y="12" >&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'c.</text>
+    <text class="green" x="2" y="28" >&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;,xNMM.</text>
+    <text class="green" x="2" y="44" >&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.OMMMMo</text>
+    <text class="green" x="2" y="60" >&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;OMMM0,</text>
+    <text class="green" x="2"  y="76" >&#160;&#160;&#160;&#160;.;loddo:'&#160;&#160;loolloddol;.</text>
+    <text class="green" x="2" y="92" >&#160;&#160;&#160;cKMMMMMMMMMMNWMMMMMMMMMM0:</text>
+    <text class="yellow" x="2" y="108" >&#160;.KMMMMMMMMMMMMMMMMMMMMMMMWd.</text>
+    <text class="yellow" x="2" y="124" >&#160;XMMMMMMMMMMMMMMMMMMMMMMMX.</text>
+    <text class="orange" x="2" y="140" >;MMMMMMMMMMMMMMMMMMMMMMMM:</text>
+    <text class="orange" x="2" y="156" >:MMMMMMMMMMMMMMMMMMMMMMMM:</text>
+    <text class="red" x="2" y="172" >.MMMMMMMMMMMMMMMMMMMMMMMMX.</text>
+    <text class="red" x="2" y="188" >&#160;kMMMMMMMMMMMMMMMMMMMMMMMMWd.</text>
+    <text class="magenta" x="2" y="204" >&#160;.XMMMMMMMMMMMMMMMMMMMMMMMMMMk</text>
+    <text class="magenta" x="2" y="220" >&#160;&#160;.XMMMMMMMMMMMMMMMMMMMMMMMMK.</text>
+    <text class="blue" x="2" y="236" >&#160;&#160;&#160;&#160;kMMMMMMMMMMMMMMMMMMMMMMd</text>
+    <text class="blue" x="2" y="252" >&#160;&#160;&#160;&#160;&#160;;KMMMMMMMWXXWMMMMMMMk.</text>
+    <text class="blue" x="2" y="268" >&#160;&#160;&#160;&#160;&#160;&#160;&#160;.cooc,.&#160;&#160;&#160;&#160;.,coo:.</text>
+</svg>

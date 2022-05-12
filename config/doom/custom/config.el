@@ -4,7 +4,8 @@
       user-mail-address "tony.hoglund@gmail.com")
 (setq doom-font (font-spec :family "SauceCodePro Nerd Font" :weight 'normal :size 14)
       doom-big-font-increment 1)
-(setq doom-theme 'doom-rouge)
+;; (setq doom-theme 'doom-rouge)
+(setq doom-theme 'doom-wilmersdorf)
 (setq confirm-kill-emacs nil)
 
 ;; (setq comp-speed 2)
@@ -115,5 +116,17 @@
 ;;     :commands (evil-mc-make-cursor-in-visual-selection))
 (use-package! kbd-mode)
 
+;; (run-with-idle-timer 2 nil setq fancy-splash-image (concat doom-private-dir "images/ascii-apple-logo.svg"))
+
 ;; bindings
 (load! "bindings.el")
+
+(use-package! tree-sitter
+  :hook (prog-mode . turn-on-tree-sitter-mode)
+  :hook (tree-sitter-after-on . tree-sitter-hl-mode)
+  :config
+  (require 'tree-sitter-langs)
+  ;; this makes every node a link to a section of the code
+  (setq tree-sitter-debug-jump-buttons t
+        ;; and this highlights the entire sub tree in your code
+        tree-sitter-debug-highlight-jump-region t))
