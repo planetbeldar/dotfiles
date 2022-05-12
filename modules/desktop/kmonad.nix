@@ -1,11 +1,11 @@
 { options, config, inputs, lib, pkgs, ... }:
 let
-  inherit (lib) util mkIf;
+  inherit (lib) mkIf mkEnableOption;
 
   cfg = config.modules.desktop.kmonad;
   configDir = config.dotfiles.configDir;
 in {
-  options.modules.desktop.kmonad = { enable = util.mkBoolOpt false; };
+  options.modules.desktop.kmonad = { enable = mkEnableOption "enable kmonad service"; };
 
   config = mkIf cfg.enable {
     nixpkgs.overlays = [ inputs.mac-overlay.overlays.kmonad-mac ];
@@ -22,7 +22,7 @@ in {
 
     home.configFile = {
       "kmonad" = {
-        source = lib.util.mkOutOfStoreSymlink "${configDir}/kmonad";
+        source = config.lib.file.mkOutOfStoreSymlink "${configDir}/kmonad";
         recursive = true;
       };
     };

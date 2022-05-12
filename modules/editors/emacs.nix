@@ -1,20 +1,14 @@
 { inputs, options, config, lib, pkgs, ... }:
-with lib;
-with inputs.home-manager.lib;
 let
-  inherit (pkgs) stdenv emacs emacsGcc;
+  inherit (pkgs) stdenv emacs emacsNativeComp;
+  inherit (lib) mkIf mkMerge mkEnableOption;
 
   cfg = config.modules.editors.emacs;
   configDir = config.dotfiles.configDir;
 in {
-  options.modules.editors.emacs = { enable = util.mkBoolOpt false; };
+  options.modules.editors.emacs = { enable = mkEnableOption "enable emacs"; };
 
   config = mkIf cfg.enable (mkMerge [{
-    nix = {
-      binaryCaches = [ "https://cachix.org/api/v1/cache/emacs" ];
-      binaryCachePublicKeys =
-        [ "emacs.cachix.org-1:b1SMJNLY/mZF6GxQE+eDBeps7WnkT0Po55TAyzwOxTY=" ];
-    };
     nixpkgs.overlays = [ inputs.mac-overlay.overlays.emacs-mac ];
 
     environment.systemPackages = with pkgs;
@@ -28,10 +22,11 @@ in {
         # clang
         texlive.combined.scheme-medium
         sqlite # roam
+        tree-sitter
       ] ++ lib.optionals stdenv.isDarwin [
         #emacs-macport
         gnugrep # pcre not enabled in macos version of grep
-        # emacs-mac
+        emacs-mac
       ] ++ lib.optionals stdenv.isLinux [ emacsGcc ];
 
     fonts.fonts = [ pkgs.emacs-all-the-icons-fonts ];
@@ -52,7 +47,7 @@ in {
 
     home.configFile = {
       "doom" = {
-        source = lib.util.mkOutOfStoreSymlink "${configDir}/doom";
+        source = config.lib.file.mkOutOfStoreSymlink "${configDir}/doom";
         recursive = true;
       };
     };

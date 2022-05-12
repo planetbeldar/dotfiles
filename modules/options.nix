@@ -40,6 +40,9 @@ in {
   };
 
   config = {
+    # make home-manager's mkOutOfStoreSymlink accessible outside of its module
+    lib.file.mkOutOfStoreSymlink = config.home-manager.users.${config.user.name}.lib.file.mkOutOfStoreSymlink;
+
     user =
       let user = builtins.getEnv "USER";
           name = if elem user [ "" "root" ] then "planetbeldar" else user;

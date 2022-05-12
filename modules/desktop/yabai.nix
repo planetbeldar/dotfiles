@@ -1,11 +1,12 @@
 { options, config, lib, pkgs, inputs, ... }:
 let
-  inherit (lib) util mkIf;
+  inherit (pkgs) stdenv;
+  inherit (lib) mkIf mkEnableOption;
 
   cfg = config.modules.desktop.yabai;
   configDir = config.dotfiles.configDir;
 in {
-  options.modules.desktop.yabai = { enable = util.mkBoolOpt false; };
+  options.modules.desktop.yabai = { enable = mkEnableOption "enable yabai service"; };
 
   config = mkIf cfg.enable {
     nixpkgs.overlays = [ inputs.mac-overlay.overlays.yabai ];
@@ -18,7 +19,10 @@ in {
     };
 
     home.configFile = {
-      "yabai/yabairc".source = "${configDir}/yabai/yabairc";
+      yabai = {
+        source = config.lib.file.mkOutOfStoreSymlink "${configDir}/yabai";
+        recursive = true;
+      };
     };
   };
 }

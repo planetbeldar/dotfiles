@@ -1,7 +1,7 @@
 { config, options, pkgs, lib, ... }:
 let
-  inherit (lib) util mkIf mapAttrsToList concatStringsSep concatMapStrings;
-  inherit (pkgs) zsh zsh-vi-mode colordiff fetchFromGitHub;
+  inherit (lib) util mkEnableOption mkIf mapAttrsToList concatStringsSep concatMapStrings;
+  inherit (pkgs) zsh neofetch colordiff fetchFromGitHub;
 
   cfg = config.modules.shell.zsh;
   configDir = config.dotfiles.configDir;
@@ -22,7 +22,7 @@ let
   });
 in {
   options.modules.shell.zsh = with lib.types; {
-    enable = util.mkBoolOpt false;
+    enable = mkEnableOption "enable zsh";
 
     aliases = util.mkOpt (attrsOf (either str path)) { };
 
@@ -48,6 +48,7 @@ in {
     environment.systemPackages = [
       zsh
       zsh-prezto
+      neofetch
       # used by prezto
       colordiff
     ];
@@ -62,7 +63,7 @@ in {
     home.configFile = {
       # Write it recursively so other modules can write files to it
       "zsh" = {
-        source = util.mkOutOfStoreSymlink "${configDir}/zsh";
+        source = config.lib.file.mkOutOfStoreSymlink "${configDir}/zsh";
         recursive = true;
       };
 

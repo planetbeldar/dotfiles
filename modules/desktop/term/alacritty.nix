@@ -8,18 +8,16 @@ let
   cfg = config.modules.desktop.term.alacritty;
   configDir = config.dotfiles.configDir;
 
-  # alacritty = if stdenv.isDarwin then pkgs.alacritty-mac else pkgs.alacritty;
   alacritty = pkgs.alacritty;
 in {
   options.modules.desktop.term.alacritty = { enable = util.mkBoolOpt false; };
 
   config = mkIf cfg.enable {
-    # nixpkgs.overlays = [ inputs.mac-overlay.overlays.alacritty-mac ];
     environment.systemPackages = [ alacritty ];
 
     home.configFile = {
       "alacritty" = {
-        source = lib.util.mkOutOfStoreSymlink "${configDir}/alacritty";
+        source = config.lib.file.mkOutOfStoreSymlink "${configDir}/alacritty";
         recursive = true;
       };
     };
