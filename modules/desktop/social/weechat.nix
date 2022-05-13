@@ -1,12 +1,16 @@
 { options, config, lib, pkgs, ... }:
 let
   inherit (lib) util mkIf;
-  inherit (pkgs.weechatScripts) weechat-matrix;
+  inherit (pkgs.weechatScripts) multiline weechat-matrix wee-slack;
 
   cfg = config.modules.desktop.social.weechat;
   weechat = pkgs.weechat.override {
     configure = { availablePlugins, ... }: {
-      scripts = [ weechat-matrix ];
+      scripts = [
+        # vimode
+        multiline
+        weechat-matrix
+        wee-slack ];
       init = ''
       '';
     };
