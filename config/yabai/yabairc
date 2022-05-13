@@ -83,12 +83,12 @@ yabai -m config window_border                on
 yabai -m config window_border_width          3
 # yabai -m config normal_window_border_color   0xff555555
 # rouge theme
-# yabai -m config active_window_border_color   0xff775759
-# yabai -m config normal_window_border_color   0xff172030 #rouge theme background color
+yabai -m config active_window_border_color   0xff775759
+yabai -m config normal_window_border_color   0xff172030 #rouge theme background color
 # rouge end
 # wilmersdorf theme
-yabai -m config active_window_border_color   0xff575a77
-yabai -m config normal_window_border_color   0xff1f2024 #rouge theme background color
+# yabai -m config active_window_border_color   0xff575a77
+# yabai -m config normal_window_border_color   0xff1f2024 #rouge theme background color
 # wilmersdorf end
 yabai -m config insert_feedback_color        0xffd75f5f
 yabai -m config split_ratio                  0.50

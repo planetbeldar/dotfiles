@@ -46,10 +46,7 @@ in {
     '';
 
     home.configFile = {
-      "doom" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${configDir}/doom";
-        recursive = true;
-      };
+      "doom".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/doom";
     };
 
     env.PATH = [ "$XDG_CONFIG_HOME/emacs/bin" ];

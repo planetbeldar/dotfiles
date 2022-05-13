@@ -45,7 +45,7 @@ determine the exact padding."
    (base7      '("#E8E9EB" "#979797" "brightblack"  ))
    (base8      '("#F0F4FC" "#dfdfdf" "white"        ))
    ;; (fg         '("#FAFFF6"    "#bbb" "white"        ))
-   (fg         '("#EAEFE6"    "#bbb" "white"        ))
+   (fg         '("#D6D6D6"    "#bbb" "white"        ))
    (fg-alt     '("#A7ACB9" "#bfbfbf" "brightwhite"  ))
 
    (grey       base5)
@@ -108,7 +108,7 @@ determine the exact padding."
 
   ;;;; Base theme face overrides
   (((font-lock-comment-face &override) :slant 'italic)
-   ((font-lock-keyword-face &override) :slant 'italic)
+   ;; ((font-lock-keyword-face &override) :slant 'italic)
    (font-lock-preprocessor-face :foreground magenta :slant 'italic)
    (lazy-highlight :background base4)
    ((line-number &override) :foreground (doom-lighten 'base5 0.2))
@@ -139,8 +139,8 @@ determine the exact padding."
    ;;;; doom-modeline
    (doom-modeline-project-root-dir :foreground base6)
    ;;;; doom-themes
-   (doom-themes-treemacs-root-face :foreground highlight :weight 'ultra-bold :height 1.2)
-   (doom-themes-treemacs-file-face :foreground magenta)
+   ((doom-themes-treemacs-root-face &override) :foreground highlight)
+   ((doom-themes-treemacs-file-face &override) :foreground magenta)
    ;;;; ediff <built-in>
    (ediff-fine-diff-A    :background (doom-darken violet 0.4) :weight 'bold)
    (ediff-current-diff-A :background (doom-darken base0 0.25))
@@ -182,7 +182,7 @@ determine the exact padding."
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-inactive-l)))
    (solaire-hl-line-face :background nil)
    ;;;; treemacs
-   (treemacs-root-face :foreground highlight :weight 'ultra-bold :height 1.2)
+   ((treemacs-root-face &override) :foreground highlight)
    ;; (treemacs-directory-face :foreground highlight)
    ;;;; vimish-fold
    ((vimish-fold-overlay &override) :inherit 'font-lock-comment-face :background base3 :weight 'light)

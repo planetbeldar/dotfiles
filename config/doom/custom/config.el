@@ -1,11 +1,13 @@
 ;; (add-to-list 'default-frame-alist '(undecorated . t))
+(setq fancy-splash-image (concat doom-private-dir "images/ascii-apple-logo.svg"))
 
 (setq user-full-name "Tony Höglund"
       user-mail-address "tony.hoglund@gmail.com")
 (setq doom-font (font-spec :family "SauceCodePro Nerd Font" :weight 'normal :size 14)
+      doom-variable-pitch-font (font-spec :family "SauceCodePro Nerd Font" :weight 'normal :size 14)
       doom-big-font-increment 1)
-;; (setq doom-theme 'doom-rouge)
-(setq doom-theme 'doom-wilmersdorf)
+(setq doom-theme 'doom-rouge)
+;; (setq doom-theme 'doom-wilmersdorf)
 (setq confirm-kill-emacs nil)
 
 ;; (setq comp-speed 2)
@@ -115,8 +117,6 @@
 ;; (use-package! evil-mc
 ;;     :commands (evil-mc-make-cursor-in-visual-selection))
 (use-package! kbd-mode)
-
-;; (run-with-idle-timer 2 nil setq fancy-splash-image (concat doom-private-dir "images/ascii-apple-logo.svg"))
 
 ;; bindings
 (load! "bindings.el")
