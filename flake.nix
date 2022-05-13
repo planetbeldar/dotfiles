@@ -25,7 +25,7 @@
     mac-overlay.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs @ { self, nixpkgs, darwin, mac-overlay, ... }:
+  outputs = inputs @ { self, nixpkgs, home-manager, darwin, mac-overlay, ... }:
     let
       inherit (lib.util) mapModules mapModules' mapModulesRec mapDarwinHosts mapNixosHosts traceImportMsg traceCallPackageMsg;
       traceCallPackage = traceCallPackageMsg "flake.nix:";
@@ -49,7 +49,7 @@
       # pkgs' = mkPkgs nixpkgs-unstable [];
 
       lib = nixpkgs.lib.extend
-        (self: super: { util = import ./lib { inherit pkgs inputs darwin; lib = self; };});
+        (self: super: { util = import ./lib { inherit pkgs inputs darwin home-manager; lib = self; };});
 
       dotfiles = traceImport ./.;
 
