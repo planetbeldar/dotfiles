@@ -6,20 +6,14 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "nixpkgs/nixpkgs-unstable";
     # Home manager
-    home-manager = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    home-manager.url = "github:nix-community/home-manager/master";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
     # nix-direnv
-    nix-direnv = {
-      url = "github:nix-community/nix-direnv";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nix-direnv.url = "github:nix-community/nix-direnv";
+    nix-direnv.inputs.nixpkgs.follows = "nixpkgs";
     # Darwin
-    darwin = {
-      url = "github:lnl7/nix-darwin/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    darwin.url = "github:lnl7/nix-darwin/master";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
     # mac-overlay
     mac-overlay.url = "github:planetbeldar/mac-overlay";
     mac-overlay.inputs.nixpkgs.follows = "nixpkgs";
