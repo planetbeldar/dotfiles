@@ -1,13 +1,11 @@
 { inputs, config, lib, pkgs, ... }:
-with lib;
 let
-  inherit (pkgs.stdenv) isDarwin;
+  inherit (pkgs) stdenv;
+  inherit (lib) util filterAttrs mapAttrsToList mapAttrs;
   traceImport = util.traceImportMsg "default.nix";
 in
 {
-  imports =
-    # [ inputs.home-manager.darwinModules.home-manager ] ++
-    (util.mapModulesRec' (toString ./modules) (traceImport));
+  imports = (util.mapModulesRec' (toString ./modules) (traceImport));
 
   # Common config for all nix machines; and to ensure the flake operates soundly
   environment.variables.DOTFILES = config.dotfiles.dir;

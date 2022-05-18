@@ -60,6 +60,7 @@
       media = {
         spotify.enable  = true;
         sonos.enable    = true;
+        inkscape.enable = true;
       };
 
       vm = {
