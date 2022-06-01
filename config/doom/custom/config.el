@@ -3,8 +3,8 @@
 
 (setq user-full-name "Tony Höglund"
       user-mail-address "tony.hoglund@gmail.com")
-(setq doom-font (font-spec :family "SauceCodePro Nerd Font" :weight 'normal :size 14)
-      doom-variable-pitch-font (font-spec :family "SauceCodePro Nerd Font" :weight 'normal :size 14)
+(setq doom-font (font-spec :family "BlexMono Nerd Font" :weight 'normal :size 13)
+      doom-variable-pitch-font (font-spec :family "BlexMono Nerd Font" :weight 'normal :size 13)
       doom-big-font-increment 1)
 (setq doom-theme 'doom-rouge)
 ;; (setq doom-theme 'doom-wilmersdorf)
@@ -21,6 +21,7 @@
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
 
+;; projectile
 (setq projectile-project-search-path
       '("~/Projects/swift/"
         "~/Projects/cpp"
@@ -54,22 +55,28 @@
 
 
 ;; Zen/writeroom
-(setq writeroom-major-modes '(text-mode emacs-lisp-mode swift-mode python-mode sh-mode nix-mode)
-      writeroom-width 0.5       ;; default 80 (characters) https://github.com/joostkremers/writeroom-mode#width
-      +zen-text-scale 0.1       ;; default 2
+(setq writeroom-major-modes '(text-mode emacs-lisp-mode swift-mode python-mode sh-mode nix-mode cc-mode)
+      writeroom-width 0.5               ;; default 80 (characters) https://github.com/joostkremers/writeroom-mode#width
+      +zen-text-scale 0.1               ;; default 2
+      +zen-window-divider-size 1        ;; default 4
       )
 
 
 ;; lsp-mode
 (after! lsp-mode
   (setq lsp-idle-delay 0.1
-        lsp-csharp-server-path "/run/current-system/sw/bin/omnisharp"))
+        lsp-csharp-server-path "/run/current-system/sw/bin/omnisharp"
+        ))
 ;; lsp-ui
 (after! lsp-ui
   (setq lsp-ui-sideline-show-hover t
         lsp-ui-doc-enable t
         lsp-ui-doc-max-width 90
         lsp-ui-doc-max-height 10
+        ))
+;; flycheck (syntax, spelling etc)
+(after! flycheck
+  (setq flycheck-idle-change-delay 0.1
         ))
 
 
@@ -120,13 +127,3 @@
 
 ;; bindings
 (load! "bindings.el")
-
-(use-package! tree-sitter
-  :hook (prog-mode . turn-on-tree-sitter-mode)
-  :hook (tree-sitter-after-on . tree-sitter-hl-mode)
-  :config
-  (require 'tree-sitter-langs)
-  ;; this makes every node a link to a section of the code
-  (setq tree-sitter-debug-jump-buttons t
-        ;; and this highlights the entire sub tree in your code
-        tree-sitter-debug-highlight-jump-region t))

@@ -14,6 +14,9 @@
     # Darwin
     darwin.url = "github:lnl7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
+    # Agenix
+    # agenix.url = "github:ryantm/agenix";
+    # agenix.inputs.nixpkgs.follows = "nixpkgs";
     # mac-overlay
     mac-overlay.url = "github:planetbeldar/mac-overlay";
     mac-overlay.inputs.nixpkgs.follows = "nixpkgs";

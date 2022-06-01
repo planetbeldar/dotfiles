@@ -6,6 +6,3 @@
   :recipe (:host github
            :repo "kmonad/kbd-mode"
            ))
-
-(package! tree-sitter)
-(package! tree-sitter-langs)

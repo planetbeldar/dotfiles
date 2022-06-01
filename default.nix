@@ -3,8 +3,7 @@ let
   inherit (pkgs) stdenv;
   inherit (lib) util filterAttrs mapAttrsToList mapAttrs;
   traceImport = util.traceImportMsg "default.nix";
-in
-{
+in {
   imports = (util.mapModulesRec' (toString ./modules) (traceImport));
 
   # Common config for all nix machines; and to ensure the flake operates soundly

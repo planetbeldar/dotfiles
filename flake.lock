@@ -80,11 +80,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1652875573,
-        "narHash": "sha256-/DSb2yWd0Y/Q+8d9c+HARfNSCvQeZpE8DxYDT8GVzJ8=",
+        "lastModified": 1654072554,
+        "narHash": "sha256-NLOgITP7GcJ9khre2/j8/DOo6ERNe0rW3hL58KLM8WA=",
         "owner": "planetbeldar",
         "repo": "mac-overlay",
-        "rev": "556f73ada9ae16219475af0afd75417426b8f777",
+        "rev": "3f6f9d54bc3758a7c93f85315e55a82f76131ba2",
         "type": "github"
       },
       "original": {
