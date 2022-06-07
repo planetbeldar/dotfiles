@@ -28,6 +28,8 @@
         branch = "planb";
       };
       yaml.enable = true;
+      aws.enable = true;
+      postman.enable = true;
     };
 
     desktop = {

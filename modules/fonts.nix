@@ -1,15 +1,15 @@
 { options, config, pkgs, lib, ... }:
 let
   inherit (lib) mkMerge mkIf;
-  inherit (pkgs) stdenv nerdfonts fontconfig;
-  inherit (pkgs.local) font-patcher input-nerd-fonts;
+  inherit (pkgs) nerd-font-patcher stdenv nerdfonts fontconfig;
+  inherit (pkgs.local) input-nerd-fonts;
 in (mkMerge [
   {
     fonts = {
       fontDir.enable = true;
       fonts = [
         (nerdfonts.override {
-          fonts = [ "SourceCodePro" "Iosevka" "Inconsolata" ];
+          fonts = [ "SourceCodePro" "Iosevka" "Inconsolata" "IBMPlexMono" "JetBrainsMono" ];
         })
         (input-nerd-fonts.override { name = "InputMono-.*(Thin|Light).*"; })
       ];
@@ -17,11 +17,11 @@ in (mkMerge [
 
     environment.systemPackages = [
       fontconfig # fc-list et al.
-      font-patcher
+      nerd-font-patcher
     ];
   }
   (mkIf stdenv.isDarwin {
     environment.etc.fonts.source = "${fontconfig.out}/etc/fonts"; # default fontconfig configuration
-    home.dataFile.fonts.source = "/Library/Fonts"; # link installed fonts for fontconfig
+    home.dataFile.fonts.source = config.lib.file.mkOutOfStoreSymlink "/Library/Fonts"; # link installed fonts for fontconfig
   })
 ])

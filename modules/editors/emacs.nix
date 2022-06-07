@@ -23,6 +23,10 @@ in {
         texlive.combined.scheme-medium
         sqlite # roam
         tree-sitter
+        editorconfig-core-c
+        (aspellWithDicts (dictionaries: with dictionaries; [
+          sv en en-computers en-science
+        ]))
       ] ++ lib.optionals stdenv.isDarwin [
         #emacs-macport
         gnugrep # pcre not enabled in macos version of grep

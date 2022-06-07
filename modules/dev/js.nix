@@ -1,13 +1,13 @@
 { config, options, lib, pkgs, ... }:
 
 let
-  inherit (lib) util mkIf;
+  inherit (lib) mkIf mkEnableOption;
   inherit (pkgs) nodejs yarn nodePackages;
 
   cfg = config.modules.dev.js;
 in {
   options.modules.dev.js = {
-    enable = util.mkBoolOpt false;
+    enable = mkEnableOption "enable JS, TS, HTML, JSON...";
   };
 
   config = mkIf cfg.enable {

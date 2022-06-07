@@ -1,7 +1,7 @@
 { config, options, lib, pkgs, ... }:
 let
   inherit (lib) mkIf mkEnableOption;
-  inherit (pkgs) omnisharp-roslyn dotnetCorePackages;
+  inherit (pkgs) stdenv omnisharp-roslyn dotnetCorePackages;
 
   cfg = config.modules.dev.dotnet;
   dotnet-sdk = dotnetCorePackages.sdk_6_0;

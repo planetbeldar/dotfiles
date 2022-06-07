@@ -32,7 +32,6 @@
       mkPkgs = pkgs: extraOverlays: import pkgs {
         inherit system;
         config.allowUnfree = true;
-        # config.allowBroken = true;
         config.input-fonts.acceptLicense = true;
         overlays = extraOverlays ++ (lib.attrValues self.overlays);
       };
