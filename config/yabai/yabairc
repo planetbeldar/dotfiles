@@ -14,65 +14,39 @@
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
-## macOS
-# float system preferences
-yabai -m rule --add app="^System Preferences$" manage=off
-# float system information
-yabai -m rule --add app="^System Information$" manage=off
-# float disk utility
-yabai -m rule --add app="^Disk Utility$" manage=off
-# float finder
-yabai -m rule --add app="^Finder$" manage=off
-# float preview
-yabai -m rule --add app="^Preview$" manage=off
-# float activity monitor
+# macOS
 yabai -m rule --add app="^Activity Monitor$" manage=off
-# float archive utility
-yabai -m rule --add app="^Archive Utility$" manage=off
-# float calendar
-yabai -m rule --add app="^Calendar$" manage=off
-# float calculator
-yabai -m rule --add app="^Calculator$" manage=off
-# float app store
 yabai -m rule --add app="^App Store$" manage=off
-# float font book
+yabai -m rule --add app="^Archive Utility$" manage=off
+yabai -m rule --add app="^Books$" title="^Books|General|Reading|Playback|Advanced$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Calendar$" manage=off
+yabai -m rule --add app="^Disk Utility$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^Font Book$" manage=off
-# float keychain access
 yabai -m rule --add app="^Keychain Access$" manage=off
-# float safari extensions
+yabai -m rule --add app="^Notes$" manage=off
+yabai -m rule --add app="^Preview$" manage=off
 yabai -m rule --add app="^Safari$" title="^General|Tabs|AutoFill|Passwords|Search|Security|Privacy|Websites|Extensions|Advanced$" manage=off
+yabai -m rule --add app="^System Information$" manage=off
+yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Vimari$" manage=off
-# float inkscape
-yabai -m rule --add app="^Inkscape$" manage=off
 
-
-# float firefox download
-yabai -m rule --add app="^Firefox$" title="^Opening[ ].*$" manage=off
-# float battle.net
+# third party
 yabai -m rule --add app="^Battle.net$" manage=off
-# float microsoft autoupdate
-yabai -m rule --add app="^Microsoft AutoUpdate$" manage=off
-# float qmk toolbox
-yabai -m rule --add app="^QMK Toolbox$" manage=off
-# float vmware fusion
-yabai -m rule --add app="^VMware Fusion$" manage=off
-# float iOS App Signer
-yabai -m rule --add app="^iOS App Signer$" manage=off
-
-#float sonos
-yabai -m rule --add app="^Sonos$" manage=off
-
-# float signal settings
-yabai -m rule --add app="^Signal$" title="^Signal Desktop Preferences$" manage=off
-
-# doom emacs
 yabai -m rule --add app="^Emacs$" title!="^[*]doom[*]*" manage=off
+yabai -m rule --add app="^Firefox$" title="^Opening[ ].*$" manage=off
+yabai -m rule --add app="^Inkscape$" manage=off
+yabai -m rule --add app="^iOS App Signer$" manage=off
+yabai -m rule --add app="^Microsoft AutoUpdate$" manage=off
+yabai -m rule --add app="^NoMachine$" manage=off
+yabai -m rule --add app="^QMK Toolbox$" manage=off
+yabai -m rule --add app="^Signal$" title="^Signal Desktop Preferences$" manage=off
+yabai -m rule --add app="^Sonos$" manage=off
+yabai -m rule --add app="^VMware Fusion$" manage=off
 
 # show digital colour meter topmost and on all spaces
 yabai -m rule --add app="^Digital Colou?r Meter$" sticky=on manage=off
-
-# float NoMachine
-yabai -m rule --add app="^NoMachine$" manage=off
 
 # global settings
 yabai -m config mouse_follows_focus          off

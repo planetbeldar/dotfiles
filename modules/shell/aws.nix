@@ -3,9 +3,9 @@ let
   inherit (lib) mkIf mkEnableOption;
   inherit (pkgs) awscli2;
 
-  cfg = config.modules.dev.aws;
+  cfg = config.modules.shell.aws;
 in {
-  options.modules.dev.aws = { enable = mkEnableOption "enable aws cli"; };
+  options.modules.shell.aws = { enable = mkEnableOption "enable aws cli"; };
 
   config = mkIf cfg.enable {
     environment.systemPackages = [ awscli2 ];

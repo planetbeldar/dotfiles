@@ -3,12 +3,12 @@
   # Modules
   modules = {
     shell = {
-      zsh.enable = true;
-      m-cli.enable = true;
-      git.enable = true;
+      aws.enable = true;
       bottom.enable = true;
+      git.enable = true;
+      openapi.enable = true;
       xkbswitch.enable = true;
-      # sshfs.enable = true;
+      zsh.enable = true;
     };
 
     editors = {
@@ -21,15 +21,15 @@
       dotnet.enable = true;
       haskell.enable = true;
       js.enable   = true;
+      postman.enable = true;
       qmk = {
         enable = true;
         home = "${config.user.home}/Projects/cpp";
         fork = "planetbeldar";
         branch = "planb";
       };
+      rust.enable = true;
       yaml.enable = true;
-      aws.enable = true;
-      postman.enable = true;
     };
 
     desktop = {
