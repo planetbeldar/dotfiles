@@ -76,9 +76,9 @@ in {
 
     users.users.${config.user.name} = lib.mkAliasDefinitions options.user;
 
-    nix = let users = [ "root" config.user.name ]; in {
-      trustedUsers = users;
-      allowedUsers = users;
+    nix.settings = let users = [ "root" config.user.name ]; in {
+      trusted-users = users;
+      allowed-users = users;
     };
 
     env.PATH = [ "$PATH" ];
