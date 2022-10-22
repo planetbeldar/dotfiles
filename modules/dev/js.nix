@@ -18,6 +18,7 @@ in {
       nodePackages.eslint
       nodePackages.vscode-json-languageserver
       nodePackages.typescript-language-server
+      nodePackages.typescript
     ];
   };
 }

@@ -11,6 +11,11 @@ in {
     services.skhd.enable = true;
     services.skhd.package = pkgs.skhd;
 
-    home.configFile = { "skhd/skhdrc".source = "${configDir}/skhd/skhdrc"; };
+    home.configFile = {
+      skhd = {
+        source = config.lib.file.mkOutOfStoreSymlink "${configDir}/skhd";
+        recursive = true;
+      };
+    };
   };
 }

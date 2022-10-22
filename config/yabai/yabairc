@@ -31,10 +31,11 @@ yabai -m rule --add app="^Safari$" title="^General|Tabs|AutoFill|Passwords|Searc
 yabai -m rule --add app="^System Information$" manage=off
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Vimari$" manage=off
+yabai -m rule --add app="^Messages$" manage=off
 
 # third party
 yabai -m rule --add app="^Battle.net$" manage=off
-yabai -m rule --add app="^Emacs$" title!="^[*]doom[*]*" manage=off
+#yabai -m rule --add app="^Emacs$" title!="^[*]doom[*]*" manage=off
 yabai -m rule --add app="^Firefox$" title="^Opening[ ].*$" manage=off
 yabai -m rule --add app="^Inkscape$" manage=off
 yabai -m rule --add app="^iOS App Signer$" manage=off
@@ -44,9 +45,19 @@ yabai -m rule --add app="^QMK Toolbox$" manage=off
 yabai -m rule --add app="^Signal$" title="^Signal Desktop Preferences$" manage=off
 yabai -m rule --add app="^Sonos$" manage=off
 yabai -m rule --add app="^VMware Fusion$" manage=off
+yabai -m rule --add app="^Tunnelblick$" manage=off
+yabai -m rule --add app="^DataGrip$" manage=off
+yabai -m rule --add app="^Tuple$" manage=off
+#yabai -m rule --add app="^Dbeaver$" title!="^DBeaver.*$" manage=off
+yabai -m rule --add app="^Dbeaver$" manage=off
 
 # show digital colour meter topmost and on all spaces
 yabai -m rule --add app="^Digital Colou?r Meter$" sticky=on manage=off
+
+# work
+yabai -m rule --add app="^Safari$" title="^Sign in - Google Accounts$" manage=off
+yabai -m rule --add app="^IntelliJ IDEA$" title="^Evaluate$" manage=off
+
 
 # global settings
 yabai -m config mouse_follows_focus          off

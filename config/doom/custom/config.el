@@ -1,4 +1,9 @@
-;; (add-to-list 'default-frame-alist '(undecorated . t))
+;; (setq default-frame-alist '((undecorated . t)))
+;;(add-to-list 'default-frame-alist '(undecorated . t))
+;;(add-to-list 'default-frame-alist '(drag-internal-border . 1))
+;;(add-to-list 'default-frame-alist '(internal-border-width . 5))
+;;(add-to-list 'default-frame-alist '(drag-with-header-line . 1))
+
 (setq fancy-splash-image (concat doom-private-dir "images/ascii-apple-logo.svg"))
 
 (setq user-full-name "Tony Höglund"
@@ -30,6 +35,8 @@
         "~/Projects/csharp"
         "~/Projects/js"
         "~/Projects/unifi"
+        "~/Projects/rust"
+        "~/Projects/kotlin"
         ))
 (after! projectile
   (projectile-discover-projects-in-search-path))
@@ -124,6 +131,9 @@
 ;; (use-package! evil-mc
 ;;     :commands (evil-mc-make-cursor-in-visual-selection))
 (use-package! kbd-mode)
+;; zmk/zephyr support
+(use-package! kconfig-mode)
+(use-package! dts-mode)
 
 ;; bindings
 (load! "bindings.el")

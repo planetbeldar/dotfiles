@@ -4,7 +4,7 @@ let
   inherit (lib) util mkOption mapAttrs isList concatMapStringsSep elem concatStringsSep mapAttrsToList;
   inherit (lib.types) attrs path attrsOf oneOf str listOf package either;
 
-  stateVersion = "21.11";
+  stateVersion = "22.05";
   userPath = if isDarwin
              then "/Users"
              else "/home";

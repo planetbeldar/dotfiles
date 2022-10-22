@@ -6,3 +6,7 @@
   :recipe (:host github
            :repo "kmonad/kbd-mode"
            ))
+
+;; zmk/zephyr support
+(package! kconfig-mode)
+(package! dts-mode)
