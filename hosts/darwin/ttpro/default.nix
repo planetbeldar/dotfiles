@@ -5,6 +5,7 @@
     shell = {
       aws.enable = true;
       bottom.enable = true;
+      docker.enable = true;
       git.enable = true;
       openapi.enable = true;
       xkbswitch.enable = true;
@@ -20,7 +21,8 @@
     dev = {
       dotnet.enable = true;
       haskell.enable = true;
-      js.enable   = true;
+      js.enable = true;
+      kotlin.enable = true;
       postman.enable = true;
       qmk = {
         enable = true;
@@ -30,6 +32,11 @@
       };
       rust.enable = true;
       yaml.enable = true;
+      # zmk = {
+      #   enable = true;
+      #   home = "${config.user.home}/Projects/cpp";
+      #   fork = "planetbeldar";
+      # };
     };
 
     desktop = {
@@ -71,6 +78,7 @@
 
       db = {
         pgadmin.enable = true;
+        dbeaver.enable = true;
       };
     };
   };
