@@ -16,7 +16,7 @@ in {
           homebrew = {
             enable = true;
             global.brewfile = true;
-            global.noLock = true;
+            global.lockfiles = false;
           };
 
           nixpkgs.config = pkgs.config;
