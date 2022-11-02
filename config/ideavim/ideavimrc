@@ -1,0 +1,13 @@
+""" Map leader to space ---------------------
+let mapleader=" "
+
+""" Plugins  --------------------------------
+set surround
+set multiple-cursors
+set commentary
+set nerdtree
+
+map <leader>wt <Action>(SelectInProjectView)
+
+map <leader>bb <Action>(GotoFile)
+map <leader><Space> <Action>(SearchEverywhere)

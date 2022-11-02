@@ -60,6 +60,10 @@
       #   chromium.enable = true;
       };
 
+      ide = {
+        idea.enable = true;
+      };
+
       social = {
         signal.enable   = true;
         discord.enable  = true;
