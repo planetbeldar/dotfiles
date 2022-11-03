@@ -7,11 +7,11 @@ let
   configDir = config.dotfiles.configDir;
 
   zsh-prezto = pkgs.zsh-prezto.overrideAttrs (drv: {
-    version = "unstable-2022-04-11";
+    version = "unstable-2022-10-27";
     src = fetchFromGitHub {
       owner = "sorin-ionescu";
       repo = "prezto";
-      rev = "dea85a0740253c0e17fa7eadb067694e11f5451c";
+      rev = "e3a9583f3370e11a0da1414d3f335eac40c1e922";
       sha256 = "5vfwFGTOj0swo88MmRSF3LHH1GusBZdsDfHiTSBSWDA=";
       fetchSubmodules = true;
     };
@@ -61,11 +61,11 @@ in {
     };
 
     home.configFile = {
-      # Write it recursively so other modules can write files to it
-      "zsh" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${configDir}/zsh";
-        recursive = true;
-      };
+      "zsh/.p10k.zsh".source    = config.lib.file.mkOutOfStoreSymlink "${configDir}/zsh/.p10k.zsh";
+      "zsh/.zpreztorc".source   = config.lib.file.mkOutOfStoreSymlink "${configDir}/zsh/.zpreztorc";
+      "zsh/.zshrc".source       = config.lib.file.mkOutOfStoreSymlink "${configDir}/zsh/.zshrc";
+      "zsh/.zshenv".source      = config.lib.file.mkOutOfStoreSymlink "${configDir}/zsh/.zshenv";
+      "zsh/aliases.zsh".source  = config.lib.file.mkOutOfStoreSymlink "${configDir}/zsh/aliases.zsh";
 
       # Why am I creating extra.zsh{rc,env} when I could be using extraInit?
       # Because extraInit generates those files in /etc/profile, and mine just
