@@ -30,7 +30,7 @@ in {
       ] ++ lib.optionals stdenv.isDarwin [
         #emacs-macport
         gnugrep # pcre not enabled in macos version of grep
-        emacs-mac
+        # local.emacs-mac
       ] ++ lib.optionals stdenv.isLinux [ emacsGcc ];
 
     fonts.fonts = [ pkgs.emacs-all-the-icons-fonts ];

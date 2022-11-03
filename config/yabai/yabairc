@@ -50,13 +50,14 @@ yabai -m rule --add app="^DataGrip$" manage=off
 yabai -m rule --add app="^Tuple$" manage=off
 #yabai -m rule --add app="^Dbeaver$" title!="^DBeaver.*$" manage=off
 yabai -m rule --add app="^Dbeaver$" manage=off
+yabai -m rule --add app="^TablePlus$" manage=off
 
 # show digital colour meter topmost and on all spaces
 yabai -m rule --add app="^Digital Colou?r Meter$" sticky=on manage=off
 
 # work
 yabai -m rule --add app="^Safari$" title="^Sign in - Google Accounts$" manage=off
-yabai -m rule --add app="^IntelliJ IDEA$" title="^Evaluate$" manage=off
+yabai -m rule --add app="^IntelliJ IDEA$" manage=off
 
 
 # global settings

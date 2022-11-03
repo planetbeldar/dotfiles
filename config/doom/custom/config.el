@@ -8,8 +8,8 @@
 
 (setq user-full-name "Tony Höglund"
       user-mail-address "tony.hoglund@gmail.com")
-(setq doom-font (font-spec :family "BlexMono Nerd Font" :weight 'normal :size 13)
-      doom-variable-pitch-font (font-spec :family "BlexMono Nerd Font" :weight 'normal :size 13)
+(setq doom-font (font-spec :family "BlexMono Nerd Font" :weight 'normal :size 15)
+      doom-variable-pitch-font (font-spec :family "BlexMono Nerd Font" :weight 'normal :size 15)
       doom-big-font-increment 1)
 (setq doom-theme 'doom-rouge)
 ;; (setq doom-theme 'doom-wilmersdorf)
