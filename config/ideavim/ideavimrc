@@ -9,5 +9,8 @@ set nerdtree
 
 map <leader>wt <Action>(SelectInProjectView)
 
-map <leader>bb <Action>(GotoFile)
-map <leader><Space> <Action>(SearchEverywhere)
+map <leader><Space> <Action>(GotoFile)
+map <leader>bb <Action>(RecentFiles)
+map <leader>sp <Action>(FindInPath)
+
+# map <leader>sp <Action>(SearchEverywhere)

@@ -60,6 +60,12 @@ in {
       ZPREZTODIR = "$XDG_DATA_HOME/zprezto"; # this makes prezto start much faster, why?
     };
 
+    modules.shell.zsh.rcInit = ''
+      if [[ -n "$HISTFILE" && ! -f "$HISTFILE" ]]; then
+        mkdir -p $(dirname "$HISTFILE")
+      fi
+    '';
+
     home.configFile = {
       "zsh/.p10k.zsh".source    = config.lib.file.mkOutOfStoreSymlink "${configDir}/zsh/.p10k.zsh";
       "zsh/.zpreztorc".source   = config.lib.file.mkOutOfStoreSymlink "${configDir}/zsh/.zpreztorc";

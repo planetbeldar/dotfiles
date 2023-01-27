@@ -3,6 +3,7 @@ let
   inherit (lib) mkIf mkEnableOption;
   inherit (pkgs) fetchFromGitHub kotlin kotlin-language-server gradle;
 
+  jdk = pkgs.openjdk19;
   kotlin-ls = kotlin-language-server.overrideAttrs(drv: {
     version = "unstable-2022-10-17";
     src = fetchFromGitHub {
@@ -35,6 +36,11 @@ in {
        kotlin-language-server
        # kotlin-ls
        gradle
+       jdk
     ];
+
+    env = {
+      JAVA_HOME = "${jdk}";
+    };
   };
 }

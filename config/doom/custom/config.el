@@ -1,18 +1,20 @@
 ;; (setq default-frame-alist '((undecorated . t)))
-;;(add-to-list 'default-frame-alist '(undecorated . t))
-;;(add-to-list 'default-frame-alist '(drag-internal-border . 1))
-;;(add-to-list 'default-frame-alist '(internal-border-width . 5))
-;;(add-to-list 'default-frame-alist '(drag-with-header-line . 1))
+;; (add-to-list 'default-frame-alist '(undecorated . t))
+;; (add-to-list 'default-frame-alist '(drag-internal-border . 1))
+;; (add-to-list 'default-frame-alist '(internal-border-width . 5))
+;; (add-to-list 'default-frame-alist '(drag-with-header-line . 1))
 
 (setq fancy-splash-image (concat doom-private-dir "images/ascii-apple-logo.svg"))
 
 (setq user-full-name "Tony Höglund"
       user-mail-address "tony.hoglund@gmail.com")
-(setq doom-font (font-spec :family "BlexMono Nerd Font" :weight 'normal :size 15)
-      doom-variable-pitch-font (font-spec :family "BlexMono Nerd Font" :weight 'normal :size 15)
-      doom-big-font-increment 1)
-(setq doom-theme 'doom-rouge)
+(setq doom-font (font-spec :family "BlexMono Nerd Font" :weight 'normal :size 14)
+      doom-variable-pitch-font (font-spec :family "BlexMono Nerd Font" :weight 'normal :size 14)
+      doom-font-increment 1
+      doom-big-font-increment 2)
+;; (setq doom-theme 'doom-rouge)
 ;; (setq doom-theme 'doom-wilmersdorf)
+(setq doom-theme 'doom-ephemeral)
 (setq confirm-kill-emacs nil)
 
 ;; (setq comp-speed 2)
@@ -78,8 +80,8 @@
 (after! lsp-ui
   (setq lsp-ui-sideline-show-hover t
         lsp-ui-doc-enable t
-        lsp-ui-doc-max-width 90
-        lsp-ui-doc-max-height 10
+        ;; lsp-ui-doc-max-width 90
+        ;; lsp-ui-doc-max-height 10
         ))
 ;; flycheck (syntax, spelling etc)
 (after! flycheck

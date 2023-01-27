@@ -21,9 +21,8 @@ in {
     };
 
     home.configFile = {
-      "kmonad" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${configDir}/kmonad";
-        recursive = true;
+      "kmonad/config.kbd" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${configDir}/kmonad/config.kbd";
       };
     };
   };

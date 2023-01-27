@@ -33,8 +33,8 @@
       rust.enable = true;
       yaml.enable = true;
       nginx.enable = false;
-      ngrok.enable = true;
       mjml.enable = false;
+      ngrok.enable = true;
     };
 
     desktop = {
