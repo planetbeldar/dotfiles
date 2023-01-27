@@ -25,13 +25,16 @@
       kotlin.enable = true;
       postman.enable = true;
       qmk = {
-        enable = true;
+        enable = false;
         home = "${config.user.home}/Projects/cpp";
         fork = "planetbeldar";
         branch = "planb";
       };
       rust.enable = true;
       yaml.enable = true;
+      nginx.enable = false;
+      ngrok.enable = true;
+      mjml.enable = false;
     };
 
     desktop = {
@@ -58,7 +61,7 @@
       social = {
         signal.enable   = true;
         discord.enable  = true;
-        weechat.enable  = true;
+        weechat.enable  = false;
       };
 
       media = {

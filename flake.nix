@@ -27,21 +27,21 @@
       inherit (lib.util) mapModules mapModules' mapModulesRec mapDarwinHosts mapNixosHosts traceImportMsg traceCallPackageMsg;
       traceCallPackage = traceCallPackageMsg "flake.nix:";
       traceImport = traceImportMsg "flake.nix:";
-      system = "x86_64-darwin";
 
-      mkPkgs = pkgs: extraOverlays: import pkgs {
+      mkPkgs = system: pkgs: extraOverlays: import pkgs {
         inherit system;
         config.allowUnfree = true;
         config.input-fonts.acceptLicense = true;
         overlays = extraOverlays ++ (lib.attrValues self.overlays);
       };
+      forAllSystems = nixpkgs.lib.genAttrs [ "aarch64-darwin" "x86_64-darwin" ];
 
       overlay = final: prev: {
         # unstable = pkgs';
-        local = self.packages."${system}";
+        local = self.packages."${prev.system}";
       };
 
-      pkgs  = mkPkgs nixpkgs [ overlay ];
+      pkgs  = mkPkgs "aarch64-darwin" nixpkgs [ overlay ];
       # pkgs' = mkPkgs nixpkgs-unstable [];
 
       lib = nixpkgs.lib.extend
@@ -56,7 +56,10 @@
       inherit overlay;
       overlays = mapModules ./overlays (p: import p { inherit lib; });
 
-      packages."${system}" = mapModules ./packages traceCallPackage;
+      packages = forAllSystems (system:
+        let pkgs = mkPkgs system nixpkgs [overlay ];
+        in mapModules ./packages (p: pkgs.callPackage p {})
+      );
 
       darwinModules =
         { inherit dotfiles; } // mapModulesRec ./modules traceImport;
