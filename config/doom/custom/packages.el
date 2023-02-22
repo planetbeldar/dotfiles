@@ -1,4 +1,4 @@
-(package! centered-window)
+;; (package! centered-window)
 
 (package! evil-replace-with-register)
 

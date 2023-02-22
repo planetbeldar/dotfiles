@@ -11,11 +11,14 @@
 (setq doom-font (font-spec :family "BlexMono Nerd Font" :weight 'normal :size 14)
       doom-variable-pitch-font (font-spec :family "BlexMono Nerd Font" :weight 'normal :size 14)
       doom-font-increment 1
-      doom-big-font-increment 2)
-;; (setq doom-theme 'doom-rouge)
+      doom-big-font-increment 4)
+(setq doom-theme 'doom-rougez)
 ;; (setq doom-theme 'doom-wilmersdorf)
-(setq doom-theme 'doom-ephemeral)
+;; (setq doom-theme 'doom-ephemeral)
 (setq confirm-kill-emacs nil)
+
+(setq eglot-connect-timeout 60
+      eglot-send-changes-idle-time 0.1)
 
 ;; (setq comp-speed 2)
 
@@ -95,9 +98,9 @@
 
 
 ;; word-wrap
-(+global-word-wrap-mode +1)
-(dolist (mode nil) ;; disabled global modes (none)
-  add-to-list '+word-wrap-disabled-modes mode)
+;; (+global-word-wrap-mode +1)
+;; (dolist (mode nil) ;; disabled global modes (none)
+  ;; add-to-list '+word-wrap-disabled-modes mode)
 
 
 ;; find-file helpers

@@ -1,40 +1,40 @@
-;;; doom-rouge-theme.el --- ported from Rouge Theme -*- lexical-binding: t; no-byte-compile: t; -*-
+;;; doom-rougez-theme.el --- ported from Rougez Theme -*- lexical-binding: t; no-byte-compile: t; -*-
 (require 'doom-themes)
 
 ;;
-(defgroup doom-rouge-theme nil
-  "Options for the `doom-rouge' theme."
+(defgroup doom-rougez-theme nil
+  "Options for the `doom-rougez' theme."
   :group 'doom-themes)
 
-(defcustom doom-rouge-brighter-comments nil
+(defcustom doom-rougez-brighter-comments nil
   "If non-nil, comments will be highlighted in more vivid colors."
-  :group 'doom-rouge-theme
+  :group 'doom-rougez-theme
   :type 'boolean)
 
-(defcustom doom-rouge-brighter-tabs t
+(defcustom doom-rougez-brighter-tabs t
   "If non-nil, tabs will a more vivid background color."
-  :group 'doom-rouge-theme
+  :group 'doom-rougez-theme
   :type 'boolean)
 
-(defcustom doom-rouge-comment-bg doom-rouge-brighter-comments
+(defcustom doom-rougez-comment-bg doom-rougez-brighter-comments
   "If non-nil, comments will have a subtle, darker background. Enhancing their
 legibility."
-  :group 'doom-rouge-theme
+  :group 'doom-rougez-theme
   :type 'boolean)
 
-(defcustom doom-rouge-padded-modeline doom-themes-padded-modeline
+(defcustom doom-rougez-padded-modeline doom-themes-padded-modeline
   "If non-nil, adds a 4px padding to the mode-line. Can be an integer to
 determine the exact padding."
-  :group 'doom-rouge-theme
+  :group 'doom-rougez-theme
   :type '(choice integer boolean))
 
 ;;
-(def-doom-theme doom-rouge
-  "A dark theme ported from VS Code's Rouge."
+(def-doom-theme doom-rougez
+  "A dark theme ported from VS Code's Rougez."
 
   ;; name        default   256       16
-  ((bg         '("#172030" nil       nil            )) ;; modified
-   (bg-alt     '("#121A2A" nil       nil            ))
+  ((bg         '("#273040" nil       nil            )) ;; modified
+   (bg-alt     '("#222A3A" nil       nil            ))
    (base0      '("#070A0E" "black"   "black"        ))
    (base1      '("#0E131D" "#1e1e1e" "brightblack"  ))
    (base2      '("#151D2B" "#2e2e2e" "brightblack"  ))
@@ -44,8 +44,8 @@ determine the exact padding."
    (base6      '("#B16E75" "#6b6b6b" "brightblack"  ))
    (base7      '("#E8E9EB" "#979797" "brightblack"  ))
    (base8      '("#F0F4FC" "#dfdfdf" "white"        ))
-   ;; (fg         '("#FAFFF6"    "#bbb" "white"        ))
-   (fg         '("#D6D6D6"    "#bbb" "white"        ))
+   (fg         '("#F8FCF4"    "#bbb" "white"        ))
+   ;; (fg         '("#D6D6D6"    "#bbb" "white"        ))
    (fg-alt     '("#A7ACB9" "#bfbfbf" "brightwhite"  ))
 
    (grey       base5)
@@ -90,13 +90,13 @@ determine the exact padding."
    ;; custom categories
    (hidden     `(,(car bg) "black" "black"))
    (-modeline-pad
-    (when doom-rouge-padded-modeline
-      (if (integerp doom-rouge-padded-modeline) doom-rouge-padded-modeline 4)))
+    (when doom-rougez-padded-modeline
+      (if (integerp doom-rougez-padded-modeline) doom-rougez-padded-modeline 4)))
 
-   (tabs-bg (if doom-rouge-brighter-tabs base6 bg))
-   (tabs-fg (if doom-rouge-brighter-tabs base8 fg))
-   (tabs-bar-bg (if doom-rouge-brighter-tabs bg red))
-   (tabs-marker (if doom-rouge-brighter-tabs base8 highlight))
+   (tabs-bg (if doom-rougez-brighter-tabs base6 bg))
+   (tabs-fg (if doom-rougez-brighter-tabs base8 fg))
+   (tabs-bar-bg (if doom-rougez-brighter-tabs bg red))
+   (tabs-marker (if doom-rougez-brighter-tabs base8 highlight))
 
    (modeline-fg     fg)
    (modeline-fg-alt base6)
@@ -191,4 +191,4 @@ determine the exact padding."
   ;;;; Base theme variable overrides-
   ())
 
-;;; doom-rouge-theme.el ends here
+;;; doom-rougez-theme.el ends here

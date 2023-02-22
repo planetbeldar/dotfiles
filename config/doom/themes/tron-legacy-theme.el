@@ -120,7 +120,7 @@
 
    ;;;;; More built-in UI
    `(region                                   ((,class (:background ,bg-hl :distant-foreground ,fg0 :extend nil))))
-   `(highlight                                ((,class (:foreground ,bg3 :background ,fg3))))
+   `(highlight                                ((,class (:foreground ,fg3 :background nil :underline t)))) ; link hover
    `(hl-line                                  ((,class (:background ,hl-line))))
    `(fringe                                   ((,class (:background ,bg1 :foreground ,fg4))))
    `(cursor                                   ((,class (:background ,cursor))))
@@ -173,7 +173,7 @@
    `(org-footnote                             ((,class (:underline t :foreground ,fg4))))
    `(org-link                                 ((,class (:underline t :foreground ,type ))))
    `(org-special-keyword                      ((,class (:foreground ,tron-green))))
-   `(org-block                                ((,class (:foreground ,fg2 :background ,bg0 :extend t))))
+   `(org-block                                ((,class (:foreground ,fg2 :background ,bg2 :extend t))))
    `(org-quote                                ((,class (:inherit org-block :slant italic))))
    `(org-verse                                ((,class (:inherit org-block :slant italic))))
    `(org-todo                                 ((,class (:box (:line-width 1 :color ,tron-lightred)
@@ -504,12 +504,12 @@
    `(swiper-line-face                         ((t (:foreground ,fg3 :background ,bg-hl :extend t))))
 
    ;;;;; Git gutter & git gutter fringe
-   `(git-gutter:added                         ((t (:background ,vc-g :foreground ,vc-g :weight normal))))
-   `(git-gutter:deleted                       ((t (:background ,vc-r :foreground ,vc-r :weight normal))))
-   `(git-gutter:modified                      ((t (:background ,vc-b :foreground ,vc-b :weight normal))))
-   `(git-gutter-fr:added                      ((t (:background ,vc-g :foreground ,vc-g :weight normal))))
-   `(git-gutter-fr:deleted                    ((t (:background ,vc-r :foreground ,vc-r :weight normal))))
-   `(git-gutter-fr:modified                   ((t (:background ,vc-b :foreground ,vc-b :weight normal))))
+   `(git-gutter:added                         ((t (:foreground ,vc-g :weight normal))))
+   `(git-gutter:deleted                       ((t (:foreground ,vc-r :weight normal))))
+   `(git-gutter:modified                      ((t (:foreground ,vc-b :weight normal))))
+   `(git-gutter-fr:added                      ((t (:foreground ,vc-g :weight normal))))
+   `(git-gutter-fr:deleted                    ((t (:foreground ,vc-r :weight normal))))
+   `(git-gutter-fr:modified                   ((t (:foreground ,vc-b :weight normal))))
 
    ;;;;; diff-hl (git gutter)
    `(diff-hl-insert                           ((t (:background ,vc-g :foreground ,vc-g))))

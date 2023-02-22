@@ -21,7 +21,7 @@
     dev = {
       dotnet.enable = true;
       haskell.enable = true;
-      js.enable = true;
+      web.enable = true;
       kotlin.enable = true;
       postman.enable = true;
       qmk = {

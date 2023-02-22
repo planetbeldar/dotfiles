@@ -21,7 +21,7 @@
     dev = {
       dotnet.enable = true;
       haskell.enable = true;
-      js.enable = true;
+      web.enable = true;
       kotlin.enable = true;
       postman.enable = true;
       qmk = {
@@ -32,7 +32,7 @@
       };
       rust.enable = true;
       yaml.enable = true;
-      nginx.enable = false;
+      nginx.enable = true;
       mjml.enable = false;
       ngrok.enable = true;
     };
@@ -56,6 +56,7 @@
 
       ide = {
         idea.enable = true;
+        # fleet.enable = true;
       };
 
       social = {
