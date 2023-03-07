@@ -78,11 +78,14 @@
 (after! lsp-mode
   (setq lsp-idle-delay 0.1
         lsp-csharp-server-path "/run/current-system/sw/bin/omnisharp"
+        lsp-log-max t
         ))
 ;; lsp-ui
 (after! lsp-ui
-  (setq lsp-ui-sideline-show-hover t
-        lsp-ui-doc-enable t
+  (setq lsp-ui-doc-enable t
+        lsp-ui-sideline-show-hover nil
+        lsp-ui-sideline-show-symbol nil
+        lsp-enable-symbol-highlighting nil
         ;; lsp-ui-doc-max-width 90
         ;; lsp-ui-doc-max-height 10
         ))
@@ -100,7 +103,7 @@
 ;; word-wrap
 ;; (+global-word-wrap-mode +1)
 ;; (dolist (mode nil) ;; disabled global modes (none)
-  ;; add-to-list '+word-wrap-disabled-modes mode)
+;; add-to-list '+word-wrap-disabled-modes mode)
 
 
 ;; find-file helpers

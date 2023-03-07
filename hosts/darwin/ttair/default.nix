@@ -35,6 +35,7 @@
       nginx.enable = true;
       mjml.enable = false;
       ngrok.enable = true;
+      sql.enable = true;
     };
 
     desktop = {
