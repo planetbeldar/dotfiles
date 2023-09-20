@@ -43,7 +43,9 @@ echo "Building and installing the nix configuration $hostname"
 pushd $DOTFILES_DIR
 # update ulimit maxfiles (file descriptors) with launch daemon (https://github.com/vlaci/nix-doom-emacs/issues/387#issuecomment-974757540 & https://discussions.apple.com/thread/253001317?answerId=255632520022#255632520022)
 sudo cp config/darwin/limit.maxfiles.plist /Library/LaunchDaemons/
+sudo cp config/darwin/limit.maxproc.plist /Library/LaunchDaemons/
 sudo launchctl load -w /Library/LaunchDaemons/limit.maxfiles.plist
+sudo launchctl load -w /Library/LaunchDaemons/limit.maxproc.plist
 # build configuration
 # darwin-rebuild build --flake . --impure
 nix build .#darwinConfigurations.$(hostname).system -L --impure --experimental-features 'nix-command flakes'
