@@ -40,7 +40,7 @@ in {
     wget
     unzip
     coreutils
-    exa
+    eza
     findutils #GNU find
     # diffutils #GNU diff
     pv
