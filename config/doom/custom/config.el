@@ -3,19 +3,24 @@
 ;; (add-to-list 'default-frame-alist '(drag-internal-border . 1))
 ;; (add-to-list 'default-frame-alist '(internal-border-width . 5))
 ;; (add-to-list 'default-frame-alist '(drag-with-header-line . 1))
+(add-to-list 'auto-mode-alist '("^Dockerfile-.*$" . dockerfile-mode))
 
 (setq fancy-splash-image (concat doom-private-dir "images/ascii-apple-logo.svg"))
 
 (setq user-full-name "Tony Höglund"
       user-mail-address "tony.hoglund@gmail.com")
-(setq doom-font (font-spec :family "BlexMono Nerd Font" :weight 'normal :size 14)
+(setq doom-font (font-spec :family "BlexMono Nerd Font" :weight 'book :size 14)
       doom-variable-pitch-font (font-spec :family "BlexMono Nerd Font" :weight 'normal :size 14)
       doom-font-increment 1
       doom-big-font-increment 4)
-(setq doom-theme 'doom-rougez)
+;; (setq doom-theme 'doom-rougez)
+(setq doom-theme 'doom-opera)
 ;; (setq doom-theme 'doom-wilmersdorf)
 ;; (setq doom-theme 'doom-ephemeral)
 (setq confirm-kill-emacs nil)
+(setq-default line-spacing 0.2)
+;; Installed via Nix nerdfonts package (https://github.com/doomemacs/doomemacs/issues/7431#issuecomment-1722663411)
+(setq nerd-icons-font-names '("SymbolsNerdFontMono-Regular.ttf"))
 
 (setq eglot-connect-timeout 60
       eglot-send-changes-idle-time 0.1)
@@ -78,6 +83,7 @@
 (after! lsp-mode
   (setq lsp-idle-delay 0.1
         lsp-csharp-server-path "/run/current-system/sw/bin/omnisharp"
+        lsp-eslint-server-command '("vscode-eslint-language-server" "--stdio")
         lsp-log-max t
         ))
 ;; lsp-ui

@@ -9,7 +9,7 @@ in (mkMerge [
       fontDir.enable = true;
       fonts = [
         (nerdfonts.override {
-          fonts = [ "SourceCodePro" "Iosevka" "Inconsolata" "IBMPlexMono" "JetBrainsMono" ];
+          fonts = [ "SourceCodePro" "Iosevka" "Inconsolata" "IBMPlexMono" "JetBrainsMono" "NerdFontsSymbolsOnly" ];
         })
         (input-nerd-fonts.override { name = "InputMono-.*(Thin|Light).*"; })
       ];
