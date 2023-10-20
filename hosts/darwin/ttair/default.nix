@@ -33,7 +33,7 @@
       rust.enable = true;
       yaml.enable = true;
       nginx.enable = true;
-      mjml.enable = false;
+      mjml.enable = true;
       ngrok.enable = true;
       sql.enable = true;
     };
@@ -41,7 +41,7 @@
     desktop = {
       yabai.enable  = true;
       skhd.enable   = true;
-      kmonad.enable = true;
+      kmonad.enable = false;
 
       term = {
         # default = "alacritty";
@@ -61,8 +61,9 @@
       };
 
       social = {
-        signal.enable   = true;
         discord.enable  = true;
+        signal.enable   = true;
+        slack.enable    = true;
         weechat.enable  = false;
       };
 

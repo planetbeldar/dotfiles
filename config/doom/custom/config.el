@@ -14,7 +14,8 @@
       doom-font-increment 1
       doom-big-font-increment 4)
 ;; (setq doom-theme 'doom-rougez)
-(setq doom-theme 'doom-opera)
+;; (setq doom-theme 'doom-opera)
+(setq doom-theme 'doom-monokai-octagon)
 ;; (setq doom-theme 'doom-wilmersdorf)
 ;; (setq doom-theme 'doom-ephemeral)
 (setq confirm-kill-emacs nil)
@@ -47,6 +48,7 @@
         "~/Projects/unifi"
         "~/Projects/rust"
         "~/Projects/kotlin"
+        "~/Projects/haskell"
         ))
 (after! projectile
   (projectile-discover-projects-in-search-path))
@@ -72,7 +74,7 @@
 
 
 ;; Zen/writeroom
-(setq writeroom-major-modes '(text-mode emacs-lisp-mode swift-mode python-mode sh-mode nix-mode cc-mode)
+(setq writeroom-major-modes '(text-mode emacs-lisp-mode swift-mode python-mode sh-mode nix-mode cc-mode rustic-mode)
       writeroom-width 0.5               ;; default 80 (characters) https://github.com/joostkremers/writeroom-mode#width
       +zen-text-scale 0.1               ;; default 2
       +zen-window-divider-size 1        ;; default 4

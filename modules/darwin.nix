@@ -4,6 +4,11 @@ let
   inherit (pkgs) stdenv;
 in {
   config = mkIf stdenv.isDarwin {
+
+    homebrew.casks = [
+      "cursr"
+    ];
+
     # Copy mac applications installed via Nix to $HOME so Spotlight can index them
     system.activationScripts.applications.text = mkForce (''
       hashApp() {

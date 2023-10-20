@@ -15,6 +15,9 @@ sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 # macOS
+yabai -m rule --add app="^System Information$" manage=off
+yabai -m rule --add app="^System Preferences$" manage=off # macOS < 13
+yabai -m rule --add app="^System Settings$" manage=off # macOS >= 13 (Ventura)
 yabai -m rule --add app="^Activity Monitor$" manage=off
 yabai -m rule --add app="^App Store$" manage=off
 yabai -m rule --add app="^Archive Utility$" manage=off
@@ -28,8 +31,6 @@ yabai -m rule --add app="^Keychain Access$" manage=off
 yabai -m rule --add app="^Notes$" manage=off
 yabai -m rule --add app="^Preview$" manage=off
 yabai -m rule --add app="^Safari$" title="^General|Tabs|AutoFill|Passwords|Search|Security|Privacy|Websites|Extensions|Advanced$" manage=off
-yabai -m rule --add app="^System Information$" manage=off
-yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Vimari$" manage=off
 yabai -m rule --add app="^Messages$" manage=off
 
@@ -48,9 +49,10 @@ yabai -m rule --add app="^VMware Fusion$" manage=off
 yabai -m rule --add app="^Tunnelblick$" manage=off
 yabai -m rule --add app="^DataGrip$" manage=off
 yabai -m rule --add app="^Tuple$" manage=off
-#yabai -m rule --add app="^Dbeaver$" title!="^DBeaver.*$" manage=off
-yabai -m rule --add app="^Dbeaver$" manage=off
+yabai -m rule --add app="^DBeaver Community$" manage=off
 yabai -m rule --add app="^TablePlus$" manage=off
+yabai -m rule --add app="^Cursr$" manage=off
+yabai -m rule --add app="^OpenVPN Connect$" manage=off
 
 # show digital colour meter topmost and on all spaces
 yabai -m rule --add app="^Digital Colou?r Meter$" sticky=on manage=off
@@ -59,46 +61,44 @@ yabai -m rule --add app="^Digital Colou?r Meter$" sticky=on manage=off
 yabai -m rule --add app="^Safari$" title="^Sign in - Google Accounts$" manage=off
 yabai -m rule --add app="^IntelliJ IDEA" title!="( - )" manage=off
 
-
+# rougez        active/normal   0xff775759 / 0xff172030
+# wilmersdorf   active/normal   0xff575a77 / 0xff1f2024
 # global settings
-yabai -m config mouse_follows_focus          off
-yabai -m config focus_follows_mouse          off
-yabai -m config window_origin_display        default
-yabai -m config window_placement             second_child
-yabai -m config window_topmost               off
-yabai -m config window_shadow                on
-yabai -m config window_opacity               on
-yabai -m config window_opacity_duration      0.0
-yabai -m config active_window_opacity        0.97
-yabai -m config normal_window_opacity        0.94
-yabai -m config window_border                on
-yabai -m config window_border_width          3
-# yabai -m config normal_window_border_color   0xff555555
-# rouge theme
-yabai -m config active_window_border_color   0xff775759
-yabai -m config normal_window_border_color   0xff172030 #rouge theme background color
-# rouge end
-# wilmersdorf theme
-# yabai -m config active_window_border_color   0xff575a77
-# yabai -m config normal_window_border_color   0xff1f2024 #rouge theme background color
-# wilmersdorf end
-yabai -m config insert_feedback_color        0xffd75f5f
-yabai -m config split_ratio                  0.50
-yabai -m config auto_balance                 off
-yabai -m config mouse_modifier               cmd
-yabai -m config mouse_action1                move
-yabai -m config mouse_action2                resize
-yabai -m config mouse_drop_action            swap
-
-# general space settings
-yabai -m config layout                       bsp
-yabai -m config top_padding                  12
-yabai -m config bottom_padding               12
-yabai -m config left_padding                 12
-yabai -m config right_padding                12
-yabai -m config window_gap                   12
-
-# debugging
-yabai -m config debug_output                 on
+yabai -m config                                 \
+    mouse_follows_focus          off            \
+    focus_follows_mouse          off            \
+    window_origin_display        default        \
+    window_placement             second_child   \
+    window_zoom_persist          on             \
+    window_topmost               off            \
+    window_shadow                on             \
+    window_animation_duration    0.05           \
+    window_animation_frame_rate  120            \
+    window_opacity_duration      0.0            \
+    active_window_opacity        0.97           \
+    normal_window_opacity        0.94           \
+    window_opacity               on             \
+    insert_feedback_color        0xffd75f5f     \
+    active_window_border_color   0xff775759     \
+    normal_window_border_color   0xff555555     \
+    window_border_width          3              \
+    window_border_radius         12             \
+    window_border_blur           off            \
+    window_border_hidpi          on             \
+    window_border                off            \
+    split_ratio                  0.50           \
+    split_type                   auto           \
+    auto_balance                 off            \
+    top_padding                  12             \
+    bottom_padding               12             \
+    left_padding                 12             \
+    right_padding                12             \
+    window_gap                   06             \
+    layout                       bsp            \
+    mouse_modifier               cmd            \
+    mouse_action1                move           \
+    mouse_action2                resize         \
+    mouse_drop_action            swap           \
+    debug_output                 off
 
 echo "yabai configuration loaded.."

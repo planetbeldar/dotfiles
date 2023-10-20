@@ -11,6 +11,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ dbeaver ];
+    # environment.systemPackages = [ dbeaver ];
+    homebrew.casks = [ "dbeaver-community" ]; # nixpkgs lags behind
   };
 }

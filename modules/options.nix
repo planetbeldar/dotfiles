@@ -85,5 +85,6 @@ in {
 
     environment.extraInit = concatStringsSep
       "\n" (mapAttrsToList (n: v: "export ${n}=\"${v}\"") config.env);
+
   };
 }

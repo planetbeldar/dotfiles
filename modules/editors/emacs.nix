@@ -1,6 +1,6 @@
 { inputs, options, config, lib, pkgs, ... }:
 let
-  inherit (pkgs) stdenv emacs emacsNativeComp;
+  inherit (pkgs) stdenv emacs emacsMacport emacsNativeComp;
   inherit (lib) mkIf mkMerge mkEnableOption;
 
   cfg = config.modules.editors.emacs;
@@ -9,7 +9,17 @@ in {
   options.modules.editors.emacs = { enable = mkEnableOption "enable emacs"; };
 
   config = mkIf cfg.enable (mkMerge [{
-    nixpkgs.overlays = [ inputs.mac-overlay.overlays.emacs-mac ];
+    # nixpkgs.overlays = [ inputs.mac-overlay.overlays.emacs-mac ];
+
+    homebrew = {
+      taps = [ "railwaycat/emacsmacport" ];
+      brews = [{
+        name = "railwaycat/emacsmacport/emacs-mac";
+        args = [ "with-native-comp" "with-xwidgets" "with-tree-sitter" ];
+      }];
+    };
+
+    # nixpkgs.config.allowBroken = true;
 
     environment.systemPackages = with pkgs;
       [
@@ -28,7 +38,8 @@ in {
           sv en en-computers en-science
         ]))
       ] ++ lib.optionals stdenv.isDarwin [
-        #emacs-macport
+        # emacs-macport
+        # emacsMacport
         gnugrep # pcre not enabled in macos version of grep
         # local.emacs-mac
       ] ++ lib.optionals stdenv.isLinux [ emacsGcc ];

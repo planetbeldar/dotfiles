@@ -2,7 +2,7 @@
 
 let
   inherit (lib) util mkIf;
-  inherit (pkgs) cabal-install ghc921 haskell-language-server stack;
+  inherit (pkgs) cabal-install ghc haskell-language-server stack;
   inherit (pkgs.haskellPackages) ghcup hoogle;
 
   cfg = config.modules.dev.haskell;
@@ -16,11 +16,14 @@ in {
       # ghcup
       # hoogle
       # haskell-language-server
-      stack
+      # stack
     ];
+
+    homebrew.brews = [ "ghcup" ];
 
     env = {
       GHCUP_USE_XDG_DIRS  = "true";
+      STACK_XDG           = "true";
       CABAL_CONFIG        = "$XDG_CONFIG_HOME/cabal/config";
       CABAL_DIR           = "$XDG_DATA_HOME/cabal";
     };

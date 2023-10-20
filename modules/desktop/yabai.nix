@@ -9,7 +9,7 @@ in {
   options.modules.desktop.yabai = { enable = mkEnableOption "enable yabai service"; };
 
   config = mkIf cfg.enable {
-    nixpkgs.overlays = [ inputs.mac-overlay.overlays.yabai ];
+    # nixpkgs.overlays = [ inputs.mac-overlay.overlays.yabai ];
 
     services.yabai = {
       enable = true;

@@ -28,19 +28,19 @@ ssh-add -K
 
 # get ssh identity/keys from somewhere (?)
 echo "Please provide the hostname (nix-darwin configuration name)"
-read -p 'hostname: ' hostname
-sudo scutil --set HostName $hostname
+read -rp 'hostname: ' hostname
+sudo scutil --set HostName "$hostname"
 
 echo "Installing dotfiles"
 DOTFILES_DIR=$HOME/.config/dotfiles
-git clone git@github.com:planetbeldar/dotfiles.git $DOTFILES_DIR
+git clone git@github.com:planetbeldar/dotfiles.git "$DOTFILES_DIR"
 
 # install homebrew - it's being used to install some applications (via nix-darwin)
 echo "Installing homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 echo "Building and installing the nix configuration $hostname"
-pushd $DOTFILES_DIR
+pushd "$DOTFILES_DIR" || exit
 # update ulimit maxfiles (file descriptors) with launch daemon (https://github.com/vlaci/nix-doom-emacs/issues/387#issuecomment-974757540 & https://discussions.apple.com/thread/253001317?answerId=255632520022#255632520022)
 sudo cp config/darwin/limit.maxfiles.plist /Library/LaunchDaemons/
 sudo cp config/darwin/limit.maxproc.plist /Library/LaunchDaemons/
@@ -48,7 +48,7 @@ sudo launchctl load -w /Library/LaunchDaemons/limit.maxfiles.plist
 sudo launchctl load -w /Library/LaunchDaemons/limit.maxproc.plist
 # build configuration
 # darwin-rebuild build --flake . --impure
-nix build .#darwinConfigurations.$(hostname).system -L --impure --experimental-features 'nix-command flakes'
+nix build .#darwinConfigurations."$hostname".system -L --impure --experimental-features 'nix-command flakes'
 # backup old nix configuration
 sudo mv -vn  /etc/nix/nix.conf /etc/nix/nix.conf.old
 # symlink /run (the tab character is important)
@@ -59,4 +59,4 @@ echo -e 'run\tprivate/var/run' | sudo tee -a /etc/synthetic.conf
 
 # Apply macos settings (defaults etc)
 ./config/darwin/.macos
-popd
+popd || exit

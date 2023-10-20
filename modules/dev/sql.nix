@@ -1,7 +1,7 @@
 { lib, pkgs, config, ... }:
 let
   inherit (lib) mkIf mkEnableOption;
-  inherit (pkgs) sqls leiningen;
+  inherit (pkgs) sqls postgresql leiningen;
 
   cfg = config.modules.dev.sql;
 in {
@@ -12,6 +12,7 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = [
       sqls
+      postgresql
 
       #ejc-sql
       leiningen

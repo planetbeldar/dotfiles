@@ -78,7 +78,7 @@
 
 # run commands
 cmd - 0x29 : alacritty # cmd - ;
-cmd - i : doom everywhere # doom emacs everywhere
+cmd - i : doom +everywhere # doom emacs everywhere
 ctrl + alt + cmd - r : launchctl remove org.nixos.yabai-sa && launchctl load /Library/LaunchDaemons/org.nixos.yabai-sa.plist
 
 # kill window

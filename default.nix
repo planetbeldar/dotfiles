@@ -45,5 +45,7 @@ in {
     # diffutils #GNU diff
     pv
     ssh-copy-id
+    rsync
   ];
+
 }

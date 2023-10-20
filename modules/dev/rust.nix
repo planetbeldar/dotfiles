@@ -1,7 +1,7 @@
 { config, options, lib, pkgs, ... }:
 let
   inherit (lib) mkIf mkEnableOption;
-  inherit (pkgs) stdenv rustup rust-analyzer cargo-edit;
+  inherit (pkgs) stdenv rustc cargo rust-analyzer cargo-edit rustfmt;
 
   cfg = config.modules.dev.rust;
 in {
@@ -11,10 +11,12 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = [
-      rustup
-      rust-analyzer # lsp
+      # rustup
       cargo-edit
-      # rustfmt # formatting
+      rust-analyzer # included with rustup
+      rustfmt # included with rustup
+      rustc # included with rustup
+      cargo # included with rustup
     ];
 
     env = {

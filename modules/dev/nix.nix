@@ -54,7 +54,7 @@ in {
         nix-direnv
         undmg
         xmlstarlet
-        gdb
+        # gdb
         # hydra-check
       ];
     }

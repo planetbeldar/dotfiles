@@ -25,6 +25,7 @@ in {
 
   # initialize some variables later to be rid of race conditions
   env = {
+    PATH = [ "$XDG_BIN_HOME" ];
     # Conform more programs to XDG conventions. The rest are handled by their
     # respective modules.
     __GL_SHADER_DISK_CACHE_PATH = "$XDG_CACHE_HOME/nv";

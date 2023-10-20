@@ -3,7 +3,6 @@ with inputs.home-manager.lib;
 let
   inherit (lib) util mkIf;
   inherit (pkgs) stdenv;
-  inherit (inputs.home-manager.lib) hm;
 
   cfg = config.modules.desktop.term.alacritty;
   configDir = config.dotfiles.configDir;

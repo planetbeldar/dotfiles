@@ -4,9 +4,8 @@ let
   inherit (lib) mkIf mkEnableOption;
   inherit (pkgs) nodejs yarn;
   inherit (pkgs.nodePackages)
-    vscode-json-languageserver typescript-language-server typescript
-    stylelint js-beautify;
-  inherit (pkgs.vscode-extensions.dbaeumer) vscode-eslint;
+    vscode-langservers-extracted typescript-language-server typescript
+    stylelint js-beautify eslint;
 
   cfg = config.modules.dev.web;
 in {
@@ -19,8 +18,8 @@ in {
       nodejs
       yarn
 
-      vscode-eslint #https://github.com/emacs-lsp/lsp-mode/wiki/LSP-ESlint-integration
-      vscode-json-languageserver
+      eslint
+      vscode-langservers-extracted #https://github.com/hrsh7th/vscode-langservers-extracted
       typescript-language-server
       typescript
       stylelint
