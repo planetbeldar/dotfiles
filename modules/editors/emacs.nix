@@ -1,25 +1,21 @@
 { inputs, options, config, lib, pkgs, ... }:
 let
-  inherit (pkgs) stdenv emacs emacsMacport emacsNativeComp;
+  inherit (pkgs) stdenv fetchurl emacs29-macport emacs29;
   inherit (lib) mkIf mkMerge mkEnableOption;
 
+  emacs = emacs29;
+  emacs-macport = emacs29-macport.overrideAttrs(drv: {
+    patches = drv.patches ++ [(fetchurl {
+      url = "https://raw.githubusercontent.com/railwaycat/homebrew-emacsmacport/master/patches/emacs-26.2-rc1-mac-7.5-no-title-bar.patch";
+      sha256 = "gxn9lWgDfBcPWZD2CPtb2CzSc0bR1gWoOsR9WoLaYGY=";
+    })];
+  });
   cfg = config.modules.editors.emacs;
   configDir = config.dotfiles.configDir;
 in {
   options.modules.editors.emacs = { enable = mkEnableOption "enable emacs"; };
 
   config = mkIf cfg.enable (mkMerge [{
-    # nixpkgs.overlays = [ inputs.mac-overlay.overlays.emacs-mac ];
-
-    homebrew = {
-      taps = [ "railwaycat/emacsmacport" ];
-      brews = [{
-        name = "railwaycat/emacsmacport/emacs-mac";
-        args = [ "with-native-comp" "with-xwidgets" "with-tree-sitter" ];
-      }];
-    };
-
-    # nixpkgs.config.allowBroken = true;
 
     environment.systemPackages = with pkgs;
       [
@@ -38,11 +34,9 @@ in {
           sv en en-computers en-science
         ]))
       ] ++ lib.optionals stdenv.isDarwin [
-        # emacs-macport
-        # emacsMacport
+        emacs-macport
         gnugrep # pcre not enabled in macos version of grep
-        # local.emacs-mac
-      ] ++ lib.optionals stdenv.isLinux [ emacsGcc ];
+      ] ++ lib.optionals stdenv.isLinux [ emacs ];
 
     fonts.fonts = [ pkgs.emacs-all-the-icons-fonts ];
 
