@@ -5,7 +5,7 @@
 ;; (add-to-list 'default-frame-alist '(drag-with-header-line . 1))
 (add-to-list 'auto-mode-alist '("^Dockerfile-.*$" . dockerfile-mode))
 
-(setq fancy-splash-image (concat doom-private-dir "images/ascii-apple-logo.svg"))
+(setq fancy-splash-image (concat doom-user-dir "images/ascii-apple-logo.svg"))
 
 (setq user-full-name "Tony Höglund"
       user-mail-address "tony.hoglund@gmail.com")
@@ -25,6 +25,8 @@
 
 (setq eglot-connect-timeout 60
       eglot-send-changes-idle-time 0.1)
+
+(setq display-line-numbers-type 'relative)
 
 ;; (setq comp-speed 2)
 

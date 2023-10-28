@@ -19,7 +19,7 @@ in stdenv.mkDerivation {
   phases = [ "buildPhase" "installPhase" ];
 
   buildPhase = ''
-    echo "Patching Input fonts"
+    echo "Patching Input fonts from ${input-fonts}"
     $DRY_RUN_CMD mkdir $VERBOSE_ARG -p original patched
 
     $DRY_RUN_CMD find ${input-fonts} \
@@ -27,7 +27,7 @@ in stdenv.mkDerivation {
       -type f -regex ".*/${name}\.ttf" \
         -exec \
       ${nerd-font-patcher}/bin/nerd-font-patcher \
-      --quiet --complete --careful -out ./patched {} \;
+      --complete --careful -out ./patched {} \;
   '';
 
   installPhase = ''

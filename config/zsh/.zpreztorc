@@ -37,7 +37,7 @@ zstyle ':prezto:load' pmodule \
   'prompt' \
   'screen' \
   'git' \
-  'ssh'
+  # 'ssh'
 
 #
 # Autosuggestions
