@@ -10,6 +10,10 @@
       openapi.enable = true;
       xkbswitch.enable = true;
       zsh.enable = true;
+      _1password = {
+        enable = true;
+        gui = true;
+      };
     };
 
     editors = {
