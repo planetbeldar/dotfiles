@@ -33,6 +33,7 @@ yabai -m rule --add app="^Preview$" manage=off
 yabai -m rule --add app="^Safari$" title="^General|Tabs|AutoFill|Passwords|Search|Security|Privacy|Websites|Extensions|Advanced$" manage=off
 yabai -m rule --add app="^Vimari$" manage=off
 yabai -m rule --add app="^Messages$" manage=off
+yabai -m rule --add app="^1Password$" manage=off
 
 # third party
 yabai -m rule --add app="^Battle.net$" manage=off

@@ -7,10 +7,9 @@ set multiple-cursors
 set commentary
 set nerdtree
 
+""" Mappings --------------------------------
 map <leader>wt <Action>(SelectInProjectView)
 
 map <leader><Space> <Action>(GotoFile)
 map <leader>bb <Action>(RecentFiles)
 map <leader>sp <Action>(FindInPath)
-
-# map <leader>sp <Action>(SearchEverywhere)
