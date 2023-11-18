@@ -28,16 +28,10 @@
 
 (setq display-line-numbers-type 'relative)
 
-;; (setq comp-speed 2)
-
-;; disable ws-butler (causes lsp mirror buffer issues - https://github.com/hlissner/doom-emacs/issues/3267)
-;; (remove-hook 'doom-first-buffer-hook #'ws-butler-global-mode)
-
 ;; https://github.com/abo-abo/ace-window#aw-keys
 ;; change ace-window shortcuts to home row letters instead of numbers
 (after! ace-window
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
-
 
 ;; projectile
 (setq projectile-project-search-path
@@ -55,15 +49,12 @@
 (after! projectile
   (projectile-discover-projects-in-search-path))
 
-
 ;; sourcekit-lsp debugging
 ;; (setq lsp-sourcekit-executable "$HOME/Projects/swift/sourcekit-lsp/.build/debug/sourcekit-lsp")
-
 
 ;; start dap-hydra after hitting a breakpoint
 (after! dap-mode
   (add-hook 'dap-stopped-hook (lambda (arg) (call-interactively #'dap-hydra))))
-
 
 ;; treemacs
 (after! treemacs
@@ -74,7 +65,6 @@
           +treemacs-git-mode 'deferred)
     ))
 
-
 ;; Zen/writeroom
 (setq writeroom-major-modes '(text-mode emacs-lisp-mode swift-mode python-mode sh-mode nix-mode cc-mode rustic-mode)
       writeroom-width 0.5               ;; default 80 (characters) https://github.com/joostkremers/writeroom-mode#width
@@ -82,14 +72,16 @@
       +zen-window-divider-size 1        ;; default 4
       )
 
-
 ;; lsp-mode
 (after! lsp-mode
-  (setq lsp-idle-delay 0.1
-        lsp-csharp-server-path "/run/current-system/sw/bin/omnisharp"
-        lsp-eslint-server-command '("vscode-eslint-language-server" "--stdio")
-        lsp-log-max t
-        ))
+  (progn
+    (setq lsp-idle-delay 0.1
+          lsp-csharp-server-path "/run/current-system/sw/bin/omnisharp"
+          lsp-eslint-server-command '("vscode-eslint-language-server" "--stdio")
+          lsp-log-max t
+          )
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\]build")
+  ))
 ;; lsp-ui
 (after! lsp-ui
   (setq lsp-ui-doc-enable t
@@ -104,17 +96,9 @@
   (setq flycheck-idle-change-delay 0.1
         ))
 
-
 ;; avy
 (after! avy
   (setq avy-timeout-seconds 0.3))
-
-
-;; word-wrap
-;; (+global-word-wrap-mode +1)
-;; (dolist (mode nil) ;; disabled global modes (none)
-;; add-to-list '+word-wrap-disabled-modes mode)
-
 
 ;; find-file helpers
 (defconst dotfiles-dir (or (getenv "DOTFILES") "~/.config/dotfiles"))
@@ -122,7 +106,6 @@
   "Search for a file in `dotfiles-dir'."
   (interactive)
   (doom-project-find-file dotfiles-dir))
-
 
 ;; custom yank functions that uses picture mode
 ;; load package when the listed command(s) is used for the first time
@@ -146,8 +129,6 @@
       (setq end (1- end)))
     (copy-rectangle-to-register rectangle-register beg end)))
 
-;; (use-package! evil-mc
-;;     :commands (evil-mc-make-cursor-in-visual-selection))
 (use-package! kbd-mode)
 ;; zmk/zephyr support
 (use-package! kconfig-mode)

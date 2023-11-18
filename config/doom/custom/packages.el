@@ -10,4 +10,3 @@
 ;; zmk/zephyr support
 (package! kconfig-mode)
 (package! dts-mode)
-
