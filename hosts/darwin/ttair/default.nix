@@ -40,6 +40,7 @@
       mjml.enable = true;
       ngrok.enable = true;
       sql.enable = true;
+      terraform.enable = true;
     };
 
     desktop = {
