@@ -10,6 +10,7 @@
       openapi.enable = true;
       xkbswitch.enable = true;
       zsh.enable = true;
+      tmux.enable = true;
       _1password = {
         enable = true;
         gui = true;
@@ -26,6 +27,7 @@
       dotnet.enable = true;
       haskell.enable = true;
       web.enable = true;
+      web.nvm = true;
       kotlin.enable = true;
       postman.enable = true;
       qmk = {

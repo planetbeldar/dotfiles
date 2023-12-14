@@ -50,7 +50,7 @@ yabai -m rule --add app="^VMware Fusion$" manage=off
 yabai -m rule --add app="^Tunnelblick$" manage=off
 yabai -m rule --add app="^DataGrip$" manage=off
 yabai -m rule --add app="^Tuple$" manage=off
-yabai -m rule --add app="^DBeaver Community$" manage=off
+yabai -m rule --add app="^^[dD][bB]eaver.*$$" manage=off
 yabai -m rule --add app="^TablePlus$" manage=off
 yabai -m rule --add app="^Cursr$" manage=off
 yabai -m rule --add app="^OpenVPN Connect$" manage=off
@@ -61,6 +61,7 @@ yabai -m rule --add app="^Digital Colou?r Meter$" sticky=on manage=off
 # work
 yabai -m rule --add app="^Safari$" title="^Sign in - Google Accounts$" manage=off
 yabai -m rule --add app="^IntelliJ IDEA" title!="( - )" manage=off
+yabai -m rule --add app="^WebStorm" manage="off"
 
 # rougez        active/normal   0xff775759 / 0xff172030
 # wilmersdorf   active/normal   0xff575a77 / 0xff1f2024

@@ -13,7 +13,7 @@ in {
 
   config = mkIf cfg.enable (mkMerge [
     {
-      nixpkgs.overlays = [ inputs.nix-direnv.overlay ];
+      nixpkgs.overlays = [ inputs.nix-direnv.overlays.default ];
 
       nix.extraOptions = ''
         keep-outputs = true

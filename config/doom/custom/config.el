@@ -4,6 +4,7 @@
 ;; (add-to-list 'default-frame-alist '(internal-border-width . 5))
 ;; (add-to-list 'default-frame-alist '(drag-with-header-line . 1))
 (add-to-list 'auto-mode-alist '("^Dockerfile-.*$" . dockerfile-mode))
+(add-to-list 'auto-mode-alist '("\\.mjml\\'" . web-mode))
 
 (setq fancy-splash-image (concat doom-user-dir "images/ascii-apple-logo.svg"))
 
