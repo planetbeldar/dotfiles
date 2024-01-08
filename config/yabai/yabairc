@@ -50,7 +50,7 @@ yabai -m rule --add app="^VMware Fusion$" manage=off
 yabai -m rule --add app="^Tunnelblick$" manage=off
 yabai -m rule --add app="^DataGrip$" manage=off
 yabai -m rule --add app="^Tuple$" manage=off
-yabai -m rule --add app="^^[dD][bB]eaver.*$$" manage=off
+yabai -m rule --add app="^[dD][bB]eaver.*$" manage=off
 yabai -m rule --add app="^TablePlus$" manage=off
 yabai -m rule --add app="^Cursr$" manage=off
 yabai -m rule --add app="^OpenVPN Connect$" manage=off
