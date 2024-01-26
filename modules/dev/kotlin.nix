@@ -4,10 +4,6 @@ let
   inherit (pkgs) fetchFromGitHub kotlin kotlin-language-server gradle ktlint;
 
   jdk = pkgs.openjdk19;
-  kotlin-ls = kotlin-language-server.overrideAttrs(drv: {
-    version = "1.3.7";
-  });
-
   cfg = config.modules.dev.kotlin;
 in {
   options.modules.dev.kotlin = {
@@ -17,8 +13,7 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = [
        kotlin
-       # kotlin-language-server
-       kotlin-ls
+       kotlin-language-server
        gradle
        jdk
        ktlint

@@ -54,14 +54,13 @@ yabai -m rule --add app="^[dD][bB]eaver.*$" manage=off
 yabai -m rule --add app="^TablePlus$" manage=off
 yabai -m rule --add app="^Cursr$" manage=off
 yabai -m rule --add app="^OpenVPN Connect$" manage=off
-
-# show digital colour meter topmost and on all spaces
-yabai -m rule --add app="^Digital Colou?r Meter$" sticky=on manage=off
-
-# work
+yabai -m rule --add app="^Docker Desktop$" manage=off
 yabai -m rule --add app="^Safari$" title="^Sign in - Google Accounts$" manage=off
 yabai -m rule --add app="^IntelliJ IDEA" title!="( - )" manage=off
 yabai -m rule --add app="^WebStorm" manage="off"
+
+# show digital colour meter topmost and on all spaces
+yabai -m rule --add app="^Digital Colou?r Meter$" sticky=on manage=off
 
 # rougez        active/normal   0xff775759 / 0xff172030
 # wilmersdorf   active/normal   0xff575a77 / 0xff1f2024

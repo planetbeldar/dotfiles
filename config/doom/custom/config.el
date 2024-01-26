@@ -16,7 +16,7 @@
       doom-big-font-increment 4)
 ;; (setq doom-theme 'doom-rougez)
 ;; (setq doom-theme 'doom-opera)
-(setq doom-theme 'doom-monokai-octagon)
+(setq doom-theme 'doom-monokai-pro)
 ;; (setq doom-theme 'doom-wilmersdorf)
 ;; (setq doom-theme 'doom-ephemeral)
 (setq confirm-kill-emacs nil)

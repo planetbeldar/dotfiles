@@ -1,6 +1,7 @@
 { inputs, options, config, lib, pkgs, ... }:
 let
   inherit (pkgs) stdenv fetchurl emacs29-macport emacs29;
+  inherit (pkgs.python3Packages) grip;
   inherit (lib) mkIf mkMerge mkEnableOption;
 
   emacs = emacs29;
@@ -9,6 +10,8 @@ let
       url = "https://raw.githubusercontent.com/railwaycat/homebrew-emacsmacport/master/patches/emacs-26.2-rc1-mac-7.5-no-title-bar.patch";
       sha256 = "gxn9lWgDfBcPWZD2CPtb2CzSc0bR1gWoOsR9WoLaYGY=";
     })];
+
+    configureFlags = drv.configureFlags ++ [ "--with-xwidgets" ];
   });
   cfg = config.modules.editors.emacs;
   configDir = config.dotfiles.configDir;
@@ -21,6 +24,8 @@ in {
       [
         git
         (ripgrep.override { withPCRE2 = true; })
+        # markdown
+        grip
         # coreutils
         fd
         # org-mode

@@ -3,7 +3,7 @@
 let
   inherit (lib) mkIf mkEnableOption mkMerge;
   inherit (pkgs) stdenv nodejs yarn;
-  inherit (pkgs.nodePackages)
+  inherit (pkgs.nodePackages_latest)
     vscode-langservers-extracted typescript-language-server typescript
     stylelint js-beautify eslint prettier;
 
