@@ -28,11 +28,11 @@ in {
         stylelint
         js-beautify
       ];
-
-      env.NVM_DIR = "$XDG_CONFIG_HOME/nvm";
     }
     (mkIf (stdenv.isDarwin && cfg.nvm) {
       homebrew.brews = lib.optionals cfg.nvm [ "nvm" ];
+
+      env.NVM_DIR = "$XDG_CONFIG_HOME/nvm";
 
       modules.shell.zsh.rcInit = ''
         [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm

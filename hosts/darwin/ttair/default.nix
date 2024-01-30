@@ -51,10 +51,8 @@
       kmonad.enable = false;
 
       term = {
-        # default = "alacritty";
         alacritty.enable = true;
         kitty.enable = false;
-        # xst.enable = true;
       };
 
       browsers = {
