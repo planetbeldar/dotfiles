@@ -15,6 +15,7 @@ in {
         {
           homebrew = {
             enable = true;
+            global.autoUpdate = true;
             global.brewfile = true;
             global.lockfiles = false;
           };

@@ -2,7 +2,7 @@
 
 let
   inherit (lib) util mkIf mkMerge;
-  inherit (pkgs) nixfmt cachix hydra-check jq direnv nix-direnv undmg xmlstarlet gdb;
+  inherit (pkgs) nixfmt cachix hydra-check direnv nix-direnv undmg xmlstarlet gdb jq yq;
   inherit (pkgs.stdenv) isDarwin;
 
   cfg = config.modules.dev.nix;
@@ -50,6 +50,7 @@ in {
         nixfmt
         cachix
         jq
+        yq
         direnv
         nix-direnv
         undmg

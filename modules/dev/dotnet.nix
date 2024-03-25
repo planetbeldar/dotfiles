@@ -1,10 +1,9 @@
 { config, options, lib, pkgs, ... }:
 let
   inherit (lib) mkIf mkEnableOption;
-  inherit (pkgs) stdenv omnisharp-roslyn dotnetCorePackages;
+  inherit (pkgs) stdenv omnisharp-roslyn dotnet-sdk csharpier;
 
   cfg = config.modules.dev.dotnet;
-  dotnet-sdk = dotnetCorePackages.sdk_6_0;
 in {
   options.modules.dev.dotnet = {
     enable = mkEnableOption "enable dotnet-sdk and omnisharp";
@@ -14,6 +13,7 @@ in {
     environment.systemPackages = [
       dotnet-sdk
       omnisharp-roslyn
+      csharpier
     ];
 
     env = {

@@ -4,7 +4,7 @@ let
   inherit (lib) util mkIf mkMerge;
   inherit (pkgs) stdenv jetbrains;
 
-  idea = jetbrains.idea-community;
+  # idea = jetbrains.idea-community;
   cfg = config.modules.desktop.ide.idea;
   configDir = config.dotfiles.configDir;
 in {
@@ -13,7 +13,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ idea ];
+    # environment.systemPackages = [ idea ];
 
     home.configFile = {
       ideavim = {

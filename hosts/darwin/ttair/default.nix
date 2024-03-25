@@ -48,7 +48,7 @@
     desktop = {
       yabai.enable  = true;
       skhd.enable   = true;
-      kmonad.enable = false;
+      kmonad.enable = true;
 
       term = {
         alacritty.enable = true;

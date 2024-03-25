@@ -2,16 +2,16 @@
   description = "In the heart of the (dotfiles) city";
 
   inputs = {
-    # Core
+    # core
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "nixpkgs/nixpkgs-unstable";
-    # Home manager
+    # home-manager
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     # nix-direnv
     nix-direnv.url = "github:nix-community/nix-direnv";
     nix-direnv.inputs.nixpkgs.follows = "nixpkgs";
-    # Darwin
+    # nix-darwin
     darwin.url = "github:lnl7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     # Agenix
@@ -22,7 +22,7 @@
     mac-overlay.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, darwin, mac-overlay, ... }:
+  outputs = inputs @ { self, nixpkgs, home-manager, darwin, ... }:
     let
       inherit (lib.util) mapModules mapModules' mapModulesRec mapDarwinHosts mapNixosHosts traceImportMsg traceCallPackageMsg;
       traceCallPackage = traceCallPackageMsg "flake.nix:";

@@ -4,12 +4,12 @@ let
   inherit (lib) mkIf mkEnableOption;
 
   yabai = pkgs.yabai.overrideAttrs(drv:
-    let version = "6.0.7";
+    let version = "7.0.3";
     in {
       inherit version;
       src = pkgs.fetchzip {
         url = "https://github.com/koekeishiya/yabai/releases/download/v${version}/yabai-v${version}.tar.gz";
-        hash = "sha256-hZMBXSCiTlx/37jt2yLquCQ8AZ2LS3heIFPKolLub1c=";
+        hash = "sha256-EvtKYYjEmLkJTnc9q6f37hMD1T3DBO+I1LfBvPjCgfc=";
       };
     });
   cfg = config.modules.desktop.yabai;
@@ -19,7 +19,7 @@ in {
 
   config = mkIf cfg.enable {
 
-    services.yabai = {
+    services.yabai = with pkgs; {
       enable = true;
       package = yabai;
       # check for environment var specifying if SIP has been disabled (active choice)?

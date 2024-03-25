@@ -21,7 +21,7 @@ yabai -m rule --add app="^System Settings$" manage=off # macOS >= 13 (Ventura)
 yabai -m rule --add app="^Activity Monitor$" manage=off
 yabai -m rule --add app="^App Store$" manage=off
 yabai -m rule --add app="^Archive Utility$" manage=off
-yabai -m rule --add app="^Books$" title="^Books|General|Reading|Playback|Advanced$" manage=off
+yabai -m rule --add app="^Books$" title="^(Books|General|Reading|Playback|Advanced)$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Calendar$" manage=off
 yabai -m rule --add app="^Disk Utility$" manage=off
@@ -30,7 +30,8 @@ yabai -m rule --add app="^Font Book$" manage=off
 yabai -m rule --add app="^Keychain Access$" manage=off
 yabai -m rule --add app="^Notes$" manage=off
 yabai -m rule --add app="^Preview$" manage=off
-yabai -m rule --add app="^Safari$" title="^General|Tabs|AutoFill|Passwords|Search|Security|Privacy|Websites|Extensions|Advanced$" manage=off
+yabai -m rule --add app="^Safari$" title="^(General|Tabs|AutoFill|Passwords|Search|Security|Privacy|Websites|Extensions|Advanced|)$" manage=off
+yabai -m rule --add app="^Weather$" manage=off
 yabai -m rule --add app="^Vimari$" manage=off
 yabai -m rule --add app="^Messages$" manage=off
 yabai -m rule --add app="^1Password$" manage=off
@@ -42,6 +43,7 @@ yabai -m rule --add app="^Firefox$" title="^Opening[ ].*$" manage=off
 yabai -m rule --add app="^Inkscape$" manage=off
 yabai -m rule --add app="^iOS App Signer$" manage=off
 yabai -m rule --add app="^Microsoft AutoUpdate$" manage=off
+yabai -m rule --add app="^Microsoft Excel$" manage=off
 yabai -m rule --add app="^NoMachine$" manage=off
 yabai -m rule --add app="^QMK Toolbox$" manage=off
 yabai -m rule --add app="^Signal$" title="^Signal Desktop Preferences$" manage=off

@@ -55,7 +55,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    # environment.systemPackages = [ mjml ];
     homebrew.brews = [ "mjml" ];
   };
 }

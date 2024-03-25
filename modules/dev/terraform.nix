@@ -2,7 +2,7 @@
 
 let
   inherit (lib) util mkIf;
-  inherit (pkgs) terraform-ls;
+  inherit (pkgs) terraform terraform-ls;
 
   cfg = config.modules.dev.terraform;
 in {
@@ -12,6 +12,7 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = [
+      terraform
       terraform-ls
     ];
   };
