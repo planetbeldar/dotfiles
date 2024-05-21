@@ -81,7 +81,7 @@ in {
       allowed-users = users;
     };
 
-    env.PATH = [ "$PATH" ] ++ lib.optionals isDarwin [ "/opt/homebrew/bin" ];
+    env.PATH = (lib.optionals isDarwin [ "/opt/homebrew/bin" ]) ++ [ "$PATH" ];
 
     environment.extraInit = concatStringsSep
       "\n" (mapAttrsToList (n: v: "export ${n}=\"${v}\"") config.env);

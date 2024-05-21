@@ -12,7 +12,7 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = [
-      terraform
+      # terraform
       terraform-ls
     ];
   };

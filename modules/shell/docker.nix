@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 let
   inherit (lib) mkIf mkMerge mkEnableOption;
-  inherit (pkgs) docker docker-compose docker-machine;
+  inherit (pkgs) docker docker-compose docker-machine dockfmt;
   inherit (pkgs.nodePackages) dockerfile-language-server-nodejs;
   inherit (pkgs.stdenv) isDarwin isLinux;
 
@@ -16,20 +16,21 @@ in {
           name = "docker";
         }];
       };
-
-      environment.systemPackages = [
-        dockerfile-language-server-nodejs
-      ];
     })
-    (mkIf false {
+    (mkIf isLinux {
       environment.systemPackages = [
         docker
         docker-compose
         docker-machine
-        dockerfile-language-server-nodejs
       ];
 
       # virtualisation = { docker.enable = true; };
     })
+    {
+      environment.systemPackages = [
+        dockerfile-language-server-nodejs
+        dockfmt
+      ];
+    }
   ]);
 }

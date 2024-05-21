@@ -18,7 +18,7 @@ in {
       nixPathInputs  = mapAttrsToList (n: v: "${n}=${v}") filteredInputs;
       registryInputs = mapAttrs (_: v: { flake = v; }) filteredInputs;
     in {
-      package = pkgs.nixUnstable;
+      package = pkgs.nixFlakes;
       extraOptions = ''experimental-features = nix-command flakes'';
       useDaemon = true;
       nixPath = nixPathInputs ++ [

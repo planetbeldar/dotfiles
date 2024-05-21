@@ -36,7 +36,7 @@ in {
       mkdir -p "${config.user.home}/Applications/"
       echo "Looking for mac apps in $applications"
 
-      find "$applications"/Applications/* -maxdepth 1 -type l |
+      find "$applications"/Applications -maxdepth 1 -type l |
       while read -r app; do
         name=$(basename "$app")
         printf " Found %s" "$name"

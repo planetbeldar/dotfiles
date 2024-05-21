@@ -1,5 +1,4 @@
 { inputs, options, config, lib, pkgs, ... }:
-with inputs.home-manager.lib;
 let
   inherit (lib) util mkIf;
   inherit (pkgs) stdenv;

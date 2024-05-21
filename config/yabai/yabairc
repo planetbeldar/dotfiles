@@ -42,8 +42,7 @@ yabai -m rule --add app="^Battle.net$" manage=off
 yabai -m rule --add app="^Firefox$" title="^Opening[ ].*$" manage=off
 yabai -m rule --add app="^Inkscape$" manage=off
 yabai -m rule --add app="^iOS App Signer$" manage=off
-yabai -m rule --add app="^Microsoft AutoUpdate$" manage=off
-yabai -m rule --add app="^Microsoft Excel$" manage=off
+yabai -m rule --add app="^Microsoft (AutoUpdate|Excel|Word)$" manage=off
 yabai -m rule --add app="^NoMachine$" manage=off
 yabai -m rule --add app="^QMK Toolbox$" manage=off
 yabai -m rule --add app="^Signal$" title="^Signal Desktop Preferences$" manage=off

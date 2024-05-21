@@ -22,7 +22,7 @@
 (setq confirm-kill-emacs nil)
 (setq-default line-spacing 0.2)
 ;; Installed via Nix nerdfonts package (https://github.com/doomemacs/doomemacs/issues/7431#issuecomment-1722663411)
-(setq nerd-icons-font-names '("SymbolsNerdFontMono-Regular.ttf"))
+;; (setq nerd-icons-font-names '("SymbolsNerdFontMono-Regular.ttf"))
 
 (setq eglot-connect-timeout 60
       eglot-send-changes-idle-time 0.1)
@@ -80,6 +80,8 @@
           lsp-csharp-server-path "/run/current-system/sw/bin/omnisharp"
           lsp-eslint-server-command '("vscode-eslint-language-server" "--stdio")
           lsp-log-max t
+          lsp-kotlin-ondisk-cache-enabled t
+          lsp-kotlin-ondisk-cache-path (or (getenv "XDG_CACHE_HOME") "~/.cache")
           )
   (add-to-list 'lsp-file-watch-ignored-directories "[/\\]build")
   ))
