@@ -43,7 +43,7 @@ in {
         gnugrep # pcre not enabled in macos version of grep
       ] ++ lib.optionals stdenv.isLinux [ emacs ];
 
-    fonts.fonts = [ pkgs.emacs-all-the-icons-fonts ];
+    fonts.packages = [ pkgs.emacs-all-the-icons-fonts ];
 
     modules.shell.zsh.rcInit = ''
       EMACS_DIR=$XDG_CONFIG_HOME/emacs

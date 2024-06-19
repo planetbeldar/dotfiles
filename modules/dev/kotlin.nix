@@ -3,7 +3,7 @@ let
   inherit (lib) mkIf mkEnableOption;
   inherit (pkgs) fetchFromGitHub kotlin kotlin-language-server gradle ktlint;
 
-  jdk = pkgs.openjdk19;
+  jdk = pkgs.openjdk21;
   cfg = config.modules.dev.kotlin;
 in {
   options.modules.dev.kotlin = {

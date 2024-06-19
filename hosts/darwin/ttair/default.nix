@@ -11,6 +11,7 @@
       xkbswitch.enable = true;
       zsh.enable = true;
       tmux.enable = true;
+      newsboat.enable = true;
       _1password = {
         enable = true;
         gui = true;

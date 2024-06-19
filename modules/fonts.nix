@@ -6,8 +6,8 @@ let
 in (mkMerge [
   {
     fonts = {
-      fontDir.enable = true;
-      fonts = [
+      # fontDir.enable = true;
+      packages = [
         (nerdfonts.override {
           fonts = [ "SourceCodePro" "Iosevka" "Inconsolata" "IBMPlexMono" "JetBrainsMono" "NerdFontsSymbolsOnly" ];
         })
