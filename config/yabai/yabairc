@@ -30,7 +30,7 @@ yabai -m rule --add app="^Font Book$" manage=off
 yabai -m rule --add app="^Keychain Access$" manage=off
 yabai -m rule --add app="^Notes$" manage=off
 yabai -m rule --add app="^Preview$" manage=off
-yabai -m rule --add app="^Safari$" title="^(General|Tabs|AutoFill|Passwords|Search|Security|Privacy|Websites|Extensions|Advanced|)$" manage=off
+yabai -m rule --add app="^Safari$" title="^(General|Tabs|AutoFill|Passwords|Search|Security|Privacy|Websites|Extensions|Advanced)$" manage=off
 yabai -m rule --add app="^Weather$" manage=off
 yabai -m rule --add app="^Vimari$" manage=off
 yabai -m rule --add app="^Messages$" manage=off

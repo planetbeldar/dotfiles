@@ -14,7 +14,7 @@
       newsboat.enable = true;
       _1password = {
         enable = true;
-        gui = true;
+        gui = false;
       };
     };
 
