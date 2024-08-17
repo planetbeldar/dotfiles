@@ -16,7 +16,7 @@
 # Install ssh keys into home directory before starting (needed for git clone)
 
 
-sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume --daemon
+sh <(curl -L https://nixos.org/nix/install) --daemon
 # 'restart' shell environment
 zsh
 # install git etc (xcode-select --install or preferebly via nix)
@@ -48,12 +48,12 @@ sudo launchctl load -w /Library/LaunchDaemons/limit.maxfiles.plist
 sudo launchctl load -w /Library/LaunchDaemons/limit.maxproc.plist
 # build configuration
 # darwin-rebuild build --flake . --impure
-nix build .#darwinConfigurations."$hostname".system -L --impure --experimental-features 'nix-command flakes'
+nix build ".#darwinConfigurations."$hostname".system" -L --impure --experimental-features 'nix-command flakes'
 # backup old nix configuration
 sudo mv -vn  /etc/nix/nix.conf /etc/nix/nix.conf.old
-# symlink /run (the tab character is important)
-echo -e 'run\tprivate/var/run' | sudo tee -a /etc/synthetic.conf
-/System/Library/Filesystems/apfs.fs/Contents/Resources/apfs.util -t
+# symlink /run (the tab character is important) - update 240816: this is handled by the installer
+# echo -e 'run\tprivate/var/run' | sudo tee -a /etc/synthetic.conf
+# /System/Library/Filesystems/apfs.fs/Contents/Resources/apfs.util -t
 # switch system configuration
 ./result/sw/bin/darwin-rebuild switch --flake . --impure
 

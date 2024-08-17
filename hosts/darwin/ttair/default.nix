@@ -3,7 +3,7 @@
   # Modules
   modules = {
     shell = {
-      aws.enable = true;
+      aws.enable = false;
       bottom.enable = true;
       docker.enable = true;
       git.enable = true;
@@ -19,7 +19,7 @@
     };
 
     editors = {
-      default       = "nvim";
+      default       = "vim";
       nvim.enable   = true;
       emacs.enable  = true;
     };

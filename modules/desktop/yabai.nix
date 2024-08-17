@@ -4,12 +4,12 @@ let
   inherit (lib) mkIf mkEnableOption;
 
   yabai = pkgs.yabai.overrideAttrs(drv:
-    let version = "7.1.1";
+    let version = "7.1.2";
     in {
       inherit version;
       src = pkgs.fetchzip {
         url = "https://github.com/koekeishiya/yabai/releases/download/v${version}/yabai-v${version}.tar.gz";
-        hash = "sha256-LNOAT1vm6EEmcKdshMKjYWFfoRoRNbgZgjEpOTacWc8=";
+        hash = "sha256-4ZJs7Xpou0Ek0CCCjbK47Nu/XPpuTpBDU8GJz5AsaUg=";
       };
     });
   cfg = config.modules.desktop.yabai;

@@ -21,7 +21,7 @@ in {
 
     env = {
       JAVA_HOME = "${jdk}";
-      KOTLIN_LANGUAGE_SERVER_OPTS = "-Xmx16g";
+      JAVA_OPTS = "-Xmx16g";
     };
   };
 }
