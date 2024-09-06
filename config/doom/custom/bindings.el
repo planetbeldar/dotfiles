@@ -4,7 +4,7 @@
 ;;; <leader>
 (map! :leader
 
-      (:when (featurep! :tools debugger)
+      (:when (modulep! :tools debugger)
         ;;; <leader> d --- debug (dap-mode)
         (:prefix-map ("d" . "debug")
           :desc "Start new"                     "s" #'dap-debug
@@ -23,7 +23,7 @@
 
       ;;; <leader> t --- toggle
       (:prefix ("t")
-        :desc "DAP hydra"                       "d" #'dap-hydra
+        :desc "DAP hydra"                       "D" #'dap-hydra
         ;; must add modes to writeroom-major-modes
         :desc "Zen mode (global)"               "Z" #'global-writeroom-mode
         ;; :desc "Centered window mode"            "c" #'centered-window-mode
