@@ -7,6 +7,6 @@ fi
 
 # alias diff="diff --color"
 if command -v git >/dev/null; then
-  alias gid="git diff --no-ext-diff --color-words --cached"
-  alias gwd="git diff --no-ext-diff --color-words"
+  # alias gid="git diff --no-ext-diff --color-words --cached"
+  # alias gwd="git diff --no-ext-diff --color-words"
 fi

@@ -16,42 +16,46 @@ in {
       "cursr"
     ];
 
+    env.IC_HOME = "$HOME/Library/Mobile Documents/com~apple~CloudDocs";
+
+    system.stateVersion = 5; # https://github.com/LnL7/nix-darwin/commit/88b97aa49c451070d2978b291a6280f2e1c5c2b6
+
     # Sync mac applications installed via Nix to root or users home
-    system.activationScripts.applications.text = mkForce (''
-      home() {
-        local name="$1"
-        if [[ ! "$name" =~ ^(${concatStringsSep "|" rootApplications})$ ]]; then
-          echo "${config.user.home}"
-        fi
-      }
+    # system.activationScripts.applications.text = mkForce (''
+    #   home() {
+    #     local name="$1"
+    #     if [[ ! "$name" =~ ^(${concatStringsSep "|" rootApplications})$ ]]; then
+    #       echo "${config.user.home}"
+    #     fi
+    #   }
 
-      syncApp() {
-        local src="$1"
-        local dst="$2"
-        ${rsync}/bin/rsync -aLci "$src" "$dst" | ${gnugrep}/bin/grep -c ">f" || true
-      }
+    #   syncApp() {
+    #     local src="$1"
+    #     local dst="$2"
+    #     ${rsync}/bin/rsync -aLci "$src" "$dst" | ${gnugrep}/bin/grep -c ">f" || true
+    #   }
 
-      applications="${config.system.build.applications}"
+    #   applications="${config.system.build.applications}"
 
-      mkdir -p "${config.user.home}/Applications/"
-      echo "Looking for mac apps in $applications"
+    #   mkdir -p "${config.user.home}/Applications/"
+    #   echo "Looking for mac apps in $applications"
 
-      find "$applications"/Applications -maxdepth 1 -type l |
-      while read -r app; do
-        name=$(basename "$app")
-        printf " Found %s" "$name"
+    #   find "$applications"/Applications -maxdepth 1 -type l |
+    #   while read -r app; do
+    #     name=$(basename "$app")
+    #     printf " Found %s" "$name"
 
-        src=$(/usr/bin/stat -f%Y "$app")
-        dst=$(home "$name")/Applications
+    #     src=$(/usr/bin/stat -f%Y "$app")
+    #     dst=$(home "$name")/Applications
 
-        printf " - Synchronizing..\r"
-        changes=$(syncApp "$src" "$dst")
-        if [[ "$changes" -ne 0 ]]; then
-          printf "%-40s -> Updated %s file(s)\n" "$name" "$changes"
-        else
-          printf "%-40s -> Up to date\n" "$name"
-        fi
-      done
-    '');
+    #     printf " - Synchronizing..\r"
+    #     changes=$(syncApp "$src" "$dst")
+    #     if [[ "$changes" -ne 0 ]]; then
+    #       printf "%-40s -> Updated %s file(s)\n" "$name" "$changes"
+    #     else
+    #       printf "%-40s -> Up to date\n" "$name"
+    #     fi
+    #   done
+    # '');
   };
 }

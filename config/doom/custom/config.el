@@ -13,11 +13,14 @@
 (setq doom-font (font-spec :family "BlexMono Nerd Font" :weight 'book :size 14)
       doom-variable-pitch-font (font-spec :family "BlexMono Nerd Font" :weight 'normal :size 14)
       doom-font-increment 1
-      doom-big-font-increment 4)
+      doom-big-font-increment 4
+      doom-modeline-indent-info t)
+(setq doom-theme 'doom-earl-grey)
+;; (setq doom-theme 'doom-plain-dark)
 ;; (setq doom-theme 'doom-rougez)
 ;; (setq doom-theme 'doom-opera)
 ;; (setq doom-theme 'doom-monokai-pro)
-(setq doom-theme 'doom-nord-light)
+;; (setq doom-theme 'doom-nord-light)
 ;; (setq doom-theme 'doom-wilmersdorf)
 ;; (setq doom-theme 'doom-ephemeral)
 (setq confirm-kill-emacs nil)
@@ -133,10 +136,10 @@
       (setq end (1- end)))
     (copy-rectangle-to-register rectangle-register beg end)))
 
-(use-package! kbd-mode)
+;; (use-package! kbd-mode)
 ;; zmk/zephyr support
-(use-package! kconfig-mode)
-(use-package! dts-mode)
+;; (use-package! kconfig-mode)
+;; (use-package! dts-mode)
 
 ;; bindings
 (load! "bindings.el")

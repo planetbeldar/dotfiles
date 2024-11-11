@@ -1,25 +1,25 @@
 { config, options, pkgs, lib, ... }:
 let
   inherit (lib) util mkEnableOption mkIf mapAttrsToList concatStringsSep concatMapStrings;
-  inherit (pkgs) zsh neofetch colordiff fetchFromGitHub;
+  inherit (pkgs) zsh neofetch colordiff fetchFromGitHub zsh-prezto;
 
   cfg = config.modules.shell.zsh;
   configDir = config.dotfiles.configDir;
 
-  zsh-prezto = pkgs.zsh-prezto.overrideAttrs (drv: {
-    version = "unstable-2022-10-27";
-    src = fetchFromGitHub {
-      owner = "sorin-ionescu";
-      repo = "prezto";
-      rev = "e3a9583f3370e11a0da1414d3f335eac40c1e922";
-      sha256 = "5vfwFGTOj0swo88MmRSF3LHH1GusBZdsDfHiTSBSWDA=";
-      fetchSubmodules = true;
-    };
+  #zsh-prezto = pkgs.zsh-prezto.overrideAttrs (drv: {
+  #  version = "unstable-2022-10-27";
+  #  src = fetchFromGitHub {
+  #    owner = "sorin-ionescu";
+  #    repo = "prezto";
+  #    rev = "e3a9583f3370e11a0da1414d3f335eac40c1e922";
+  #    sha256 = "5vfwFGTOj0swo88MmRSF3LHH1GusBZdsDfHiTSBSWDA=";
+  #    fetchSubmodules = true;
+  #  };
 
-    postPatch = drv.postPatch + ''
-      rm -fr .git* .editorconfig
-    '';
-  });
+  #  postPatch = drv.postPatch + ''
+  #    rm -fr .git* .editorconfig
+  #  '';
+  #});
 in {
   options.modules.shell.zsh = with lib.types; {
     enable = mkEnableOption "enable zsh";

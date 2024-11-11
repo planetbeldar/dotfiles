@@ -20,7 +20,7 @@
 
     editors = {
       default       = "vim";
-      nvim.enable   = true;
+      nvim.enable   = false;
       emacs.enable  = true;
     };
 
@@ -74,7 +74,7 @@
       };
 
       media = {
-        spotify.enable  = true;
+        spotify.enable  = false;
         sonos.enable    = true;
         inkscape.enable = true;
       };
@@ -84,7 +84,7 @@
       };
 
       db = {
-        pgadmin.enable = true;
+        pgadmin.enable = false;
         dbeaver.enable = true;
       };
     };
