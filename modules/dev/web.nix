@@ -2,7 +2,7 @@
 
 let
   inherit (lib) mkIf mkEnableOption mkMerge;
-  inherit (pkgs) stdenv nodejs yarn;
+  inherit (pkgs) stdenv nodejs yarn-berry;
   inherit (pkgs.nodePackages_latest)
     vscode-langservers-extracted typescript-language-server typescript
     stylelint js-beautify eslint prettier;
@@ -18,7 +18,7 @@ in {
     {
       environment.systemPackages = [
         nodejs
-        yarn
+        yarn-berry
 
         eslint
         prettier
