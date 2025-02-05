@@ -2,7 +2,7 @@
 
 let
   inherit (lib) util mkIf mkMerge;
-  inherit (pkgs) stdenv dbeaver;
+  inherit (pkgs) stdenv dbeaver-bin;
 
   cfg = config.modules.desktop.db.dbeaver;
 in {
@@ -11,7 +11,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    # environment.systemPackages = [ dbeaver ];
-    homebrew.casks = [ "dbeaver-community" ]; # nixpkgs lags behind
+    environment.systemPackages = [ dbeaver-bin ];
+    # homebrew.casks = [ "dbeaver-community" ]; # nixpkgs lags behind
   };
 }
