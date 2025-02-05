@@ -61,8 +61,7 @@
         in mapModules ./packages (p: pkgs.callPackage p {})
       );
 
-      darwinModules =
-        { inherit dotfiles; } // mapModulesRec ./modules traceImport;
+      darwinModules = { inherit dotfiles; } // mapModulesRec ./modules traceImport;
       darwinConfigurations = darwinHosts;
 
       # nixosModules =

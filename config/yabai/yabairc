@@ -30,15 +30,17 @@ yabai -m rule --add app="^Font Book$" manage=off
 yabai -m rule --add app="^Keychain Access$" manage=off
 yabai -m rule --add app="^Notes$" manage=off
 yabai -m rule --add app="^Preview$" manage=off
-yabai -m rule --add app="^Safari$" title="^(General|Tabs|AutoFill|Passwords|Search|Security|Privacy|Websites|Extensions|Advanced)$" manage=off
+yabai -m rule --add app="^Safari$" title="^(General|Tabs|AutoFill|Passwords|Search|Security|Privacy|Profiles|Websites|Extensions|Advanced|Developer|Feature Flags)$" manage=off
 yabai -m rule --add app="^Weather$" manage=off
-yabai -m rule --add app="^Vimari$" manage=off
 yabai -m rule --add app="^Messages$" manage=off
-yabai -m rule --add app="^1Password$" manage=off
+yabai -m rule --add app="^Numbers$" manage=off
 
 # third party
 yabai -m rule --add app="^Battle.net$" manage=off
+yabai -m rule --add app="^Wow$" manage=off
 #yabai -m rule --add app="^Emacs$" title!="^[*]doom[*]*" manage=off
+yabai -m rule --add app="^Vimari$" manage=off
+yabai -m rule --add app="^1Password$" manage=off
 yabai -m rule --add app="^Firefox$" title="^Opening[ ].*$" manage=off
 yabai -m rule --add app="^Inkscape$" manage=off
 yabai -m rule --add app="^iOS App Signer$" manage=off
@@ -59,6 +61,8 @@ yabai -m rule --add app="^Docker Desktop$" manage=off
 yabai -m rule --add app="^Safari$" title="^Sign in - Google Accounts$" manage=off
 yabai -m rule --add app="^IntelliJ IDEA" title!="( - )" manage=off
 yabai -m rule --add app="^WebStorm" manage="off"
+yabai -m rule --add app="^Shottr$" manage="off"CoScreen
+yabai -m rule --add app="^CoScreen$" manage="off"
 
 # show digital colour meter topmost and on all spaces
 yabai -m rule --add app="^Digital Colou?r Meter$" sticky=on manage=off

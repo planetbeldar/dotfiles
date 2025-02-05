@@ -1,18 +1,16 @@
 { options, config, pkgs, lib, ... }:
 let
   inherit (lib) mkMerge mkIf;
-  inherit (pkgs) nerd-font-patcher stdenv nerdfonts fontconfig recursive;
+  inherit (pkgs) nerd-font-patcher stdenv nerdfonts fontconfig;
   inherit (pkgs.local) input-nerd-fonts;
+  inherit (pkgs.nerd-fonts) recursive-mono symbols-only jetbrains-mono blex-mono inconsolata iosevka sauce-code-pro;
 in (mkMerge [
   {
     fonts = {
       # fontDir.enable = true;
       packages = [
-        (nerdfonts.override {
-          fonts = [ "SourceCodePro" "Iosevka" "Inconsolata" "IBMPlexMono" "JetBrainsMono" "NerdFontsSymbolsOnly" "Recursive" ];
-        })
         (input-nerd-fonts.override { name = "InputMono-.*(Thin|Light).*"; })
-        recursive
+        recursive-mono symbols-only jetbrains-mono blex-mono inconsolata iosevka sauce-code-pro
       ];
     };
 

@@ -10,8 +10,9 @@
 
 (setq user-full-name "Tony Höglund"
       user-mail-address "tony.hoglund@gmail.com")
-(setq doom-font (font-spec :family "BlexMono Nerd Font" :weight 'book :size 14)
-      doom-variable-pitch-font (font-spec :family "BlexMono Nerd Font" :weight 'normal :size 14)
+(setq doom-font (font-spec :family "BlexMono Nerd Font" :weight 'book :size 12)
+      doom-font (font-spec :family "RecMonoLinear Nerd Font" :size 12)
+      doom-variable-pitch-font (font-spec :family "BlexMono Nerd Font" :weight 'normal :size 12)
       doom-font-increment 1
       doom-big-font-increment 4
       doom-modeline-indent-info t)
