@@ -1,5 +1,5 @@
-import = ["/Users/planetbeldar/.config/alacritty/themes/rouge.toml"]
-live_config_reload = true
+general.import = ["~/.config/alacritty/themes/rouge.toml"]
+general.live_config_reload = true
 
 [cursor]
 blink_interval = 750
